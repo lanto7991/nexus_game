@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var gravity = 100
 @export var jump_force = 550	
 
+@onready var MenuPausa = $pause_menu
+
 
 #funcion para setear movimiento del personaje
 func _physics_process(delta):

@@ -29,10 +29,10 @@ texture_repeat = 3
 material = SubResource("CanvasItemMaterial_sgg0v")
 use_parent_material = true
 layout_mode = 0
-offset_left = 1587.84
-offset_top = 1012.3
-offset_right = 1809.84
-offset_bottom = 1113.3
+offset_left = 1658.86
+offset_top = 1087.6
+offset_right = 1880.86
+offset_bottom = 1188.6
 scale = Vector2(9.56408, 6.79723)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -42,10 +42,6 @@ layout_mode = 2
 position = Vector2(112.808, -61.5471)
 scale = Vector2(0.118412, 0.144553)
 texture = ExtResource("1_5qyra")
-
-[node name="Continuar" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Continuar"
 
 [node name="Volver al menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -57,6 +53,5 @@ text = "Salir"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Volver al menu" to="." method="_on_volver_al_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QUIT" to="." method="_on_quit_pressed"]

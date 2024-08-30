@@ -1,9 +1,11 @@
 extends Control
 
-@onready var MenuPausa = $pause_menu
+@onready var pauseMenu = $Scenes/pause
+
 
 func _on_continuar_pressed() -> void:
-	MenuPausa.pausaMenu()
+	pass
+	#pauseMenu.pausaMenu()
 
 
 func _on_volver_al_menu_pressed() -> void:
