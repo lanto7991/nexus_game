@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8woacb8mt2bp"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_36v3g"]
+[ext_resource type="Texture2D" uid="uid://do4go00i8br6p" path="res://Scenes/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg" id="2_106j6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_36v3g")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -37.4
+anchor_top = 11.837
+anchor_right = -37.4
+anchor_bottom = 11.837
+offset_left = 1921.0
+offset_top = 97.52
+offset_right = 3083.0
+offset_bottom = 992.52
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(20, 94.945)
+layout_mode = 2
+text = "Jugar"
+
+[node name="Options" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(20, 94.945)
+layout_mode = 2
+text = "Opciones"
+
+[node name="Exit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(20, 94.945)
+layout_mode = 2
+text = "Salir"
+
+[node name="ImagenDeWhatsApp2024-08-22ALas16_53_00Dd941e80" type="Sprite2D" parent="Menu"]
+position = Vector2(1010, 256)
+scale = Vector2(0.602604, 0.649909)
+texture = ExtResource("2_106j6")
+
+[node name="Camera2D" type="Camera2D" parent="Menu"]
+anchor_mode = 0
+
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Options" to="Menu" method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://baq8t17uwobey"]
+
+[ext_resource type="Texture2D" uid="uid://do4go00i8br6p" path="res://Scenes/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg" id="1_5qyra"]
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_xh4a7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sgg0v"]
+
+[node name="PauseMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 16.0
+offset_right = 3503.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35205, 0.478118)
+script = ExtResource("1_xh4a7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+modulate = Color(0.99763, 6.35326e-05, 0.745419, 1)
+self_modulate = Color(0.728753, 0.314559, 0.804833, 1)
+show_behind_parent = true
+texture_filter = 5
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_sgg0v")
+use_parent_material = true
+layout_mode = 0
+offset_left = 1587.84
+offset_top = 1012.3
+offset_right = 1809.84
+offset_bottom = 1113.3
+scale = Vector2(9.56408, 6.79723)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ImagenDeWhatsApp2024-08-22ALas16_53_00Dd941e80" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(112.808, -61.5471)
+scale = Vector2(0.118412, 0.144553)
+texture = ExtResource("1_5qyra")
+
+[node name="Continuar" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="Volver al menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volver al menu"
+
+[node name="QUIT" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Salir"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Volver al menu" to="." method="_on_volver_al_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QUIT" to="." method="_on_quit_pressed"]

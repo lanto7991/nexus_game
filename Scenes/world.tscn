@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://dakofa5c343bg"]
+
+[ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
+[ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
+[ext_resource type="Texture2D" uid="uid://g2432sg8flst" path="res://Scenes/back1.png" id="2_pyaml"]
+[ext_resource type="PackedScene" uid="uid://baq8t17uwobey" path="res://Scenes/pause_menu.tscn" id="4_imipb"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_q4kq3"]
+size = Vector2(1000, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4hs2"]
+size = Vector2(639, 100)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_c4kuc")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
+modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
+position = Vector2(580, 556)
+scale = Vector2(0.636, 1)
+mesh = SubResource("QuadMesh_q4kq3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(581, 556)
+shape = SubResource("RectangleShape2D_p4hs2")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Platform"]
+modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
+position = Vector2(1810, 591)
+scale = Vector2(0.636, 1)
+mesh = SubResource("QuadMesh_q4kq3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform"]
+position = Vector2(1810, 590)
+shape = SubResource("RectangleShape2D_p4hs2")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Platform"]
+modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
+position = Vector2(2309.5, 772)
+scale = Vector2(0.639, 1)
+mesh = SubResource("QuadMesh_q4kq3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform"]
+position = Vector2(2310.5, 772)
+shape = SubResource("RectangleShape2D_p4hs2")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="Platform"]
+modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
+position = Vector2(2900.5, 617)
+scale = Vector2(0.639, 1)
+mesh = SubResource("QuadMesh_q4kq3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Platform"]
+position = Vector2(2901.5, 617)
+shape = SubResource("RectangleShape2D_p4hs2")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="Platform"]
+modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
+position = Vector2(1222.5, 423)
+scale = Vector2(0.639, 1)
+mesh = SubResource("QuadMesh_q4kq3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Platform"]
+position = Vector2(1223.5, 423)
+shape = SubResource("RectangleShape2D_p4hs2")
+
+[node name="Popup" type="Popup" parent="Platform"]
+
+[node name="Player" parent="." instance=ExtResource("1_hs001")]
+position = Vector2(299, 500)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.2, 1.2)
+
+[node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("4_imipb")]
+offset_left = -950.0
+offset_top = -535.0
+offset_right = -950.0
+offset_bottom = -535.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-2.99997, -442)
+scale = Vector2(1.25787, 1.58907)
+texture = ExtResource("2_pyaml")
+centered = false
