@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var jump_force = 650	
 
 @onready var MenuPausa = $pause_menu
+	
 
 func _ready():
 	Global.playerBody = self

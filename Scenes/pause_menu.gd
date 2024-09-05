@@ -1,6 +1,11 @@
 extends Control
 
+<<<<<<< HEAD
 @onready var pauseMenu = $Scenes/pause
+=======
+@onready var pauseMenu = $pause
+
+>>>>>>> 58c70b98c04bc3e19fda2d912d08bc1f620cae8d
 
 func _on_volver_al_menu_pressed() -> void:
 	pass # Replace with function body.
