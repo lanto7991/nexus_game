@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://c11u26inlnl7k"]
+[gd_scene load_steps=5 format=3 uid="uid://htrgi3fyixkq"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_jp7o0"]
-[ext_resource type="Script" path="res://Scenes/options.gd" id="2_ivd01"]
 [ext_resource type="Texture2D" uid="uid://do4go00i8br6p" path="res://Scenes/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg" id="2_na73o"]
 [ext_resource type="Texture2D" uid="uid://g2432sg8flst" path="res://Scenes/back1.png" id="4_bjpnm"]
+
+[sub_resource type="GDScript" id="GDScript_a0j6f"]
+script/source = "extends Button
+
+
+func options_on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/main_menu.tscn\")
+"
 
 [node name="OptionsScene" type="Control"]
 layout_mode = 3
@@ -42,7 +49,7 @@ clip_contents = true
 custom_minimum_size = Vector2(20, 94.945)
 layout_mode = 2
 text = "Volver al menu"
-script = ExtResource("2_ivd01")
+script = SubResource("GDScript_a0j6f")
 
 [node name="ImagenDeWhatsApp2024-08-22ALas16_53_00Dd941e80" type="Sprite2D" parent="."]
 position = Vector2(1038, 332)

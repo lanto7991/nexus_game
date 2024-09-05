@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://baq8t17uwobey"]
+[gd_scene load_steps=5 format=3 uid="uid://baq8t17uwobey"]
 
 [ext_resource type="Texture2D" uid="uid://do4go00i8br6p" path="res://Scenes/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg" id="1_5qyra"]
 [ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_xh4a7"]
+[ext_resource type="Script" path="res://Scenes/pause.gd" id="3_4ravr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sgg0v"]
 
@@ -52,6 +53,9 @@ layout_mode = 2
 text = "Salir"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="pause" type="Node2D" parent="."]
+script = ExtResource("3_4ravr")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Volver al menu" to="." method="_on_volver_al_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QUIT" to="." method="_on_quit_pressed"]

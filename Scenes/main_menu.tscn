@@ -45,12 +45,6 @@ custom_minimum_size = Vector2(20, 94.945)
 layout_mode = 2
 text = "Jugar"
 
-[node name="Options" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(20, 94.945)
-layout_mode = 2
-text = "Opciones"
-
 [node name="Exit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(20, 94.945)
@@ -77,5 +71,4 @@ texture = ExtResource("3_xkxun")
 centered = false
 
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Options" to="Menu" method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]

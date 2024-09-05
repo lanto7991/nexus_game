@@ -70,6 +70,7 @@ shape = SubResource("RectangleShape2D_p4hs2")
 
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
 position = Vector2(299, 500)
+slide_on_ceiling = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.2, 1.2)

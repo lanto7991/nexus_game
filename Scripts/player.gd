@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var jump_force = 550	
 
 @onready var MenuPausa = $pause_menu
+	
 
 
 #funcion para setear movimiento del personaje
