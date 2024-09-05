@@ -7,16 +7,17 @@ extends CharacterBody2D
 
 @onready var MenuPausa = $pause_menu
 
+func _ready():
+	Global.playerBody = self
+
+func _on_enemyDetector_body_entered(body: Node) -> void:
+	get_tree().reload_current_scene()
 
 #funcion para setear movimiento del personaje
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta	
 		
-	#si velocidad en vertical es mayor a 1000, seteo velocidad en vertical
-	#if velocity.y > 1000:
-	#	velocity.y = 1000
-			
 	#seteo variable de salto
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_force
