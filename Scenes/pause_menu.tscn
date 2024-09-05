@@ -1,9 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://baq8t17uwobey"]
+[gd_scene load_steps=9 format=3 uid="uid://baq8t17uwobey"]
 
-[ext_resource type="Texture2D" uid="uid://do4go00i8br6p" path="res://Scenes/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg" id="1_5qyra"]
 [ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_xh4a7"]
+[ext_resource type="FontFile" uid="uid://bne0sj7mkbf5r" path="res://Fonts/BEATTECH-Line.otf" id="2_j5p62"]
+[ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="3_btctt"]
+[ext_resource type="Texture2D" uid="uid://bfu0c6f0k12ct" path="res://img/Nexus-logo.png" id="4_iil3u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sgg0v"]
+blend_mode = 1
+light_mode = 2
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Theme" id="Theme_53qyc"]
+default_font = ExtResource("2_j5p62")
+
+[sub_resource type="Theme" id="Theme_vosiq"]
+default_base_scale = 0.44
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xncv2"]
 
 [node name="PauseMenu" type="Control"]
 visible = false
@@ -21,37 +37,45 @@ scale = Vector2(0.35205, 0.478118)
 script = ExtResource("1_xh4a7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-modulate = Color(0.99763, 6.35326e-05, 0.745419, 1)
-self_modulate = Color(0.728753, 0.314559, 0.804833, 1)
-show_behind_parent = true
-texture_filter = 5
-texture_repeat = 3
+light_mask = 7
+texture_filter = 2
+texture_repeat = 2
 material = SubResource("CanvasItemMaterial_sgg0v")
 use_parent_material = true
+custom_minimum_size = Vector2(1.96, 0.52)
 layout_mode = 0
-offset_left = 1658.86
-offset_top = 1087.6
-offset_right = 1880.86
-offset_bottom = 1188.6
-scale = Vector2(9.56408, 6.79723)
+offset_left = 1346.4
+offset_top = 1158.71
+offset_right = 2139.4
+offset_bottom = 1393.71
+scale = Vector2(3.57013, 2.87422)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="ImagenDeWhatsApp2024-08-22ALas16_53_00Dd941e80" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-position = Vector2(112.808, -61.5471)
-scale = Vector2(0.118412, 0.144553)
-texture = ExtResource("1_5qyra")
-
 [node name="Volver al menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_53qyc")
+theme_override_fonts/font = ExtResource("3_btctt")
+theme_override_font_sizes/font_size = 20
 text = "Volver al menu"
+text_overrun_behavior = 2
 
 [node name="QUIT" type="Button" parent="MarginContainer/VBoxContainer"]
+show_behind_parent = true
 layout_mode = 2
+theme = SubResource("Theme_vosiq")
+theme_override_fonts/font = ExtResource("3_btctt")
+theme_override_font_sizes/font_size = 20
+button_group = SubResource("ButtonGroup_xncv2")
 text = "Salir"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SinTítulo-1MesaDeTrabajo1" type="Sprite2D" parent="."]
+position = Vector2(2692.8, 522.883)
+scale = Vector2(1.08786, 0.754906)
+texture = ExtResource("4_iil3u")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Volver al menu" to="." method="_on_volver_al_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QUIT" to="." method="_on_quit_pressed"]

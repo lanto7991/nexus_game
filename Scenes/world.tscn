@@ -1,78 +1,326 @@
-[gd_scene load_steps=7 format=3 uid="uid://dakofa5c343bg"]
+[gd_scene load_steps=18 format=3 uid="uid://dakofa5c343bg"]
 
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
 [ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
-[ext_resource type="Texture2D" uid="uid://g2432sg8flst" path="res://Scenes/back1.png" id="2_pyaml"]
+[ext_resource type="Texture2D" uid="uid://cs4fkx40gliy7" path="res://img/Asset 1_bar.png" id="2_81lty"]
+[ext_resource type="Texture2D" uid="uid://c0jmebuarjpuf" path="res://img/Asset 2_bar_dim.png" id="3_yd6jb"]
+[ext_resource type="Texture2D" uid="uid://jrxe3m5bxeit" path="res://img/Asset 5_barM.png" id="4_7x5kh"]
+[ext_resource type="Texture2D" uid="uid://bg1mtsyrc6b4y" path="res://img/Fondo_2.jpg" id="4_738ak"]
 [ext_resource type="PackedScene" uid="uid://baq8t17uwobey" path="res://Scenes/pause_menu.tscn" id="4_imipb"]
+[ext_resource type="FontFile" uid="uid://bne0sj7mkbf5r" path="res://Fonts/BEATTECH-Line.otf" id="5_2ff83"]
+[ext_resource type="Texture2D" uid="uid://evpw2sy3krqd" path="res://img/status.png" id="6_pr732"]
+[ext_resource type="Texture2D" uid="uid://mecth716sehl" path="res://img/Asset 6_life.png" id="9_16w5m"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bok6i"]
+blend_mode = 1
+light_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_q4kq3"]
 size = Vector2(1000, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4hs2"]
-size = Vector2(639, 100)
+size = Vector2(441.026, 68.3758)
+
+[sub_resource type="QuadMesh" id="QuadMesh_rlv5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gufo"]
+size = Vector2(47, 54)
+
+[sub_resource type="QuadMesh" id="QuadMesh_rierq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpp4h"]
+size = Vector2(128.5, 25)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_c4kuc")
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Platform Large" type="StaticBody2D" parent="."]
+position = Vector2(34, -8)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
-modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
-position = Vector2(580, 556)
-scale = Vector2(0.636, 1)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Large"]
+modulate = Color(0.0012952, 0.520203, 0.708715, 1)
+texture_filter = 4
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_bok6i")
+position = Vector2(407, 794)
+scale = Vector2(0.286236, 0.401814)
 mesh = SubResource("QuadMesh_q4kq3")
+texture = ExtResource("2_81lty")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(581, 556)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Large"]
+position = Vector2(408.604, 793.922)
+scale = Vector2(0.641213, 0.528778)
 shape = SubResource("RectangleShape2D_p4hs2")
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="Platform"]
-modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
-position = Vector2(1810, 591)
-scale = Vector2(0.636, 1)
-mesh = SubResource("QuadMesh_q4kq3")
+[node name="Platform Large2" type="StaticBody2D" parent="."]
+position = Vector2(593, -77)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform"]
-position = Vector2(1810, 590)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Large2"]
+modulate = Color(0.0012952, 0.520203, 0.708715, 1)
+texture_filter = 4
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_bok6i")
+position = Vector2(407, 794)
+scale = Vector2(0.286236, 0.401814)
+mesh = SubResource("QuadMesh_q4kq3")
+texture = ExtResource("2_81lty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Large2"]
+position = Vector2(408.604, 793.922)
+scale = Vector2(0.641213, 0.528778)
 shape = SubResource("RectangleShape2D_p4hs2")
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="Platform"]
-modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
-position = Vector2(2309.5, 772)
-scale = Vector2(0.639, 1)
-mesh = SubResource("QuadMesh_q4kq3")
+[node name="Platform Large3" type="StaticBody2D" parent="."]
+position = Vector2(897, -79)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform"]
-position = Vector2(2310.5, 772)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Large3"]
+modulate = Color(0.0012952, 0.520203, 0.708715, 1)
+texture_filter = 4
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_bok6i")
+position = Vector2(407, 794)
+scale = Vector2(0.286236, 0.401814)
+mesh = SubResource("QuadMesh_q4kq3")
+texture = ExtResource("2_81lty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Large3"]
+position = Vector2(408.604, 793.922)
+scale = Vector2(0.641213, 0.528778)
 shape = SubResource("RectangleShape2D_p4hs2")
 
-[node name="MeshInstance2D5" type="MeshInstance2D" parent="Platform"]
-modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
-position = Vector2(2900.5, 617)
-scale = Vector2(0.639, 1)
-mesh = SubResource("QuadMesh_q4kq3")
+[node name="Platform Large4" type="StaticBody2D" parent="."]
+position = Vector2(1686, 125)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Platform"]
-position = Vector2(2901.5, 617)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Large4"]
+modulate = Color(0.0012952, 0.520203, 0.708715, 1)
+texture_filter = 4
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_bok6i")
+position = Vector2(407, 794)
+scale = Vector2(0.286236, 0.401814)
+mesh = SubResource("QuadMesh_q4kq3")
+texture = ExtResource("2_81lty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Large4"]
+position = Vector2(408.604, 793.922)
+scale = Vector2(0.641213, 0.528778)
 shape = SubResource("RectangleShape2D_p4hs2")
 
-[node name="MeshInstance2D4" type="MeshInstance2D" parent="Platform"]
-modulate = Color(0.820301, 6.2955e-05, 0.639414, 1)
-position = Vector2(1222.5, 423)
-scale = Vector2(0.639, 1)
-mesh = SubResource("QuadMesh_q4kq3")
+[node name="Platform Large5" type="StaticBody2D" parent="."]
+position = Vector2(2097, -113)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Platform"]
-position = Vector2(1223.5, 423)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Large5"]
+modulate = Color(0.0012952, 0.520203, 0.708715, 1)
+texture_filter = 4
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_bok6i")
+position = Vector2(407, 794)
+scale = Vector2(0.286236, 0.401814)
+mesh = SubResource("QuadMesh_q4kq3")
+texture = ExtResource("2_81lty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Large5"]
+position = Vector2(408.604, 793.922)
+scale = Vector2(0.641213, 0.528778)
 shape = SubResource("RectangleShape2D_p4hs2")
 
-[node name="Popup" type="Popup" parent="Platform"]
+[node name="Platform Large6" type="StaticBody2D" parent="."]
+position = Vector2(3242, -102)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Large6"]
+modulate = Color(0.0012952, 0.520203, 0.708715, 1)
+texture_filter = 4
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_bok6i")
+position = Vector2(407, 794)
+scale = Vector2(0.286236, 0.401814)
+mesh = SubResource("QuadMesh_q4kq3")
+texture = ExtResource("2_81lty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Large6"]
+position = Vector2(408.604, 793.922)
+scale = Vector2(0.641213, 0.528778)
+shape = SubResource("RectangleShape2D_p4hs2")
+
+[node name="Platform Dim" type="StaticBody2D" parent="."]
+position = Vector2(-127, 51)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Dim"]
+position = Vector2(787.75, 801.75)
+scale = Vector2(50.5, 56.5)
+mesh = SubResource("QuadMesh_rlv5y")
+texture = ExtResource("3_yd6jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Dim"]
+position = Vector2(788.5, 801)
+shape = SubResource("RectangleShape2D_6gufo")
+
+[node name="Platform Dim2" type="StaticBody2D" parent="."]
+position = Vector2(7, -49)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Dim2"]
+position = Vector2(787.75, 801.75)
+scale = Vector2(50.5, 56.5)
+mesh = SubResource("QuadMesh_rlv5y")
+texture = ExtResource("3_yd6jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Dim2"]
+position = Vector2(788.5, 801)
+shape = SubResource("RectangleShape2D_6gufo")
+
+[node name="Platform Dim3" type="StaticBody2D" parent="."]
+position = Vector2(926, -106)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Dim3"]
+position = Vector2(787.75, 801.75)
+scale = Vector2(50.5, 56.5)
+mesh = SubResource("QuadMesh_rlv5y")
+texture = ExtResource("3_yd6jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Dim3"]
+position = Vector2(788.5, 801)
+shape = SubResource("RectangleShape2D_6gufo")
+
+[node name="Platform Dim4" type="StaticBody2D" parent="."]
+position = Vector2(1000, -188)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Dim4"]
+position = Vector2(787.75, 801.75)
+scale = Vector2(50.5, 56.5)
+mesh = SubResource("QuadMesh_rlv5y")
+texture = ExtResource("3_yd6jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Dim4"]
+position = Vector2(788.5, 801)
+shape = SubResource("RectangleShape2D_6gufo")
+
+[node name="Platform Dim5" type="StaticBody2D" parent="."]
+position = Vector2(1076, -262)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Dim5"]
+position = Vector2(787.75, 801.75)
+scale = Vector2(50.5, 56.5)
+mesh = SubResource("QuadMesh_rlv5y")
+texture = ExtResource("3_yd6jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Dim5"]
+position = Vector2(788.5, 801)
+shape = SubResource("RectangleShape2D_6gufo")
+
+[node name="Platform Dim6" type="StaticBody2D" parent="."]
+position = Vector2(1920, -55)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Dim6"]
+position = Vector2(787.75, 801.75)
+scale = Vector2(50.5, 56.5)
+mesh = SubResource("QuadMesh_rlv5y")
+texture = ExtResource("3_yd6jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Dim6"]
+position = Vector2(788.5, 801)
+shape = SubResource("RectangleShape2D_6gufo")
+
+[node name="Platform Dim7" type="StaticBody2D" parent="."]
+position = Vector2(1993, 31)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Dim7"]
+position = Vector2(787.75, 801.75)
+scale = Vector2(50.5, 56.5)
+mesh = SubResource("QuadMesh_rlv5y")
+texture = ExtResource("3_yd6jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Dim7"]
+position = Vector2(788.5, 801)
+shape = SubResource("RectangleShape2D_6gufo")
+
+[node name="Platform Dim8" type="StaticBody2D" parent="."]
+position = Vector2(2059, 117)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Dim8"]
+position = Vector2(787.75, 801.75)
+scale = Vector2(50.5, 56.5)
+mesh = SubResource("QuadMesh_rlv5y")
+texture = ExtResource("3_yd6jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Dim8"]
+position = Vector2(788.5, 801)
+shape = SubResource("RectangleShape2D_6gufo")
+
+[node name="Platform Medium" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Medium"]
+position = Vector2(1583, 769)
+scale = Vector2(-139.003, -31.2278)
+mesh = SubResource("QuadMesh_rierq")
+texture = ExtResource("4_7x5kh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Medium"]
+position = Vector2(1581.75, 769.5)
+shape = SubResource("RectangleShape2D_cpp4h")
+
+[node name="Platform Medium2" type="StaticBody2D" parent="."]
+position = Vector2(1411, 78)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Medium2"]
+position = Vector2(1583, 769)
+scale = Vector2(-139.003, -31.2278)
+mesh = SubResource("QuadMesh_rierq")
+texture = ExtResource("4_7x5kh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Medium2"]
+position = Vector2(1581.75, 769.5)
+shape = SubResource("RectangleShape2D_cpp4h")
+
+[node name="Platform Medium3" type="StaticBody2D" parent="."]
+position = Vector2(1580, 166)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Medium3"]
+position = Vector2(1583, 769)
+scale = Vector2(-139.003, -31.2278)
+mesh = SubResource("QuadMesh_rierq")
+texture = ExtResource("4_7x5kh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Medium3"]
+position = Vector2(1581.75, 769.5)
+shape = SubResource("RectangleShape2D_cpp4h")
+
+[node name="Platform Medium4" type="StaticBody2D" parent="."]
+position = Vector2(1772, -10)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Medium4"]
+position = Vector2(1583, 769)
+scale = Vector2(-139.003, -31.2278)
+mesh = SubResource("QuadMesh_rierq")
+texture = ExtResource("4_7x5kh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Medium4"]
+position = Vector2(1581.75, 769.5)
+shape = SubResource("RectangleShape2D_cpp4h")
 
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
-position = Vector2(299, 500)
+position = Vector2(338, 730)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.2, 1.2)
+
+[node name="Status" type="Sprite2D" parent="Player/Camera2D"]
+position = Vector2(614, -328)
+texture = ExtResource("6_pr732")
+
+[node name="TextEdit" type="TextEdit" parent="Player/Camera2D/Status"]
+offset_left = -84.0
+offset_top = -53.0
+offset_right = 79.0
+offset_bottom = -18.0
+scale = Vector2(1.1597, 1.21328)
+theme_override_fonts/font = ExtResource("5_2ff83")
+theme_override_font_sizes/font_size = 25
+text = "Max Garcia"
+
+[node name="Asset6Life" type="Sprite2D" parent="Player/Camera2D"]
+position = Vector2(627, -316)
+scale = Vector2(0.610488, 0.559722)
+texture = ExtResource("9_16w5m")
 
 [node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("4_imipb")]
 offset_left = -950.0
@@ -87,7 +335,7 @@ texture_filter = 1
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-2.99997, -442)
-scale = Vector2(1.25787, 1.58907)
-texture = ExtResource("2_pyaml")
+position = Vector2(-14, 7)
+scale = Vector2(1.21062, 2.81778)
+texture = ExtResource("4_738ak")
 centered = false

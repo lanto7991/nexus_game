@@ -3,7 +3,7 @@ extends CharacterBody2D
 #export de variables para poder usarlas aparte 
 @export var speed = 300
 @export var gravity = 100
-@export var jump_force = 550	
+@export var jump_force = 650	
 
 @onready var MenuPausa = $pause_menu
 

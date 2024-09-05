@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do4go00i8br6p"
-path="res://.godot/imported/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg-b97767d023248ee2208e7a14deb9eb21.ctex"
+uid="uid://bg1mtsyrc6b4y"
+path="res://.godot/imported/Fondo_2.jpg-1cf347203cd3b7f6ba50204e7bc55739.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg"
-dest_files=["res://.godot/imported/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg-b97767d023248ee2208e7a14deb9eb21.ctex"]
+source_file="res://img/Fondo_2.jpg"
+dest_files=["res://.godot/imported/Fondo_2.jpg-1cf347203cd3b7f6ba50204e7bc55739.ctex"]
 
 [params]
 
