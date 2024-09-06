@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6ryp5hnjwu41"
+path="res://.godot/imported/Banda sonora Cm.wav-971a43f052ddf11651db110b82ba682b.sample"
+
+[deps]
+
+source_file="res://Sounds/Banda sonora Cm.wav"
+dest_files=["res://.godot/imported/Banda sonora Cm.wav-971a43f052ddf11651db110b82ba682b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

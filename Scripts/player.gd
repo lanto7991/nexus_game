@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var jump_force = 650	
 
 @onready var MenuPausa = $pause_menu
+
+@onready var animation = $AnimationPlayer
 	
 
 func _ready():
@@ -30,8 +32,16 @@ func _physics_process(delta):
 	#aplico velocidad a X e Y para que pueda moverse
 	velocity.x = speed * h_direction
 	
+func _process(delta: float) -> void:
+	var right = Input.is_action_pressed("move_right")
+	var left = Input.is_action_pressed("move_left")
+	
+	if right:
+		animation.play("move")
+	elif left:
+		animation.play("move")
+		
+	
 	
 	move_and_slide()
 	
-	#test para ver valores de velocidad
-	print (velocity)

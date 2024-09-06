@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dakofa5c343bg"]
+[gd_scene load_steps=21 format=3 uid="uid://dakofa5c343bg"]
 
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
 [ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://evpw2sy3krqd" path="res://img/status.png" id="6_pr732"]
 [ext_resource type="Texture2D" uid="uid://mecth716sehl" path="res://img/Asset 6_life.png" id="9_16w5m"]
 [ext_resource type="PackedScene" uid="uid://dnndsrv6gwg17" path="res://Scenes/enemy_level_1.tscn" id="11_yjkrd"]
+[ext_resource type="AudioStream" uid="uid://6ryp5hnjwu41" path="res://Sounds/Banda sonora Cm.wav" id="12_hijk3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bok6i"]
 blend_mode = 1
@@ -341,7 +342,8 @@ position = Vector2(1581.75, 769.5)
 shape = SubResource("RectangleShape2D_cpp4h")
 
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
-position = Vector2(338, 730)
+position = Vector2(339, 689)
+scale = Vector2(0.812009, 0.764312)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.2, 1.2)
@@ -410,5 +412,12 @@ skew = -0.0593412
 shape = SubResource("WorldBoundaryShape2D_spj7n")
 one_way_collision = true
 debug_color = Color(0.887807, 0.000275308, 0.800889, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_hijk3")
+autoplay = true
+mix_target = 1
+bus = &"Banda Sonora"
+playback_type = 1
 
 [connection signal="tree_entered" from="CollisionShape2D" to="." method="_on_collision_shape_2d_tree_entered"]
