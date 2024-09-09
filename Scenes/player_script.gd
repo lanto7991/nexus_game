@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
+#signal healthChanged
+
 #export de variables para poder usarlas aparte 
 @export var speed = 300
 @export var gravity = 100
 @export var jump_force = 650	
-	
+
+@export var maxHealth = 30
+@onready var currentHealth: int = maxHealth
+
+var isHurt: bool = false
 
 func _ready():
 	Global.playerBody = self
@@ -51,6 +57,13 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 		
 
+#func hurtByEnemy(area):
+#	currentHealth -= 10
+#	if currentHealth < 0:
+#		currentHealth = maxHealth
+		
+#	isHurt = true
+#	healthChanged.emit()
 	
 	
 	move_and_slide()

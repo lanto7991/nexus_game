@@ -1,26 +1,22 @@
 extends Node2D
 
-@onready var pauseMenu = $Player/Camera2D/PauseMenu
-
-
+@onready var pause_menu = $Player/Camera2D/pause_menu
 var pause = false
 
-
-func _ready() -> void:
-	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
 	if Input.is_action_just_pressed("pausa"):	
-		pausaMenu()	
+		pauseMenu()	
 
 
-func pausaMenu():
+func pauseMenu():
 	if pause:
-		#pausaMenu().hide()
+		pause_menu.hide()
 		Engine.time_scale = 1
+		#AudioStreamPlayer2D.playing = true --> Renaudar Musica
 	else:
-		#pausaMenu().show()
+		pause_menu.show()
 		Engine.time_scale = 0
+		#AudioStreamPlayer2D.playing = false --> Pausar musica
 	pause = !pause

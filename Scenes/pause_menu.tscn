@@ -21,7 +21,7 @@ default_base_scale = 0.44
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_xncv2"]
 
-[node name="PauseMenu" type="Control"]
+[node name="pause_menu" type="Control"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -53,6 +53,12 @@ scale = Vector2(3.57013, 2.87422)
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Renaudar" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_btctt")
+theme_override_font_sizes/font_size = 19
+text = "Reanudar"
+
 [node name="Volver al menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_53qyc")
@@ -71,11 +77,13 @@ button_group = SubResource("ButtonGroup_xncv2")
 text = "Salir"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2729.73, 1093.87)
 
 [node name="SinTítulo-1MesaDeTrabajo1" type="Sprite2D" parent="."]
 position = Vector2(2692.8, 522.883)
 scale = Vector2(1.08786, 0.754906)
 texture = ExtResource("4_iil3u")
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Renaudar" to="." method="_on_renaudar_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Volver al menu" to="." method="_on_volver_al_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QUIT" to="." method="_on_quit_pressed"]
