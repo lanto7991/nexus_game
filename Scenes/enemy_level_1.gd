@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name enemy_lvl1
 
+@onready var progress_bar = $"../Player/Camera2D/Status/ProgressBarLife"
+
 const speed = 30
 
 var is_enemy_chase: bool = true
@@ -89,17 +91,21 @@ func choose(array):
 	return array.front()
 
 
-#func _on_hitbox_area_entered(area: Area2D) -> void:
-#	var progress_bar = Global.progressBarLife
-	
-#	var max_value = progress_bar.value
-#	var min_value = progress_bar.min_value
-	
-#	progress_bar.value = max_value / 1.5
-	
-#	if progress_bar.value == min_value:
-#		Engine.time_scale = 0
-#		progress_bar = max_value
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	pass
 	
 	
 	
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	var life_bar: ProgressBar = progress_bar
+	
+	var max_value = life_bar.value
+	var min_value = life_bar.min_value
+	
+	if body == player:
+		life_bar.value = max_value / 1.2
+	if life_bar.value == min_value:
+		Engine.time_scale = 0
+		life_bar = max_value

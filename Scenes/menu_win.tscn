@@ -7,7 +7,6 @@
 [sub_resource type="Theme" id="Theme_wa3h2"]
 
 [node name="Control" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,9 +16,18 @@ grow_vertical = 2
 script = ExtResource("1_xucje")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 239.0
-offset_bottom = 163.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -81.5
+offset_right = 119.5
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

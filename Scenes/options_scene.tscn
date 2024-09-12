@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://htrgi3fyixkq"]
+[gd_scene load_steps=4 format=3 uid="uid://htrgi3fyixkq"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_jp7o0"]
-[ext_resource type="Texture2D" uid="uid://do4go00i8br6p" path="res://Scenes/Imagen de WhatsApp 2024-08-22 a las 16.53.00_dd941e80.jpg" id="2_na73o"]
-[ext_resource type="Texture2D" uid="uid://g2432sg8flst" path="res://Scenes/back1.png" id="4_bjpnm"]
+[ext_resource type="Texture2D" uid="uid://g2432sg8flst" path="res://img/back1.png" id="4_bjpnm"]
 
 [sub_resource type="GDScript" id="GDScript_a0j6f"]
 script/source = "extends Button
@@ -53,7 +52,6 @@ script = SubResource("GDScript_a0j6f")
 
 [node name="ImagenDeWhatsApp2024-08-22ALas16_53_00Dd941e80" type="Sprite2D" parent="."]
 position = Vector2(1038, 332)
-texture = ExtResource("2_na73o")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
