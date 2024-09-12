@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
+@onready var win_menu = $Player/Camera2D/Control
+
 #signal healthChanged
+
+var win_bar = false
 
 #export de variables para poder usarlas aparte 
 @export var speed = 300
@@ -68,3 +72,14 @@ func _process(delta: float) -> void:
 	
 	move_and_slide()
 	
+func _wingame():
+	if !win_bar:		
+		win_menu.hide()
+		Engine.time_scale = 1
+	else:
+		win_menu.show()
+		Engine.time_scale = 0
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	_wingame()

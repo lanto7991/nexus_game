@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dakofa5c343bg"]
+[gd_scene load_steps=23 format=3 uid="uid://dakofa5c343bg"]
 
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
 [ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://bne0sj7mkbf5r" path="res://Fonts/BEATTECH-Line.otf" id="5_2ff83"]
 [ext_resource type="Script" path="res://Scripts/healtBar.gd" id="6_irg20"]
 [ext_resource type="Texture2D" uid="uid://evpw2sy3krqd" path="res://img/status.png" id="6_pr732"]
+[ext_resource type="PackedScene" uid="uid://bffjq4r1cya83" path="res://Scenes/menu_win.tscn" id="6_sf2hh"]
 [ext_resource type="PackedScene" uid="uid://dnndsrv6gwg17" path="res://Scenes/enemy_level_1.tscn" id="11_yjkrd"]
 [ext_resource type="AudioStream" uid="uid://6ryp5hnjwu41" path="res://Sounds/Banda sonora Cm.wav" id="12_hijk3"]
 
@@ -33,8 +34,11 @@ size = Vector2(47, 54)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpp4h"]
 size = Vector2(120, 25)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_spj7n"]
-distance = -581.865
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v58w2"]
+size = Vector2(100, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px7qx"]
+size = Vector2(100, 15)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_c4kuc")
@@ -328,21 +332,6 @@ texture = ExtResource("4_7x5kh")
 position = Vector2(1581.75, 769.5)
 shape = SubResource("RectangleShape2D_cpp4h")
 
-[node name="Platform Medium5" type="StaticBody2D" parent="."]
-modulate = Color(1, 0.661793, 0.383774, 1)
-self_modulate = Color(0.621017, 0.000427401, 0.655206, 1)
-position = Vector2(2308, -148)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Medium5"]
-position = Vector2(1583, 769)
-scale = Vector2(-139.003, -31.2278)
-mesh = SubResource("QuadMesh_rierq")
-texture = ExtResource("4_7x5kh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Medium5"]
-position = Vector2(1581.75, 769.5)
-shape = SubResource("RectangleShape2D_cpp4h")
-
 [node name="Platform Medium6" type="StaticBody2D" parent="."]
 modulate = Color(0.654987, 0.991784, 0.69109, 1)
 position = Vector2(706, 22)
@@ -358,6 +347,23 @@ texture = ExtResource("4_7x5kh")
 position = Vector2(1586, 769.5)
 shape = SubResource("RectangleShape2D_cpp4h")
 
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(4007, 607)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2/StaticBody2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_v58w2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_px7qx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+scale = Vector2(0.56408, 0.386311)
+texture = ExtResource("2_81lty")
+
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
 position = Vector2(332, 753)
 scale = Vector2(0.812009, 0.764312)
@@ -372,11 +378,13 @@ offset_right = 2412.57
 offset_bottom = 567.852
 scale = Vector2(0.421239, 0.64367)
 
+[node name="Control" parent="Player/Camera2D" instance=ExtResource("6_sf2hh")]
+
 [node name="Status" type="Sprite2D" parent="Player/Camera2D"]
 position = Vector2(830.04, -476.245)
 texture = ExtResource("6_pr732")
 
-[node name="ProgressBar" type="ProgressBar" parent="Player/Camera2D/Status"]
+[node name="ProgressBarLife" type="ProgressBar" parent="Player/Camera2D/Status"]
 offset_left = -74.5971
 offset_top = 2.2168
 offset_right = 96.4029
@@ -401,7 +409,7 @@ texture_filter = 1
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-81, -821)
+position = Vector2(-81, -820)
 scale = Vector2(2.87677, 7.24452)
 texture = ExtResource("4_738ak")
 centered = false
@@ -426,19 +434,9 @@ scale = Vector2(2.57867, 2.67317)
 position = Vector2(2966, 802)
 scale = Vector2(2.57867, 2.67317)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(669.915, 510.68)
-scale = Vector2(0.975, 0.975)
-skew = -0.0593412
-shape = SubResource("WorldBoundaryShape2D_spj7n")
-one_way_collision = true
-debug_color = Color(0.887807, 0.000275308, 0.800889, 0.42)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_hijk3")
 autoplay = true
 mix_target = 1
 bus = &"Banda Sonora"
 playback_type = 1
-
-[connection signal="tree_entered" from="CollisionShape2D" to="." method="_on_collision_shape_2d_tree_entered"]
