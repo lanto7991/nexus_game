@@ -135,9 +135,10 @@ func _on_area_enemy_damage_body_entered(body: Node2D) -> void:
 		life_enemy_bar.value = max_ene_value / 75
 		#life_bar.value = life_bar.value * 1.2
 		
-	#if life_enemy_bar.value < 1:
-		#	self.queue_free()
-			#points += 100
-			#text_points.text = "Puntuacion: %d " % points
+	if life_enemy_bar.value < 1:
+			self.queue_free()
+			points += 1
+			print(points)
+			text_points.text = "Puntuacion: %d " % points
 		
 	

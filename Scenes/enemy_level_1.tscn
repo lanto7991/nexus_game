@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/enemy_level_1.gd" id="1_d7cwe"]
 [ext_resource type="Texture2D" uid="uid://bblongx7c2q1e" path="res://Sprites/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Sheet.png" id="1_p0tq1"]
+[ext_resource type="Texture2D" uid="uid://cvxifk5dhbkic" path="res://Sprites/sprite_movements.png" id="3_3eabk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arbgx"]
 atlas = ExtResource("1_p0tq1")
@@ -111,33 +112,29 @@ region = Rect2(288, 0, 48, 48)
 atlas = ExtResource("1_p0tq1")
 region = Rect2(336, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_87kho"]
-atlas = ExtResource("1_p0tq1")
-region = Rect2(0, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmhi6"]
+atlas = ExtResource("3_3eabk")
+region = Rect2(0, 1000, 750, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sm37t"]
-atlas = ExtResource("1_p0tq1")
-region = Rect2(48, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvwm6"]
+atlas = ExtResource("3_3eabk")
+region = Rect2(750, 1000, 750, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tnyl1"]
-atlas = ExtResource("1_p0tq1")
-region = Rect2(96, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n828n"]
+atlas = ExtResource("3_3eabk")
+region = Rect2(1500, 1000, 750, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvqdi"]
-atlas = ExtResource("1_p0tq1")
-region = Rect2(144, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjruq"]
+atlas = ExtResource("3_3eabk")
+region = Rect2(2250, 1000, 750, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4abpy"]
-atlas = ExtResource("1_p0tq1")
-region = Rect2(192, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlu1n"]
+atlas = ExtResource("3_3eabk")
+region = Rect2(3000, 1000, 750, 1000)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fyj7t"]
-atlas = ExtResource("1_p0tq1")
-region = Rect2(240, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuauh"]
-atlas = ExtResource("1_p0tq1")
-region = Rect2(288, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8pn3"]
+atlas = ExtResource("3_3eabk")
+region = Rect2(3750, 1000, 750, 1000)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0san2"]
 animations = [{
@@ -244,25 +241,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_87kho")
+"texture": SubResource("AtlasTexture_vmhi6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sm37t")
+"texture": SubResource("AtlasTexture_dvwm6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tnyl1")
+"texture": SubResource("AtlasTexture_n828n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cvqdi")
+"texture": SubResource("AtlasTexture_wjruq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4abpy")
+"texture": SubResource("AtlasTexture_hlu1n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fyj7t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tuauh")
+"texture": SubResource("AtlasTexture_y8pn3")
 }],
 "loop": true,
 "name": &"walk",
@@ -276,15 +270,16 @@ radius = 15.0333
 radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmypm"]
-size = Vector2(16, 5)
+size = Vector2(14, 3.5)
 
 [node name="enemy_level1" type="CharacterBody2D"]
 script = ExtResource("1_d7cwe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 5)
+scale = Vector2(0.0447885, 0.0467294)
 sprite_frames = SubResource("SpriteFrames_0san2")
-animation = &"dead_animation"
-frame_progress = 0.947333
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
@@ -312,7 +307,7 @@ value = 100.0
 show_percentage = false
 
 [node name="colision_damage_enemy" type="CollisionShape2D" parent="hitbox/Area_Enemy_Damage"]
-position = Vector2(-1, -13)
+position = Vector2(-1, -11.25)
 shape = SubResource("RectangleShape2D_jmypm")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

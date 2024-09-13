@@ -24,7 +24,7 @@ light_mode = 1
 size = Vector2(1000, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4hs2"]
-size = Vector2(436.348, 68.3758)
+size = Vector2(428.712, 64.4463)
 
 [sub_resource type="QuadMesh" id="QuadMesh_rlv5y"]
 
@@ -40,7 +40,7 @@ size = Vector2(120, 25)
 size = Vector2(100, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt05x"]
-size = Vector2(4322, 87)
+size = Vector2(6339, 87)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_c4kuc")
@@ -95,12 +95,12 @@ mesh = SubResource("QuadMesh_q4kq3")
 texture = ExtResource("2_81lty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Large3"]
-position = Vector2(409, 801)
+position = Vector2(411.448, 802.039)
 scale = Vector2(0.641213, 0.528778)
 shape = SubResource("RectangleShape2D_p4hs2")
 
 [node name="Platform Large4" type="StaticBody2D" parent="."]
-position = Vector2(1686, 125)
+position = Vector2(1682, 61)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Large4"]
 modulate = Color(0.0012952, 0.520203, 0.708715, 1)
@@ -118,7 +118,7 @@ scale = Vector2(0.641213, 0.528778)
 shape = SubResource("RectangleShape2D_p4hs2")
 
 [node name="Platform Large5" type="StaticBody2D" parent="."]
-position = Vector2(2097, -113)
+position = Vector2(2095, -91)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Large5"]
 modulate = Color(0.0012952, 0.520203, 0.708715, 1)
@@ -283,7 +283,7 @@ position = Vector2(1581.75, 769.5)
 shape = SubResource("RectangleShape2D_cpp4h")
 
 [node name="Platform Medium7" type="StaticBody2D" parent="."]
-position = Vector2(710, 22)
+position = Vector2(706, -16)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Medium7"]
 position = Vector2(1583, 769)
@@ -332,21 +332,6 @@ texture = ExtResource("4_7x5kh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Medium4"]
 position = Vector2(1581.75, 769.5)
-shape = SubResource("RectangleShape2D_cpp4h")
-
-[node name="Platform Medium6" type="StaticBody2D" parent="."]
-modulate = Color(0.654987, 0.991784, 0.69109, 1)
-position = Vector2(706, 22)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform Medium6"]
-top_level = true
-position = Vector2(1583, 769)
-scale = Vector2(-139.003, -31.2278)
-mesh = SubResource("QuadMesh_rierq")
-texture = ExtResource("4_7x5kh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Medium6"]
-position = Vector2(1586, 769.5)
 shape = SubResource("RectangleShape2D_cpp4h")
 
 [node name="Area2D2" type="Area2D" parent="."]
@@ -420,23 +405,27 @@ texture = ExtResource("4_738ak")
 centered = false
 
 [node name="enemy_level1" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(552, 730)
+position = Vector2(553, 737)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level2" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(895, 664)
+position = Vector2(895, 670)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level3" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(1266, 664)
+position = Vector2(1435, 673)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level4" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(2463, 631)
+position = Vector2(2417, 653)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level5" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(3381, 706)
+position = Vector2(3404, 716)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="enemy_level6" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(3777, 643)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -450,7 +439,7 @@ playback_type = 1
 position = Vector2(2212, 1166)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_RESPAWN"]
-position = Vector2(-26, 53)
+position = Vector2(-62.5, 53)
 shape = SubResource("RectangleShape2D_dt05x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -459,6 +448,7 @@ shape = SubResource("RectangleShape2D_dt05x")
 visible = false
 
 [node name="RESET_AGAIN_LOST" parent="CanvasLayer" instance=ExtResource("14_8uhkm")]
+visible = false
 
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="AREA_RESPAWN" to="." method="_on_area_respawn_body_entered"]

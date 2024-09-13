@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Exportar variables para usarlas en el editor
 @export var speed = 300
-@export var jump_force = -600
+@export var jump_force = -500
 @export var maxHealth = 30
 
 #@onready var Bala = load("res://escenas/bala.tscn")

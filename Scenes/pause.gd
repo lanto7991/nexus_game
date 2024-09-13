@@ -74,4 +74,5 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 func _on_area_respawn_body_entered(body: Node2D) -> void:
 	if body == player:
 		get_tree().reload_current_scene()
+		progress_bar.value = progress_bar.value / 1.5
 		
