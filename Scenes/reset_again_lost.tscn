@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://t8a1xnd2a6dh"]
+
+[ext_resource type="Script" path="res://Scenes/reset_again_lost.gd" id="1_4kmy2"]
+[ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="1_8yubj"]
+
+[node name="RESET_AGAIN_LOST" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4kmy2")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+offset_left = 697.0
+offset_top = 642.0
+offset_right = 1213.0
+offset_bottom = 706.0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_8yubj")
+theme_override_font_sizes/font_size = 60
+text = "REINICIAR"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+offset_left = 697.0
+offset_top = 710.0
+offset_right = 1212.0
+offset_bottom = 774.0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_8yubj")
+theme_override_font_sizes/font_size = 60
+text = "VOLVER AL MENU"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_8yubj")
+theme_override_font_sizes/font_size = 70
+text = "HAS PERDIDO"
+
+[connection signal="pressed" from="Button" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

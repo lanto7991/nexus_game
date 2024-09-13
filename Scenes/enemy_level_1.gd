@@ -4,13 +4,23 @@ class_name enemy_lvl1
 
 @onready var progress_bar = $"../Player/Camera2D/Status/ProgressBarLife"
 
-const speed = 30
+@onready var resetLost = $"../CanvasLayer/RESET_AGAIN_LOST"
+
+@onready var enemy_pb = $hitbox/Area_Enemy_Damage/enemy_pb
+
+@onready var text_points = $"../Player/Camera2D/Status/Label"
+
+var points: int = 0
+
+const speed = 50
 
 var is_enemy_chase: bool = true
 
 var healt = 80
 var healt_max = 80
 var healt_min = 0
+
+
 
  
 var dead: bool = false
@@ -30,9 +40,16 @@ var player_in_area = false
 
 #Movement for a enemy
 func _process(delta: float) -> void:
+	var life_enemy_bar = enemy_pb
+	
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		velocity.x = 0
+		
+	if life_enemy_bar.value < 1:
+		self.queue_free()
+		points += 100
+		text_points.text = "Puntuacion: %d" % points
 		
 	player = Global.playerBody
 	
@@ -73,7 +90,7 @@ func handle_animation():
 		taking_damage = false
 	elif dead and is_roaming:
 		is_roaming = false
-		ani_sprite.play("death")
+		ani_sprite.play("dead_animation")
 		await get_tree().create_timer(1.0).timeout
 		handle_death()
 		
@@ -91,21 +108,36 @@ func choose(array):
 	return array.front()
 
 
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	pass
-	
+
 	
 	
 
-
+#funcion para bajar vida personaje
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	var life_bar: ProgressBar = progress_bar
-	
 	var max_value = life_bar.value
 	var min_value = life_bar.min_value
 	
 	if body == player:
-		life_bar.value = max_value / 1.2
-	if life_bar.value == min_value:
-		Engine.time_scale = 0
-		life_bar = max_value
+		life_bar.value = max_value / 1.7
+		
+		
+
+#funcion para eliminar enemigos
+func _on_area_enemy_damage_body_entered(body: Node2D) -> void:
+	var life_bar: ProgressBar = progress_bar
+	var life_enemy_bar = enemy_pb
+	
+	var max_ene_value = life_enemy_bar.value
+	var min_ene_valu = life_enemy_bar.min_value
+	
+	if body == player:
+		life_enemy_bar.value = max_ene_value / 75
+		#life_bar.value = life_bar.value * 1.2
+		
+	#if life_enemy_bar.value < 1:
+		#	self.queue_free()
+			#points += 100
+			#text_points.text = "Puntuacion: %d " % points
+		
+	

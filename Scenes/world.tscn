@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dakofa5c343bg"]
+[gd_scene load_steps=25 format=3 uid="uid://dakofa5c343bg"]
 
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
 [ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
@@ -7,12 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://jrxe3m5bxeit" path="res://img/Asset 5_barM.png" id="4_7x5kh"]
 [ext_resource type="Texture2D" uid="uid://bg1mtsyrc6b4y" path="res://img/Fondo_2.jpg" id="4_738ak"]
 [ext_resource type="PackedScene" uid="uid://baq8t17uwobey" path="res://Scenes/pause_menu.tscn" id="4_imipb"]
-[ext_resource type="FontFile" uid="uid://bne0sj7mkbf5r" path="res://Fonts/BEATTECH-Line.otf" id="5_2ff83"]
 [ext_resource type="Script" path="res://Scripts/healtBar.gd" id="6_irg20"]
 [ext_resource type="Texture2D" uid="uid://evpw2sy3krqd" path="res://img/status.png" id="6_pr732"]
 [ext_resource type="PackedScene" uid="uid://bffjq4r1cya83" path="res://Scenes/menu_win.tscn" id="6_sf2hh"]
+[ext_resource type="FontFile" uid="uid://s6wd21ocs3wy" path="res://Fonts/BEATTECH.ttf" id="9_4hbtl"]
+[ext_resource type="FontFile" uid="uid://c1hvdxvdb61ms" path="res://Fonts/bicycle/Bicycle.ttf" id="9_24la1"]
 [ext_resource type="PackedScene" uid="uid://dnndsrv6gwg17" path="res://Scenes/enemy_level_1.tscn" id="11_yjkrd"]
 [ext_resource type="AudioStream" uid="uid://6ryp5hnjwu41" path="res://Sounds/Banda sonora Cm.wav" id="12_hijk3"]
+[ext_resource type="PackedScene" uid="uid://t8a1xnd2a6dh" path="res://Scenes/reset_again_lost.tscn" id="14_8uhkm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bok6i"]
 blend_mode = 1
@@ -36,6 +38,9 @@ size = Vector2(120, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px7qx"]
 size = Vector2(100, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt05x"]
+size = Vector2(4322, 87)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_c4kuc")
@@ -84,13 +89,13 @@ modulate = Color(0.0012952, 0.520203, 0.708715, 1)
 texture_filter = 4
 texture_repeat = 3
 material = SubResource("CanvasItemMaterial_bok6i")
-position = Vector2(407, 794)
+position = Vector2(411, 800)
 scale = Vector2(0.286236, 0.401814)
 mesh = SubResource("QuadMesh_q4kq3")
 texture = ExtResource("2_81lty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Large3"]
-position = Vector2(408.604, 793.922)
+position = Vector2(409, 801)
 scale = Vector2(0.641213, 0.528778)
 shape = SubResource("RectangleShape2D_p4hs2")
 
@@ -347,11 +352,11 @@ shape = SubResource("RectangleShape2D_cpp4h")
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(4007, 607)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2"]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_px7qx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
 scale = Vector2(0.56408, 0.386311)
@@ -380,18 +385,27 @@ offset_left = -74.5971
 offset_top = 2.2168
 offset_right = 96.4029
 offset_bottom = 29.2168
+step = 0.0
 value = 100.0
 script = ExtResource("6_irg20")
 
-[node name="TextEdit" type="TextEdit" parent="Player/Camera2D/Status"]
-offset_left = -84.0
-offset_top = -53.0
-offset_right = 79.0
-offset_bottom = -18.0
-scale = Vector2(1.1597, 1.21328)
-theme_override_fonts/font = ExtResource("5_2ff83")
-theme_override_font_sizes/font_size = 25
-text = "Max Garcia"
+[node name="Label" type="Label" parent="Player/Camera2D/Status"]
+offset_left = -1213.04
+offset_top = -105.978
+offset_right = -1097.04
+offset_bottom = -82.978
+theme_override_fonts/font = ExtResource("9_24la1")
+theme_override_font_sizes/font_size = 45
+text = "Puntuacion: 00"
+
+[node name="nameCharacter" type="Label" parent="Player/Camera2D/Status"]
+offset_left = -70.0
+offset_top = -44.0
+offset_right = 98.0
+offset_bottom = -6.0
+theme_override_fonts/font = ExtResource("9_4hbtl")
+theme_override_font_sizes/font_size = 30
+text = "Sandrolfio"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -414,15 +428,15 @@ position = Vector2(895, 664)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level3" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(1116, 656)
+position = Vector2(1266, 664)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level4" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(2402, 626)
+position = Vector2(2463, 631)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level5" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(2966, 802)
+position = Vector2(3381, 706)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -432,9 +446,19 @@ mix_target = 1
 bus = &"Banda Sonora"
 playback_type = 1
 
+[node name="AREA_RESPAWN" type="Area2D" parent="."]
+position = Vector2(2212, 1166)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_RESPAWN"]
+position = Vector2(-26, 53)
+shape = SubResource("RectangleShape2D_dt05x")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("6_sf2hh")]
 visible = false
 
+[node name="RESET_AGAIN_LOST" parent="CanvasLayer" instance=ExtResource("14_8uhkm")]
+
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="AREA_RESPAWN" to="." method="_on_area_respawn_body_entered"]

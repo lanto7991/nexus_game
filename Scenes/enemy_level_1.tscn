@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dnndsrv6gwg17"]
+[gd_scene load_steps=41 format=3 uid="uid://dnndsrv6gwg17"]
 
 [ext_resource type="Script" path="res://Scenes/enemy_level_1.gd" id="1_d7cwe"]
 [ext_resource type="Texture2D" uid="uid://bblongx7c2q1e" path="res://Sprites/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Sheet.png" id="1_p0tq1"]
@@ -275,6 +275,9 @@ radius = 15.0333
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogk16"]
 radius = 15.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmypm"]
+size = Vector2(16, 5)
+
 [node name="enemy_level1" type="CharacterBody2D"]
 script = ExtResource("1_d7cwe")
 
@@ -296,6 +299,23 @@ autostart = true
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_ogk16")
 
+[node name="Area_Enemy_Damage" type="Area2D" parent="hitbox"]
+
+[node name="enemy_pb" type="ProgressBar" parent="hitbox/Area_Enemy_Damage"]
+texture_filter = 2
+texture_repeat = 1
+offset_left = -10.0
+offset_top = -12.0
+offset_right = 8.0
+offset_bottom = -6.0
+value = 100.0
+show_percentage = false
+
+[node name="colision_damage_enemy" type="CollisionShape2D" parent="hitbox/Area_Enemy_Damage"]
+position = Vector2(-1, -13)
+shape = SubResource("RectangleShape2D_jmypm")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="hitbox/Area_Enemy_Damage" to="." method="_on_area_enemy_damage_body_entered"]

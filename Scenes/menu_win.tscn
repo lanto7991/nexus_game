@@ -1,18 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bffjq4r1cya83"]
+[gd_scene load_steps=4 format=3 uid="uid://bffjq4r1cya83"]
 
 [ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="1_b0242"]
 [ext_resource type="Script" path="res://Scenes/menu_win.gd" id="1_xucje"]
-[ext_resource type="FontFile" uid="uid://bne0sj7mkbf5r" path="res://Fonts/BEATTECH-Line.otf" id="2_5q4qh"]
-
-[sub_resource type="Theme" id="Theme_wa3h2"]
+[ext_resource type="FontFile" uid="uid://bl4pib2o800is" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Bold.otf" id="3_qaqle"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -761.0
+offset_top = -491.0
+offset_right = -761.0
+offset_bottom = -491.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.75609, 2.03513)
 script = ExtResource("1_xucje")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -32,22 +35,15 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(15, 30)
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_wa3h2")
-theme_override_fonts/font = ExtResource("2_5q4qh")
-text = "Has completado el nivel 1"
-editable = false
-context_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-autowrap_mode = 2
-use_default_word_separators = false
+theme_override_fonts/font = ExtResource("3_qaqle")
+text = "HAS COMPLETADO EL NIVEL 1"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qaqle")
+text = "Reiniciar"
 
 [node name="BackMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -59,5 +55,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_b0242")
 text = "Salir"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackMenu" to="." method="_on_back_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
