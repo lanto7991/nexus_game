@@ -4,6 +4,11 @@ extends CharacterBody2D
 @export var speed = 300
 @export var jump_force = -500
 @export var maxHealth = 30
+const bulletLoad = preload("res://Scripts/bullet.tscn")
+
+
+@onready var sfx_des_arma = $sfx_des_arma
+@onready var sfx_jump = $sfx_jump
 
 #@onready var Bala = load("res://escenas/bala.tscn")
 @onready var currentHealth: int = maxHealth
@@ -44,15 +49,42 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_force
+		sfx_jump.play()
 
 	elif not is_on_floor():
 		$AnimatedSprite2D.play("saltar")
+		
 	
 	#instancia el doble salto 
 	#if not is_on_floor() and Input.is_action_just_pressed("ui_accept"):
 	#	velocity.y = jump2  #creando la constante o varia
 	
-	#shoot
-	var shoot_gun = Input.is_action_pressed("shoot")
+	#animated shoot
+
 	if Input.is_action_pressed("shoot"):
 		$AnimatedSprite2D.play("shoot_guns")
+		sfx_des_arma.play()
+		shoot()
+	
+func shoot():
+	var bullet = bulletLoad.instantiate()	
+	get_parent().add_child(bullet)
+	bullet.position = $position/Marker2D.global_position
+	
+	
+	
+	#instance.dir = rotation
+	#instance.spanwPos = global_position
+	#instance.spawnRot = rotation
+	#get_tree().root.add_child(instance)
+	
+	
+	
+	#var mouse_position = get_global_mouse_position()
+	#var mouse_direction = (mouse_position - global_position).normalized()
+	
+	#var bullet_speed = 500
+	
+	#instance.velocity = mouse_direction * bullet_speed
+	
+	

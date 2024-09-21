@@ -10,6 +10,18 @@ class_name enemy_lvl1
 
 @onready var text_points = $"../Player/Camera2D/Status/Label"
 
+@onready var bullet = $"../Player/Bullet"
+
+@onready var timer = $"../Timer"
+
+@onready var jugador_p = $"../Player"
+
+@onready var score = $Score
+
+@onready var area_respanw = $"../AREA_RESPAWN"
+
+
+
 var points: int = 0
 
 const speed = 50
@@ -19,9 +31,6 @@ var is_enemy_chase: bool = true
 var healt = 80
 var healt_max = 80
 var healt_min = 0
-
-
-
  
 var dead: bool = false
 
@@ -32,7 +41,7 @@ var is_dealing_damage: bool = false
 var dir: Vector2
 const gravity = 800
 
-var knockback_force = -200
+var knockback_force = -50
 var is_roaming: bool = true
 
 var player: CharacterBody2D
@@ -40,6 +49,7 @@ var player_in_area = false
 
 #Movement for a enemy
 func _process(delta: float) -> void:
+	
 	var life_enemy_bar = enemy_pb
 	
 	if !is_on_floor():
@@ -106,10 +116,6 @@ func _on_timer_timeout() -> void:
 func choose(array):
 	array.shuffle()
 	return array.front()
-
-
-
-	
 	
 
 #funcion para bajar vida personaje
@@ -118,13 +124,13 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	var max_value = life_bar.value
 	var min_value = life_bar.min_value
 	
-	if body == player:
-		life_bar.value = max_value / 1.7
+	if body == jugador_p:
+		life_bar.value = max_value / 2
 		
 		
-
+		
 #funcion para eliminar enemigos
-func _on_area_enemy_damage_body_entered(body: Node2D) -> void:
+func _on_area_enemy_damage_body_entered(body: CharacterBody2D) -> void:
 	var life_bar: ProgressBar = progress_bar
 	var life_enemy_bar = enemy_pb
 	
@@ -132,13 +138,13 @@ func _on_area_enemy_damage_body_entered(body: Node2D) -> void:
 	var min_ene_valu = life_enemy_bar.min_value
 	
 	if body == player:
-		life_enemy_bar.value = max_ene_value / 75
-		#life_bar.value = life_bar.value * 1.2
-		
-	if life_enemy_bar.value < 1:
-			self.queue_free()
-			points += 1
-			print(points)
-			text_points.text = "Puntuacion: %d " % points
-		
+		life_enemy_bar.value = max_ene_value / 75		
+			
+	if life_enemy_bar.value == 0:
+		self.queue_free()
+		if score.v_score == 100:
+			score.v_score+=1
+			text_points.text = "Puntuacion: %s " % score
 	
+func _on_area_enemy_damage_area_entered(body: CharacterBody2D) -> void:
+	pass

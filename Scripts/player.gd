@@ -8,16 +8,21 @@ extends CharacterBody2D
 @onready var MenuPausa = $pause_menu
 
 @onready var animation = $AnimationPlayer
-	
+
+@onready var bullet = $Player/Bullet
+
 
 func _ready():
 	Global.playerBody = self
+	bullet.visible = true
 
 func _on_enemyDetector_body_entered(body: Node) -> void:
 	get_tree().reload_current_scene()
 
 #funcion para setear movimiento del personaje
 func _physics_process(delta):
+	
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta	
 		

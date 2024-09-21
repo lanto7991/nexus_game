@@ -14,6 +14,10 @@ extends Node2D
 
 @onready var progress_bar = $Player/Camera2D/Status/ProgressBarLife
 
+@onready var audio_win = $Area2D2/audio_win
+
+@onready var audio_main = $AudioStreamPlayer
+
 var pause = false
 
 var win_bar = false
@@ -55,10 +59,9 @@ func _wingame():
 
 
 func _resetlevel():
-	if progress_bar.value < 1 and resetMenuVar==false:
-		#reset_menu.visible = true
-		#Engine.time_scale = 0	
-		get_tree().reload_current_scene()	
+	if progress_bar.value < 1:
+		reset_menu.visible = true
+		Engine.time_scale = 0	
 
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
@@ -66,7 +69,8 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 		winMenuVar = true
 		win_menu.visible = true
 		Engine.time_scale = 0
-		
+		audio_win.play()
+		audio_main.stop()
 		
 	
 

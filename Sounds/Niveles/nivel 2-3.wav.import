@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djtjcqisxp8fy"
+path="res://.godot/imported/nivel 2-3.wav-e814b875aca6cef03f1e6c7a5f87792c.sample"
+
+[deps]
+
+source_file="res://Sounds/Niveles/nivel 2-3.wav"
+dest_files=["res://.godot/imported/nivel 2-3.wav-e814b875aca6cef03f1e6c7a5f87792c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

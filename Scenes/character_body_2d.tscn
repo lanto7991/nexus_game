@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bvlqaupuqs2g"]
+[gd_scene load_steps=38 format=3 uid="uid://bvlqaupuqs2g"]
 
 [ext_resource type="Script" path="res://Scenes/player_script.gd" id="1_ferc2"]
 [ext_resource type="Texture2D" uid="uid://cu6gt3rytf5o" path="res://Sprites/sandrolfio/sandrolfio.png" id="2_5xghd"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://1dedo8mf2ce8" path="res://Sprites/sandrolfio/salta roberto.png" id="3_prdye"]
 [ext_resource type="Texture2D" uid="uid://bfdh5q36su56e" path="res://Sprites/transiciones_alreves/granizado.png" id="4_4ftpo"]
 [ext_resource type="Texture2D" uid="uid://c2hb400bmxrsi" path="res://Sprites/transiciones_alreves/sambayon.png" id="6_h574p"]
+[ext_resource type="AudioStream" uid="uid://bra3e8246c6d7" path="res://Sounds/disparo 1.mp3" id="7_y0qfi"]
+[ext_resource type="AudioStream" uid="uid://dpcl3bb1hyhvf" path="res://Sounds/salto.mp3" id="8_k5jee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xci8"]
 size = Vector2(52, 98)
@@ -227,7 +229,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ferc2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -239,3 +241,15 @@ position = Vector2(16, -69)
 scale = Vector2(0.254329, 0.191324)
 sprite_frames = SubResource("SpriteFrames_onq2b")
 animation = &"idle"
+
+[node name="position" type="Node2D" parent="."]
+position = Vector2(76, -68)
+
+[node name="Marker2D" type="Marker2D" parent="position"]
+position = Vector2(0, 7.62939e-06)
+
+[node name="sfx_des_arma" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_y0qfi")
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_k5jee")
