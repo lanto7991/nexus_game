@@ -80,3 +80,12 @@ func _on_area_respawn_body_entered(body: Node2D) -> void:
 		get_tree().reload_current_scene()
 		progress_bar.value = progress_bar.value / 1.5
 		
+
+
+func _on_needle_damage_body_entered(body: Node2D) -> void:
+	var life_bar: ProgressBar = progress_bar
+	var max_value = life_bar.value
+	var min_value = life_bar.min_value
+	
+	if body == player:
+		life_bar.value = max_value / -0.8

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcjo8vbgsx2i1"]
+
+[ext_resource type="Texture2D" uid="uid://dxwla1vuxouxg" path="res://Sprites/mate_sprite.png" id="1_ajuq2"]
+[ext_resource type="Script" path="res://Sprites/mate_heal.gd" id="1_bc8rf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5hvl"]
+size = Vector2(82, 69)
+
+[node name="Mate_heal" type="Area2D"]
+scale = Vector2(1.863, 2.11102)
+script = ExtResource("1_bc8rf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30, -25)
+scale = Vector2(0.0932878, 0.114286)
+texture = ExtResource("1_ajuq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, -24.5)
+shape = SubResource("RectangleShape2D_y5hvl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

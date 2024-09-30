@@ -6,7 +6,7 @@ class_name enemy_lvl1
 
 @onready var resetLost = $"../CanvasLayer/RESET_AGAIN_LOST"
 
-@onready var enemy_pb = $hitbox/Area_Enemy_Damage/enemy_pb
+@onready var enemy_pb = $hitbox/enemy_pb
 
 @onready var text_points = $"../Player/Camera2D/Status/Label"
 
@@ -124,27 +124,16 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	var max_value = life_bar.value
 	var min_value = life_bar.min_value
 	
+	var life_enemy_bar = enemy_pb	
+	var max_ene_value = life_enemy_bar.value
+	var min_ene_valu = life_enemy_bar.min_value
+		
 	if body == jugador_p:
 		life_bar.value = max_value / 2
 		
-		
-		
-#funcion para eliminar enemigos
-func _on_area_enemy_damage_body_entered(body: CharacterBody2D) -> void:
-	var life_bar: ProgressBar = progress_bar
-	var life_enemy_bar = enemy_pb
-	
-	var max_ene_value = life_enemy_bar.value
-	var min_ene_valu = life_enemy_bar.min_value
-	
-	if body == player:
-		life_enemy_bar.value = max_ene_value / 75		
-			
-	if life_enemy_bar.value == 0:
+	if body == bullet:
+		life_enemy_bar.value = max_ene_value / 75
 		self.queue_free()
-		if score.v_score == 100:
-			score.v_score+=1
-			text_points.text = "Puntuacion: %s " % score
-	
-func _on_area_enemy_damage_area_entered(body: CharacterBody2D) -> void:
-	pass
+			
+	if life_enemy_bar.value < 1:
+		self.queue_free()

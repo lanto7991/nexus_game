@@ -9,12 +9,14 @@ extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
 
-@onready var bullet = $Player/Bullet
+@onready var enemy_player = $enemy_level1
+
+@onready var coins = $coins
+
 
 
 func _ready():
 	Global.playerBody = self
-	bullet.visible = true
 
 func _on_enemyDetector_body_entered(body: Node) -> void:
 	get_tree().reload_current_scene()
@@ -41,12 +43,13 @@ func _process(delta: float) -> void:
 	var right = Input.is_action_pressed("move_right")
 	var left = Input.is_action_pressed("move_left")
 	
+	var enemy_bar = enemy_player.enemy_pb
+	
 	if right:
 		animation.play("move")
 	elif left:
 		animation.play("move")
-		
-	
 	
 	move_and_slide()
+	
 	

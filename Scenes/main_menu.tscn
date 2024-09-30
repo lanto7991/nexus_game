@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8woacb8mt2bp"]
+[gd_scene load_steps=7 format=3 uid="uid://b8woacb8mt2bp"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_36v3g"]
 [ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="2_kkaxw"]
+[ext_resource type="Texture2D" uid="uid://c8v2ht7ma64w2" path="res://img/btn_play.png" id="3_1ccg2"]
 [ext_resource type="Texture2D" uid="uid://boky0ud8003tm" path="res://img/Fondo.jpg" id="3_ulkrq"]
 [ext_resource type="Texture2D" uid="uid://bfu0c6f0k12ct" path="res://img/Nexus-logo.png" id="4_ptyi6"]
 [ext_resource type="AudioStream" uid="uid://fpn71r1pi1ni" path="res://Sounds/Banda Sonora_intro CM.wav" id="5_w0bnp"]
@@ -11,14 +12,18 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 81.0
+offset_right = 24.0
+offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 143.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 183.0
 script = ExtResource("1_36v3g")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
@@ -29,10 +34,10 @@ anchor_left = -37.4
 anchor_top = 11.837
 anchor_right = -37.4
 anchor_bottom = 11.837
-offset_left = 1922.0
-offset_top = 36.52
-offset_right = 3084.0
-offset_bottom = 931.52
+offset_left = 2193.0
+offset_top = 181.52
+offset_right = 3355.0
+offset_bottom = 1076.52
 scale = Vector2(0.996239, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
@@ -46,15 +51,11 @@ custom_minimum_size = Vector2(20, 94.945)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_kkaxw")
 theme_override_font_sizes/font_size = 60
-text = "Jugar"
-
-[node name="Exit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(20, 94.945)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_kkaxw")
-theme_override_font_sizes/font_size = 60
-text = "Salir"
+keep_pressed_outside = true
+icon = ExtResource("3_1ccg2")
+flat = true
+text_overrun_behavior = 2
+autowrap_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="Menu"]
 anchor_mode = 0
@@ -66,18 +67,17 @@ texture_filter = 1
 motion_scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-3.00003, -41)
-scale = Vector2(1.00156, 1.07315)
+position = Vector2(-6, -8)
+scale = Vector2(1.00938, 1.06759)
 texture = ExtResource("3_ulkrq")
 centered = false
 
-[node name="SinTítulo-1MesaDeTrabajo1" type="Sprite2D" parent="."]
-position = Vector2(1000, 306)
-scale = Vector2(0.295753, 0.305322)
+[node name="Nexus-logo" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1004, 408)
+scale = Vector2(1.04375, 1.02593)
 texture = ExtResource("4_ptyi6")
 
 [node name="audio_main_menu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_w0bnp")
 
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]

@@ -4,7 +4,18 @@ extends CharacterBody2D
 @export var speed = 300
 @export var jump_force = -500
 @export var maxHealth = 30
+
 const bulletLoad = preload("res://Scripts/bullet.tscn")
+
+@export var shootSpeed = 1.0
+@onready var marker = $position/Marker2D
+@onready var timer = $shootSpeedTimer
+
+var canShoot = true
+
+var bulletDirection = Vector2(1,0)
+
+@onready var dir = $"."
 
 
 @onready var sfx_des_arma = $sfx_des_arma
@@ -19,6 +30,8 @@ var isHurt: bool = false
 func _ready():
 	Global.playerBody = self
 	$AnimatedSprite2D.play("idle")
+	timer.wait_time = 1.0 / shootSpeed
+	
 	
 func _on_enemyDetector_body_entered(body: Node) -> void:
 	get_tree().reload_current_scene()
@@ -61,30 +74,41 @@ func _physics_process(delta: float) -> void:
 	
 	#animated shoot
 
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot"):
 		$AnimatedSprite2D.play("shoot_guns")
 		sfx_des_arma.play()
 		shoot()
 	
-func shoot():
-	var bullet = bulletLoad.instantiate()	
-	get_parent().add_child(bullet)
-	bullet.position = $position/Marker2D.global_position
+func shoot():	
+	if canShoot:
+		canShoot = false
+		timer.start()
+		var bulletNode = bulletLoad.instantiate()	
+		
+		bulletNode.position = $position/Marker2D.global_position
+		
+		get_tree().root.add_child(bulletNode)
+		
+		bulletNode.global_position = marker.global_position			
+			
+func _on_shoot_speed_timer_timeout() -> void:
+	canShoot = true
 	
+func setup_direction(direction):
+	bulletDirection = direction
 	
-	
-	#instance.dir = rotation
-	#instance.spanwPos = global_position
-	#instance.spawnRot = rotation
-	#get_tree().root.add_child(instance)
-	
-	
-	
-	#var mouse_position = get_global_mouse_position()
-	#var mouse_direction = (mouse_position - global_position).normalized()
-	
-	#var bullet_speed = 500
-	
-	#instance.velocity = mouse_direction * bullet_speed
-	
-	
+	if direction.x > 0:
+		scale.x = 1
+		rotation_degrees = 0
+	elif direction.x < 0:
+		scale.x = -1
+		rotation_degrees = 0	
+	elif direction.y < 0:
+		scale.x = 1
+		rotation_degrees = -90	
+	elif direction.y > 0:
+		scale.x = 1
+		rotation_degrees = 90		
+		
+		
+	 

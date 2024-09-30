@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bvlqaupuqs2g"]
+[gd_scene load_steps=47 format=3 uid="uid://bvlqaupuqs2g"]
 
 [ext_resource type="Script" path="res://Scenes/player_script.gd" id="1_ferc2"]
 [ext_resource type="Texture2D" uid="uid://cu6gt3rytf5o" path="res://Sprites/sandrolfio/sandrolfio.png" id="2_5xghd"]
@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://1dedo8mf2ce8" path="res://Sprites/sandrolfio/salta roberto.png" id="3_prdye"]
 [ext_resource type="Texture2D" uid="uid://bfdh5q36su56e" path="res://Sprites/transiciones_alreves/granizado.png" id="4_4ftpo"]
 [ext_resource type="Texture2D" uid="uid://c2hb400bmxrsi" path="res://Sprites/transiciones_alreves/sambayon.png" id="6_h574p"]
+[ext_resource type="Texture2D" uid="uid://cvxifk5dhbkic" path="res://Sprites/sprite_movements.png" id="6_ybrpx"]
 [ext_resource type="AudioStream" uid="uid://bra3e8246c6d7" path="res://Sounds/disparo 1.mp3" id="7_y0qfi"]
 [ext_resource type="AudioStream" uid="uid://dpcl3bb1hyhvf" path="res://Sounds/salto.mp3" id="8_k5jee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xci8"]
-size = Vector2(52, 98)
+size = Vector2(66, 98)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5j7e"]
 atlas = ExtResource("2_5xghd")
@@ -84,10 +85,6 @@ region = Rect2(720, 0, 240, 1080)
 atlas = ExtResource("3_prdye")
 region = Rect2(960, 0, 240, 1080)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmvah"]
-atlas = ExtResource("3_prdye")
-region = Rect2(1200, 0, 240, 1080)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vf1a6"]
 atlas = ExtResource("3_prdye")
 region = Rect2(1440, 0, 240, 1080)
@@ -95,6 +92,42 @@ region = Rect2(1440, 0, 240, 1080)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hgyb3"]
 atlas = ExtResource("3_prdye")
 region = Rect2(1680, 0, 240, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ief2"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(2, 5454, 499, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npdvv"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(501, 5454, 499, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npaqf"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(1000, 5454, 499, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kv6t"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(1499, 5454, 499, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnl3y"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(1998, 5454, 499, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjg6h"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(2497, 5454, 499, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhv4j"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(2996, 5454, 499, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2t3c"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(3495, 5454, 499, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5kyg"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(3994, 5454, 499, 909)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jesba"]
 atlas = ExtResource("6_h574p")
@@ -193,13 +226,37 @@ animations = [{
 "texture": SubResource("AtlasTexture_37tdb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gmvah")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_vf1a6")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hgyb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ief2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npdvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npaqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kv6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnl3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjg6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhv4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2t3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5kyg")
 }],
 "loop": true,
 "name": &"saltar",
@@ -226,21 +283,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot_guns",
-"speed": 20.0
+"speed": 35.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(1.54194, 1.69782)
 script = ExtResource("1_ferc2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(19, -64)
+position = Vector2(12, -64)
 shape = SubResource("RectangleShape2D_5xci8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, -69)
-scale = Vector2(0.254329, 0.191324)
+position = Vector2(18.1498, -73.0348)
+scale = Vector2(0.340974, 0.278157)
 sprite_frames = SubResource("SpriteFrames_onq2b")
-animation = &"idle"
+animation = &"shoot_guns"
 
 [node name="position" type="Node2D" parent="."]
 position = Vector2(76, -68)
@@ -253,3 +311,7 @@ stream = ExtResource("7_y0qfi")
 
 [node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_k5jee")
+
+[node name="shootSpeedTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="shootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]

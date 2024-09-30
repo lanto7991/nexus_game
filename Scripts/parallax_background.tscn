@@ -1,15 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7thcqoc2jqaq"]
 
-[ext_resource type="Texture2D" uid="uid://b1hjn8lp42yy2" path="res://img/Fondo/cielo_00000.png" id="1_y0b76"]
-[ext_resource type="Texture2D" uid="uid://dsgulrns0bpwn" path="res://img/Fondo/Estrellas_00000.png" id="2_7gayc"]
-[ext_resource type="Texture2D" uid="uid://cx2xfsnu2to3v" path="res://img/Fondo/Edificios fondo.png" id="2_dkeup"]
+[ext_resource type="Texture2D" uid="uid://d2u1g548hgkjb" path="res://img/background_lvl1/sky.png" id="1_vw5vp"]
+[ext_resource type="Texture2D" uid="uid://b2nod8eiygpja" path="res://img/background_lvl1/stars.png" id="2_wypcj"]
 [ext_resource type="Texture2D" uid="uid://b3vdmquqki4k7" path="res://img/Fondo/Edificios neon_00000.png" id="3_8cyjs"]
-[ext_resource type="Texture2D" uid="uid://vmlocd2lltdc" path="res://img/Fondo/Glow suelo_00000.png" id="5_4mteu"]
+[ext_resource type="Texture2D" uid="uid://chv5bvhohgsaq" path="res://img/background_lvl1/building_background.png" id="3_jk05a"]
+[ext_resource type="Texture2D" uid="uid://crvry6c5gons8" path="res://img/background_lvl1/neon_bulding.png" id="5_37lcq"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-offset = Vector2(-14.525, 0)
-scale = Vector2(0.275, 0.16)
-transform = Transform2D(0.275, 0, 0, 0.16, -14.525, 0)
+scale = Vector2(0.2, 0.155)
+transform = Transform2D(0.2, 0, 0, 0.155, 0, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 texture_filter = 1
@@ -18,7 +17,7 @@ motion_mirroring = Vector2(1920, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(-81, -820)
 scale = Vector2(2.87677, 7.24452)
-texture = ExtResource("1_y0b76")
+texture = ExtResource("1_vw5vp")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
@@ -28,7 +27,7 @@ motion_mirroring = Vector2(1920, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
 position = Vector2(-81, -820)
 scale = Vector2(3.73698, 7.24452)
-texture = ExtResource("2_7gayc")
+texture = ExtResource("2_wypcj")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
@@ -38,7 +37,7 @@ motion_mirroring = Vector2(1920, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(-81, -820)
 scale = Vector2(2.87677, 7.24452)
-texture = ExtResource("2_dkeup")
+texture = ExtResource("3_jk05a")
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
@@ -58,5 +57,5 @@ motion_mirroring = Vector2(1920, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
 position = Vector2(-81, -820)
 scale = Vector2(3.73698, 7.24452)
-texture = ExtResource("5_4mteu")
+texture = ExtResource("5_37lcq")
 centered = false

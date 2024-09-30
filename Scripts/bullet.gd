@@ -7,15 +7,15 @@ extends CharacterBody2D
 var vel = Vector2(1, 0)
 
 func _ready() -> void:
-	speed = 0
+	pass
 	
 func _physics_process(_delta):
 	#move bullet
-	self.visible = true
 	speed = 100
 	var collision_info = move_and_collide(vel.normalized() * _delta * speed)
 	
-	if timer.contador == 1:
+	
+	if timer.contador == 0.5:
 		self.queue_free()
 		
 	
