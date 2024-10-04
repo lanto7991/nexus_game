@@ -15,7 +15,7 @@ func _physics_process(_delta):
 	var collision_info = move_and_collide(vel.normalized() * _delta * speed)
 	
 	
-	if timer.contador == 0.5:
+	if timer.contador == 1:
 		self.queue_free()
 		
 	

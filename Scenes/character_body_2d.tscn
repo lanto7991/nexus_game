@@ -209,6 +209,11 @@ animations = [{
 "name": &"move_L",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_21l3q")
@@ -298,7 +303,7 @@ shape = SubResource("RectangleShape2D_5xci8")
 position = Vector2(18.1498, -73.0348)
 scale = Vector2(0.340974, 0.278157)
 sprite_frames = SubResource("SpriteFrames_onq2b")
-animation = &"shoot_guns"
+animation = &"move"
 
 [node name="position" type="Node2D" parent="."]
 position = Vector2(76, -68)

@@ -131,9 +131,30 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body == jugador_p:
 		life_bar.value = max_value / 2
 		
-	if body == bullet:
-		life_enemy_bar.value = max_ene_value / 75
+	if body.is_in_group("bullet"):
+		body.queue_free()
 		self.queue_free()
+	
+		
+	#if body == bullet:
+	#	life_enemy_bar.value = max_ene_value / 75
+	#	self.queue_free()
 			
 	if life_enemy_bar.value < 1:
 		self.queue_free()
+
+
+func _on_area_damage_enemy_body_entered(body: Node2D) -> void:
+	var life_bar: ProgressBar = progress_bar
+	var max_value = life_bar.value
+	var min_value = life_bar.min_value
+	
+	var life_enemy_bar = enemy_pb	
+	var max_ene_value = life_enemy_bar.value
+	var min_ene_valu = life_enemy_bar.min_value
+	
+	if body == player:
+		life_enemy_bar.value = max_ene_value / 75
+	if life_enemy_bar.value < 1:
+		self.queue_free()
+	
