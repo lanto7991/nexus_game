@@ -274,6 +274,7 @@ radius = 18.0278
 size = Vector2(34, 9)
 
 [node name="enemy_level1" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(1.43122, 1.43122)
 script = ExtResource("1_d7cwe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

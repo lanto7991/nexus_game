@@ -32,7 +32,7 @@ radius = 31.3209
 script = ExtResource("1_c4kuc")
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(8000, 641)
+position = Vector2(6178, 445)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(0, 2.5)
@@ -49,7 +49,7 @@ stream = ExtResource("3_1w1u4")
 
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
 position = Vector2(332, 753)
-scale = Vector2(0.812009, 0.764312)
+scale = Vector2(1.00673, 1.05935)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.2, 1.2)
@@ -62,7 +62,7 @@ offset_bottom = 567.852
 scale = Vector2(0.421239, 0.64367)
 
 [node name="Status" type="Sprite2D" parent="Player/Camera2D"]
-position = Vector2(733.982, -524.655)
+position = Vector2(527.448, -318.12)
 scale = Vector2(0.588266, 0.521989)
 texture = ExtResource("6_xj5tw")
 

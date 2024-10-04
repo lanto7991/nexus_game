@@ -288,11 +288,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot_guns",
-"speed": 35.0
+"speed": 75.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(1.54194, 1.69782)
+scale = Vector2(1.13492, 1.24966)
 script = ExtResource("1_ferc2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -300,10 +300,10 @@ position = Vector2(12, -64)
 shape = SubResource("RectangleShape2D_5xci8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(18.1498, -73.0348)
+position = Vector2(38.2635, -73.0348)
 scale = Vector2(0.340974, 0.278157)
 sprite_frames = SubResource("SpriteFrames_onq2b")
-animation = &"move"
+animation = &"shoot_guns"
 
 [node name="position" type="Node2D" parent="."]
 position = Vector2(76, -68)
