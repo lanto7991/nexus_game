@@ -10,6 +10,7 @@ const bulletLoad = preload("res://Scripts/bullet.tscn")
 @export var shootSpeed = 1.0
 @onready var marker = $position/Marker2D
 @onready var timer = $shootSpeedTimer
+@onready var life_bar = $Camera2D/ProgressBarLife
 
 var canShoot = true
 
@@ -26,6 +27,8 @@ var bulletDirection = Vector2(1,0)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var isHurt: bool = false
+
+var input_jump = Input.is_action_just_pressed("jump")
 
 func _ready():
 	Global.playerBody = self
@@ -67,10 +70,18 @@ func _physics_process(delta: float) -> void:
 	elif not is_on_floor():
 		$AnimatedSprite2D.play("saltar")
 		
+	#if is_on_floor() and life_bar.value:
+		#var player = self
+		#$AnimatedSprite2D.play("no_damage")
+		#player.disable_mode = false
+		
 	
 	#instancia el doble salto 
-	#if not is_on_floor() and Input.is_action_just_pressed("ui_accept"):
-	#	velocity.y = jump2  #creando la constante o varia
+	if not is_on_floor() and Input.is_action_just_pressed("jump"):
+		velocity.y = jump_force
+		if velocity.y > 0:
+			velocity.y == 0
+		#creando la constante o varia
 	
 	#animated shoot
 

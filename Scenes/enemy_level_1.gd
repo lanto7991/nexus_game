@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name enemy_lvl1
 
-@onready var progress_bar = $"../Player/Camera2D/Status/ProgressBarLife"
+@onready var progress_bar = $"../Player/Camera2D/ProgressBarLife"
 
 @onready var resetLost = $"../CanvasLayer/RESET_AGAIN_LOST"
 
@@ -140,5 +140,5 @@ func _on_area_damage_enemy_body_entered(body: Node2D) -> void:
 	var min_ene_valu = life_enemy_bar.min_value
 	
 	if body == player:
-		life_enemy_bar.value = max_ene_value / 100
-		self.queue_free()
+		life_enemy_bar.value = max_ene_value / 25
+		pass

@@ -1,0 +1,121 @@
+[gd_scene load_steps=20 format=3 uid="uid://dakofa5c343bg"]
+
+[ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
+[ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
+[ext_resource type="Texture2D" uid="uid://cs4fkx40gliy7" path="res://img/Asset 1_bar.png" id="2_81lty"]
+[ext_resource type="AudioStream" uid="uid://ci1tdr1uhkv0" path="res://Sounds/audio_win.wav" id="3_1w1u4"]
+[ext_resource type="PackedScene" uid="uid://baq8t17uwobey" path="res://Scenes/pause_menu.tscn" id="4_imipb"]
+[ext_resource type="Script" path="res://Scripts/healtBar.gd" id="6_irg20"]
+[ext_resource type="PackedScene" uid="uid://bffjq4r1cya83" path="res://Scenes/menu_win.tscn" id="6_sf2hh"]
+[ext_resource type="Texture2D" uid="uid://dkxtdmqk8ex1" path="res://Sprites/element_name.png" id="6_xj5tw"]
+[ext_resource type="PackedScene" uid="uid://dnndsrv6gwg17" path="res://Scenes/enemy_level_1.tscn" id="11_yjkrd"]
+[ext_resource type="AudioStream" uid="uid://bxowhkobcc5ct" path="res://Sounds/Niveles/nivel 1.wav" id="12_jxtkk"]
+[ext_resource type="PackedScene" uid="uid://t8a1xnd2a6dh" path="res://Scenes/reset_again_lost.tscn" id="14_8uhkm"]
+[ext_resource type="PackedScene" uid="uid://bxr2v3vxh32br" path="res://Scripts/platforms.tscn" id="14_f7gh1"]
+[ext_resource type="PackedScene" uid="uid://b7thcqoc2jqaq" path="res://Scripts/parallax_background.tscn" id="15_xwxor"]
+[ext_resource type="PackedScene" uid="uid://cdgyvwd0gs28p" path="res://Scripts/timer.tscn" id="16_v15fs"]
+[ext_resource type="PackedScene" uid="uid://ckjpjjtojced6" path="res://Scripts/cont.tscn" id="17_5f7pk"]
+[ext_resource type="PackedScene" uid="uid://3fbrm7406g4" path="res://Sprites/portal.tscn" id="17_t6bsp"]
+[ext_resource type="PackedScene" uid="uid://dcjo8vbgsx2i1" path="res://Sprites/mate_heal.tscn" id="18_ej6hd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt05x"]
+size = Vector2(6339, 87)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ix5oo"]
+radius = 195.064
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_c4kuc")
+
+[node name="AREA_RESPAWN" type="Area2D" parent="."]
+visible = false
+position = Vector2(2212, 1166)
+scale = Vector2(4.74818, 2.30122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_RESPAWN"]
+position = Vector2(-56.8639, -82.5649)
+shape = SubResource("RectangleShape2D_dt05x")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("17_t6bsp")]
+position = Vector2(10478, 349)
+scale = Vector2(0.539618, 0.539618)
+
+[node name="Area2D2" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(-7968.6, 177.904)
+scale = Vector2(1.85316, 1.85316)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D2"]
+position = Vector2(4296, -66)
+shape = SubResource("CircleShape2D_ix5oo")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Area2D2"]
+scale = Vector2(0.56408, 0.386311)
+texture = ExtResource("2_81lty")
+
+[node name="audio_win" type="AudioStreamPlayer2D" parent="CharacterBody2D/Area2D2"]
+stream = ExtResource("3_1w1u4")
+
+[node name="Player" parent="." instance=ExtResource("1_hs001")]
+position = Vector2(332, 753)
+scale = Vector2(1.00673, 1.05935)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.2, 1.2)
+
+[node name="pause_menu" parent="Player/Camera2D" instance=ExtResource("4_imipb")]
+offset_left = -1087.43
+offset_top = -586.148
+offset_right = 2412.57
+offset_bottom = 567.852
+scale = Vector2(0.421239, 0.64367)
+
+[node name="Status" type="Sprite2D" parent="Player/Camera2D"]
+position = Vector2(527.448, -318.12)
+scale = Vector2(0.588266, 0.521989)
+texture = ExtResource("6_xj5tw")
+
+[node name="ProgressBarLife" type="ProgressBar" parent="Player/Camera2D/Status"]
+offset_left = -172.0
+offset_top = 13.0
+offset_right = 214.0
+offset_bottom = 63.0
+step = 0.0
+value = 100.0
+rounded = true
+script = ExtResource("6_irg20")
+
+[node name="enemy_level1" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(444, 729)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_jxtkk")
+autoplay = true
+mix_target = 1
+bus = &"Banda Sonora"
+playback_type = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("6_sf2hh")]
+visible = false
+
+[node name="RESET_AGAIN_LOST" parent="CanvasLayer" instance=ExtResource("14_8uhkm")]
+visible = false
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("15_xwxor")]
+
+[node name="Platforms" parent="." instance=ExtResource("14_f7gh1")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Timer" parent="." instance=ExtResource("16_v15fs")]
+
+[node name="Score" parent="." instance=ExtResource("17_5f7pk")]
+
+[node name="Mate_heal4" parent="." instance=ExtResource("18_ej6hd")]
+position = Vector2(4702, 291)
+scale = Vector2(1.44969, 1.44549)
+
+[connection signal="body_entered" from="AREA_RESPAWN" to="." method="_on_area_respawn_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D/Area2D2" to="." method="_on_area_2d_2_body_entered"]

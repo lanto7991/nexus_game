@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player = $"../Player"
 
-@onready var progress_bar = $"../Player/Camera2D/Status/ProgressBarLife"
+@onready var progress_bar = $"../Player/Camera2D/ProgressBarLife"
 
 
 func _on_body_entered(body: Node2D) -> void:

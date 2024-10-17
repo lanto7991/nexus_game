@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bvlqaupuqs2g"]
+[gd_scene load_steps=52 format=3 uid="uid://bvlqaupuqs2g"]
 
 [ext_resource type="Script" path="res://Scenes/player_script.gd" id="1_ferc2"]
 [ext_resource type="Texture2D" uid="uid://cu6gt3rytf5o" path="res://Sprites/sandrolfio/sandrolfio.png" id="2_5xghd"]
@@ -64,6 +64,26 @@ region = Rect2(1280, 0, 320, 1080)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xy4xg"]
 atlas = ExtResource("4_4ftpo")
 region = Rect2(1600, 0, 320, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kvqn"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(4000, 5454, 500, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ead6e"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(3000, 5454, 500, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5u8m"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(2000, 5454, 500, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ju5d"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(1000, 5454, 500, 909)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egscb"]
+atlas = ExtResource("6_ybrpx")
+region = Rect2(0, 5454, 500, 909)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21l3q"]
 atlas = ExtResource("3_prdye")
@@ -209,9 +229,36 @@ animations = [{
 "name": &"move_L",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kvqn")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ead6e")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5u8m")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ju5d")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egscb")
+}],
 "loop": true,
-"name": &"new_animation",
+"name": &"no_damage",
 "speed": 5.0
 }, {
 "frames": [{
@@ -303,7 +350,7 @@ shape = SubResource("RectangleShape2D_5xci8")
 position = Vector2(38.2635, -73.0348)
 scale = Vector2(0.340974, 0.278157)
 sprite_frames = SubResource("SpriteFrames_onq2b")
-animation = &"shoot_guns"
+animation = &"no_damage"
 
 [node name="position" type="Node2D" parent="."]
 position = Vector2(76, -68)

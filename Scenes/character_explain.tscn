@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/character_explain.gd" id="1_cklwy"]
 [ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="2_vp0o4"]
-[ext_resource type="Texture2D" uid="uid://csy8nqa7vi7yn" path="res://img/part1.jpg" id="3_yhkw5"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_8361h"]
+file = "res://img/nexus_480x480.ogg"
 
 [node name="character_explication" type="Control"]
 layout_mode = 3
@@ -13,18 +15,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cklwy")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_base_scale = Vector2(0.5, 0.5)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-motion_scale = Vector2(0.2, 0.2)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(2, 2)
-scale = Vector2(1.2, 1.20222)
-texture = ExtResource("3_yhkw5")
-centered = false
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1077.0
+stream = SubResource("VideoStreamTheora_8361h")
+autoplay = true
+loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 texture_filter = 2

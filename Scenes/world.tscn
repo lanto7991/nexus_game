@@ -1,51 +1,27 @@
-[gd_scene load_steps=22 format=3 uid="uid://dakofa5c343bg"]
+[gd_scene load_steps=18 format=3 uid="uid://dakofa5c343bg"]
 
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
 [ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
-[ext_resource type="Texture2D" uid="uid://cs4fkx40gliy7" path="res://img/Asset 1_bar.png" id="2_81lty"]
-[ext_resource type="AudioStream" uid="uid://ci1tdr1uhkv0" path="res://Sounds/audio_win.wav" id="3_1w1u4"]
 [ext_resource type="PackedScene" uid="uid://baq8t17uwobey" path="res://Scenes/pause_menu.tscn" id="4_imipb"]
 [ext_resource type="Script" path="res://Scripts/healtBar.gd" id="6_irg20"]
+[ext_resource type="Texture2D" uid="uid://yjlof6xlg5my" path="res://Sprites/icon_1.png" id="6_r1t6x"]
 [ext_resource type="PackedScene" uid="uid://bffjq4r1cya83" path="res://Scenes/menu_win.tscn" id="6_sf2hh"]
-[ext_resource type="Texture2D" uid="uid://dkxtdmqk8ex1" path="res://Sprites/element_name.png" id="6_xj5tw"]
+[ext_resource type="Texture2D" uid="uid://dc77bb72qdvar" path="res://Sprites/coin_base.png" id="7_5wbhe"]
 [ext_resource type="PackedScene" uid="uid://dnndsrv6gwg17" path="res://Scenes/enemy_level_1.tscn" id="11_yjkrd"]
 [ext_resource type="AudioStream" uid="uid://bxowhkobcc5ct" path="res://Sounds/Niveles/nivel 1.wav" id="12_jxtkk"]
 [ext_resource type="PackedScene" uid="uid://t8a1xnd2a6dh" path="res://Scenes/reset_again_lost.tscn" id="14_8uhkm"]
 [ext_resource type="PackedScene" uid="uid://bxr2v3vxh32br" path="res://Scripts/platforms.tscn" id="14_f7gh1"]
+[ext_resource type="PackedScene" uid="uid://waohoh80sw5f" path="res://Scripts/portal.tscn" id="15_umspx"]
 [ext_resource type="PackedScene" uid="uid://b7thcqoc2jqaq" path="res://Scripts/parallax_background.tscn" id="15_xwxor"]
 [ext_resource type="PackedScene" uid="uid://cdgyvwd0gs28p" path="res://Scripts/timer.tscn" id="16_v15fs"]
-[ext_resource type="Texture2D" uid="uid://7rg3j44ijleb" path="res://Sprites/needle_lvl1.png" id="16_x3csj"]
 [ext_resource type="PackedScene" uid="uid://ckjpjjtojced6" path="res://Scripts/cont.tscn" id="17_5f7pk"]
-[ext_resource type="PackedScene" uid="uid://dgphyuqi3b0ah" path="res://Scenes/coins.tscn" id="17_uf33v"]
 [ext_resource type="PackedScene" uid="uid://dcjo8vbgsx2i1" path="res://Sprites/mate_heal.tscn" id="18_ej6hd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_px7qx"]
-size = Vector2(100, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt05x"]
 size = Vector2(6339, 87)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jgutt"]
-radius = 31.3209
-
 [node name="World" type="Node2D"]
 script = ExtResource("1_c4kuc")
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(6178, 445)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_px7qx")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D2"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
-scale = Vector2(0.56408, 0.386311)
-texture = ExtResource("2_81lty")
-
-[node name="audio_win" type="AudioStreamPlayer2D" parent="Area2D2"]
-stream = ExtResource("3_1w1u4")
 
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
 position = Vector2(332, 753)
@@ -61,59 +37,96 @@ offset_right = 2412.57
 offset_bottom = 567.852
 scale = Vector2(0.421239, 0.64367)
 
-[node name="Status" type="Sprite2D" parent="Player/Camera2D"]
-position = Vector2(527.448, -318.12)
-scale = Vector2(0.588266, 0.521989)
-texture = ExtResource("6_xj5tw")
-
-[node name="ProgressBarLife" type="ProgressBar" parent="Player/Camera2D/Status"]
-offset_left = -172.0
-offset_top = 13.0
-offset_right = 214.0
-offset_bottom = 63.0
+[node name="ProgressBarLife" type="ProgressBar" parent="Player/Camera2D"]
+offset_left = -640.0
+offset_top = -339.0
+offset_right = -432.0
+offset_bottom = -312.0
 step = 0.0
 value = 100.0
 rounded = true
 script = ExtResource("6_irg20")
 
+[node name="cara" type="Sprite2D" parent="Player"]
+position = Vector2(-697.307, -326.615)
+scale = Vector2(0.217259, 0.217259)
+texture = ExtResource("6_r1t6x")
+
+[node name="monedas" type="Sprite2D" parent="Player"]
+position = Vector2(-703.267, -233.162)
+scale = Vector2(0.161949, 0.161949)
+texture = ExtResource("7_5wbhe")
+
+[node name="Label" type="Label" parent="Player"]
+offset_left = -631.748
+offset_top = -256.761
+offset_right = -591.748
+offset_bottom = -233.761
+scale = Vector2(2.26962, 1.95641)
+text = "0"
+
+[node name="AREA_RESPAWN" type="Area2D" parent="."]
+position = Vector2(2212, 1166)
+scale = Vector2(4.74818, 2.30122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_RESPAWN"]
+position = Vector2(-61.4973, 0)
+shape = SubResource("RectangleShape2D_dt05x")
+
 [node name="enemy_level1" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(444, 729)
+position = Vector2(1554, 705)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level2" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(888, 729)
+position = Vector2(1683, 669)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level3" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(1854, 838)
+position = Vector2(2429, 594)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level4" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(2867, 621)
-scale = Vector2(2.57867, 2.67317)
-
-[node name="enemy_level10" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(3017, 839)
+position = Vector2(3421, 453)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level5" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(3783, 587)
+position = Vector2(3109, 649)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="enemy_level6" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(4980, 833)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="enemy_level7" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(4681, 833)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="enemy_level8" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(4494, 833)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="enemy_level9" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(5670, 365)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="enemy_level10" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(7552, 521)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level11" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(3240, 830)
+position = Vector2(6866, 665)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level12" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(3946, 676)
+position = Vector2(6466, 727)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level13" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(4438, 381)
+position = Vector2(8754, 695)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level14" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(4888, 258)
+position = Vector2(9966, 463)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -122,14 +135,6 @@ autoplay = true
 mix_target = 1
 bus = &"Banda Sonora"
 playback_type = 1
-
-[node name="AREA_RESPAWN" type="Area2D" parent="."]
-position = Vector2(2212, 1166)
-scale = Vector2(4.74818, 2.30122)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_RESPAWN"]
-position = Vector2(-62.5, 53)
-shape = SubResource("RectangleShape2D_dt05x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -149,229 +154,12 @@ visible = false
 
 [node name="Score" parent="." instance=ExtResource("17_5f7pk")]
 
-[node name="needle_damage" type="Area2D" parent="."]
-position = Vector2(588, -222)
-
-[node name="needle_sprite" type="Sprite2D" parent="needle_damage"]
-position = Vector2(2093, 816)
-scale = Vector2(0.158703, 0.152101)
-texture = ExtResource("16_x3csj")
-
-[node name="needle_shape" type="CollisionShape2D" parent="needle_damage"]
-position = Vector2(2088, 814)
-shape = SubResource("CircleShape2D_jgutt")
-
-[node name="needle_damage4" type="Area2D" parent="."]
-position = Vector2(-386, 37)
-
-[node name="needle_sprite" type="Sprite2D" parent="needle_damage4"]
-position = Vector2(2093, 816)
-scale = Vector2(0.158703, 0.152101)
-texture = ExtResource("16_x3csj")
-
-[node name="needle_shape" type="CollisionShape2D" parent="needle_damage4"]
-position = Vector2(2088, 814)
-shape = SubResource("CircleShape2D_jgutt")
-
-[node name="needle_damage2" type="Area2D" parent="."]
-position = Vector2(896, -67)
-
-[node name="needle_sprite" type="Sprite2D" parent="needle_damage2"]
-position = Vector2(2093, 816)
-scale = Vector2(0.158703, 0.152101)
-texture = ExtResource("16_x3csj")
-
-[node name="needle_shape" type="CollisionShape2D" parent="needle_damage2"]
-position = Vector2(2088, 814)
-shape = SubResource("CircleShape2D_jgutt")
-
-[node name="needle_damage3" type="Area2D" parent="."]
-position = Vector2(2721, -550)
-
-[node name="needle_sprite" type="Sprite2D" parent="needle_damage3"]
-position = Vector2(2093, 816)
-scale = Vector2(0.158703, 0.152101)
-texture = ExtResource("16_x3csj")
-
-[node name="needle_shape" type="CollisionShape2D" parent="needle_damage3"]
-position = Vector2(2088, 814)
-shape = SubResource("CircleShape2D_jgutt")
-
-[node name="coins" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(574, 751)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins2" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(627, 749)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins3" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(682, 743)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins4" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1017, 751)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins5" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1063, 750)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins6" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1162, 750)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins7" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1240, 647)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins8" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1371, 573)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins9" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1486, 523)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins10" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1588, 520)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins11" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1772, 847)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins12" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(1923, 846)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins13" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(2009, 848)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins14" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(2155, 703)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins15" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(2406, 501)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins16" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(2497, 511)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins17" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(2567, 507)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins18" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(2676, 536)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins19" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(2741, 621)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins20" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(2805, 631)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins21" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(3105, 860)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins22" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(3165, 861)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins23" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(3312, 849)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins24" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(3390, 845)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins25" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(3703, 605)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins26" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(3870, 611)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins27" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(3987, 699)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins28" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4028, 694)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins29" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4246, 466)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins30" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4281, 461)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins31" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4353, 394)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins32" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4425, 393)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins33" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4482, 398)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins34" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4545, 393)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins35" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4731, 286)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins36" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4769, 280)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins37" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4809, 235)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins38" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(4874, 277)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins39" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(5436, 369)
-scale = Vector2(0.479998, 0.44)
-
-[node name="coins40" parent="." instance=ExtResource("17_uf33v")]
-position = Vector2(5477, 372)
-scale = Vector2(0.479998, 0.44)
-
-[node name="Mate_heal" parent="." instance=ExtResource("18_ej6hd")]
-position = Vector2(1326, 582)
-
-[node name="Mate_heal2" parent="." instance=ExtResource("18_ej6hd")]
-position = Vector2(2304, 563)
-
-[node name="Mate_heal3" parent="." instance=ExtResource("18_ej6hd")]
-position = Vector2(3110, 861)
-
 [node name="Mate_heal4" parent="." instance=ExtResource("18_ej6hd")]
-position = Vector2(4702, 291)
+position = Vector2(1895, 700)
+scale = Vector2(1.44969, 1.44549)
 
-[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[node name="portal" parent="." instance=ExtResource("15_umspx")]
+position = Vector2(10448, 215)
+
 [connection signal="body_entered" from="AREA_RESPAWN" to="." method="_on_area_respawn_body_entered"]
-[connection signal="body_entered" from="needle_damage" to="." method="_on_needle_damage_body_entered"]
-[connection signal="body_entered" from="needle_damage4" to="." method="_on_needle_damage_body_entered"]
-[connection signal="body_entered" from="needle_damage2" to="." method="_on_needle_damage_body_entered"]
-[connection signal="body_entered" from="needle_damage3" to="." method="_on_needle_damage_body_entered"]
+[connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]

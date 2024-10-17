@@ -22,5 +22,10 @@ func _process(delta: float) -> void:
 			contador += 1
 			restTime = seconds
 			print ("The time is: " + str(contador))
+		elif restTime > 20:
+			loop = false
+			contador * 0
+			seconds = 0
+			restTime = seconds
 		else:
 			print ("Time stop")
