@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dakofa5c343bg"]
+[gd_scene load_steps=19 format=3 uid="uid://dakofa5c343bg"]
 
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
 [ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cdgyvwd0gs28p" path="res://Scripts/timer.tscn" id="16_v15fs"]
 [ext_resource type="PackedScene" uid="uid://ckjpjjtojced6" path="res://Scripts/cont.tscn" id="17_5f7pk"]
 [ext_resource type="PackedScene" uid="uid://dcjo8vbgsx2i1" path="res://Sprites/mate_heal.tscn" id="18_ej6hd"]
+[ext_resource type="PackedScene" uid="uid://dgphyuqi3b0ah" path="res://Scenes/coins.tscn" id="18_kuelm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt05x"]
 size = Vector2(6339, 87)
@@ -24,7 +25,7 @@ size = Vector2(6339, 87)
 script = ExtResource("1_c4kuc")
 
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
-position = Vector2(332, 753)
+position = Vector2(224, 749)
 scale = Vector2(1.00673, 1.05935)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -158,8 +159,98 @@ visible = false
 position = Vector2(1895, 700)
 scale = Vector2(1.44969, 1.44549)
 
+[node name="Mate_heal5" parent="." instance=ExtResource("18_ej6hd")]
+position = Vector2(3637, 499)
+scale = Vector2(1.44969, 1.44549)
+
+[node name="Mate_heal6" parent="." instance=ExtResource("18_ej6hd")]
+position = Vector2(7163, 584)
+scale = Vector2(1.44969, 1.44549)
+
+[node name="Mate_heal7" parent="." instance=ExtResource("18_ej6hd")]
+position = Vector2(8512, 626)
+scale = Vector2(1.44969, 1.44549)
+
 [node name="portal" parent="." instance=ExtResource("15_umspx")]
 position = Vector2(10448, 215)
+
+[node name="coins" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(396, 733)
+
+[node name="coins2" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(462, 732)
+
+[node name="coins3" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(532, 734)
+
+[node name="coins4" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(1009, 722)
+
+[node name="coins5" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(1324, 362)
+
+[node name="coins6" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(1583, 357)
+
+[node name="coins7" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(2175, 607)
+
+[node name="coins8" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(2257, 602)
+
+[node name="coins9" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(2667, 555)
+
+[node name="coins10" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(3010, 654)
+
+[node name="coins11" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(3322, 461)
+
+[node name="coins12" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(4033, 866)
+
+[node name="coins13" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(4233, 870)
+
+[node name="coins14" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(4381, 834)
+
+[node name="coins15" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(4830, 826)
+
+[node name="coins16" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(5365, 762)
+
+[node name="coins17" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(5571, 381)
+
+[node name="coins18" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(5997, 690)
+
+[node name="coins19" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(6100, 682)
+
+[node name="coins20" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(7163, 555)
+
+[node name="coins21" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(7355, 552)
+
+[node name="coins22" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(7824, 647)
+
+[node name="coins23" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(9445, 712)
+
+[node name="coins24" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(9548, 709)
+
+[node name="coins25" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(9826, 564)
+
+[node name="coins26" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(324, 735)
 
 [connection signal="body_entered" from="AREA_RESPAWN" to="." method="_on_area_respawn_body_entered"]
 [connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]

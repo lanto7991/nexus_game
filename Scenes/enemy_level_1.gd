@@ -134,11 +134,11 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		self.queue_free()
 
 
-func _on_area_damage_enemy_body_entered(body: Node2D) -> void:	
-	var life_enemy_bar = enemy_pb	
-	var max_ene_value = life_enemy_bar.value
-	var min_ene_valu = life_enemy_bar.min_value
-	
-	if body == player:
-		life_enemy_bar.value = max_ene_value / 25
-		pass
+#func _on_area_damage_enemy_body_entered(body: Node2D) -> void:	
+	#var life_enemy_bar = enemy_pb	
+	#var max_ene_value = life_enemy_bar.value
+	#var min_ene_valu = life_enemy_bar.min_value
+	#
+	#if body == player:
+		#life_enemy_bar.value = max_ene_value / 25
+		#pass

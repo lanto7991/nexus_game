@@ -18,6 +18,10 @@ extends Node2D
 
 @onready var audio_main = $AudioStreamPlayer
 
+@onready var coin = $coin
+
+@onready var label_coins = $Player/Label
+
 var pause = false
 
 var win_bar = false
@@ -29,11 +33,14 @@ var resetMenuVar = false
 func _ready() -> void:
 	Engine.time_scale = 1
 	reset_menu.visible = false
+	Global.contador = 0
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):			
 	_resetlevel()
+	label_coins.text = str(Global.contador)
+	
 	if Input.is_action_just_pressed("pausa") and winMenuVar==false:	
 		pauseMenu()	
 
