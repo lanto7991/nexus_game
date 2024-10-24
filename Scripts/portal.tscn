@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://waohoh80sw5f"]
+[gd_scene load_steps=11 format=3 uid="uid://waohoh80sw5f"]
 
 [ext_resource type="Texture2D" uid="uid://d2ifcuc38aak8" path="res://Sprites/portales.png" id="1_lxek2"]
+[ext_resource type="Script" path="res://Scripts/portal.gd" id="1_m0078"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i35sj"]
 atlas = ExtResource("1_lxek2")
@@ -56,14 +57,15 @@ animations = [{
 radius = 258.306
 
 [node name="portal" type="Area2D"]
+script = ExtResource("1_m0078")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.50003, 27.8452)
 scale = Vector2(0.87303, 0.828642)
 sprite_frames = SubResource("SpriteFrames_elsfw")
 animation = &"idle"
-frame = 4
-frame_progress = 0.642511
+frame = 2
+frame_progress = 0.922106
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 53)

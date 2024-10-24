@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bbs6rpf7fming" path="res://Sprites/plataforma5.png" id="7_8wrnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl1iu"]
-size = Vector2(392, 492)
+size = Vector2(592, 569)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pghfb"]
 size = Vector2(165.75, 58.5)
@@ -27,24 +27,24 @@ script = ExtResource("1_sxwbm")
 position = Vector2(2204, 946)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Edificio3"]
-position = Vector2(-390, 16)
+position = Vector2(-374, 76)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio3"]
-position = Vector2(-380.5, 145.628)
-scale = Vector2(0.072875, 0.161538)
+position = Vector2(-361, 312.186)
+scale = Vector2(0.0984879, 0.224087)
 texture = ExtResource("3_wjy1d")
 
 [node name="Platform Edificio" type="StaticBody2D" parent="."]
 position = Vector2(784, 961)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Edificio"]
-position = Vector2(-390, 49)
+position = Vector2(-290, 122.5)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio"]
-position = Vector2(-386.394, 182.25)
-scale = Vector2(0.0686516, 0.157971)
+position = Vector2(-305.038, 323.5)
+scale = Vector2(0.0889905, 0.208225)
 texture = ExtResource("3_wjy1d")
 
 [node name="Platform Elevate" type="StaticBody2D" parent="."]
@@ -61,36 +61,36 @@ texture = ExtResource("3_nh6sy")
 [node name="platform_medium_elevate" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_medium_elevate"]
-position = Vector2(1018, 790)
+position = Vector2(962, 790)
 scale = Vector2(0.126213, 0.113109)
 texture = ExtResource("4_lyv1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_medium_elevate"]
-position = Vector2(1018.88, 794)
+position = Vector2(963, 796)
 shape = SubResource("RectangleShape2D_f771n")
 
 [node name="platform_medium_elevate2" type="StaticBody2D" parent="."]
 position = Vector2(152, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_medium_elevate2"]
-position = Vector2(1017, 789)
+position = Vector2(922, 792)
 scale = Vector2(0.139977, 0.125443)
 texture = ExtResource("4_lyv1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_medium_elevate2"]
-position = Vector2(1018.88, 794)
+position = Vector2(922, 797)
 shape = SubResource("RectangleShape2D_f771n")
 
 [node name="Platform Edificio2" type="StaticBody2D" parent="."]
 position = Vector2(1839, 948)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Edificio2"]
-position = Vector2(-390, 49)
+position = Vector2(-414, 125)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio2"]
-position = Vector2(-388, 167)
-scale = Vector2(0.0691184, 0.159046)
+position = Vector2(-464.487, 310.374)
+scale = Vector2(0.08824, 0.203046)
 texture = ExtResource("3_wjy1d")
 
 [node name="Platform Elevate2" type="StaticBody2D" parent="."]
@@ -413,8 +413,8 @@ position = Vector2(-390, 49)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio6"]
-position = Vector2(-386.394, 182.25)
-scale = Vector2(0.0686516, 0.157971)
+position = Vector2(-388.5, 151.999)
+scale = Vector2(0.105125, 0.167255)
 texture = ExtResource("3_wjy1d")
 
 [node name="Platform Edificio7" type="StaticBody2D" parent="."]
@@ -425,8 +425,8 @@ position = Vector2(-390, 49)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio7"]
-position = Vector2(-386.394, 182.25)
-scale = Vector2(0.0686516, 0.157971)
+position = Vector2(-439.5, 151.999)
+scale = Vector2(0.0866249, 0.167255)
 texture = ExtResource("3_wjy1d")
 
 [node name="Platform Edificio9" type="StaticBody2D" parent="."]
@@ -437,8 +437,8 @@ position = Vector2(-390, 49)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio9"]
-position = Vector2(-386.394, 182.25)
-scale = Vector2(0.0686516, 0.157971)
+position = Vector2(-394.5, 150.499)
+scale = Vector2(0.105125, 0.167715)
 texture = ExtResource("3_wjy1d")
 
 [node name="Platform Edificio10" type="StaticBody2D" parent="."]
@@ -449,8 +449,8 @@ position = Vector2(-390, 49)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio10"]
-position = Vector2(-386.394, 182.25)
-scale = Vector2(0.0686516, 0.157971)
+position = Vector2(-390.5, 151.499)
+scale = Vector2(0.105625, 0.167408)
 texture = ExtResource("3_wjy1d")
 
 [node name="Platform Edificio8" type="StaticBody2D" parent="."]
@@ -461,8 +461,8 @@ position = Vector2(-390, 49)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio8"]
-position = Vector2(-386.394, 182.25)
-scale = Vector2(0.0686516, 0.157971)
+position = Vector2(-380.5, 265)
+scale = Vector2(0.103125, 0.213595)
 texture = ExtResource("3_wjy1d")
 
 [node name="Platform Edificio12" type="StaticBody2D" parent="."]
@@ -474,8 +474,8 @@ position = Vector2(-390, 49)
 shape = SubResource("RectangleShape2D_hl1iu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform Edificio12"]
-position = Vector2(-386.394, 182.25)
-scale = Vector2(0.0686516, 0.157971)
+position = Vector2(-388.762, 150.834)
+scale = Vector2(0.10476, 0.167612)
 texture = ExtResource("3_wjy1d")
 
 [node name="platform_medium_elevate10" type="StaticBody2D" parent="."]
@@ -518,31 +518,17 @@ shape = SubResource("RectangleShape2D_f771n")
 position = Vector2(8801, -169)
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_medium_elevate13"]
-position = Vector2(1019, 787)
+position = Vector2(1013, 733)
 scale = Vector2(0.139977, 0.125443)
 texture = ExtResource("4_lyv1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_medium_elevate13"]
-position = Vector2(1018.88, 794)
+position = Vector2(1014, 735)
 shape = SubResource("RectangleShape2D_f771n")
 
 [node name="platform_medium_elevate14" type="StaticBody2D" parent="."]
 position = Vector2(8947, -247)
 
-[node name="Sprite2D" type="Sprite2D" parent="platform_medium_elevate14"]
-position = Vector2(1019.6, 790.8)
-scale = Vector2(0.139357, 0.124888)
-texture = ExtResource("4_lyv1r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_medium_elevate14"]
-position = Vector2(1018.88, 794)
-shape = SubResource("RectangleShape2D_f771n")
-
 [node name="Platform Edificio11" type="StaticBody2D" parent="."]
 position = Vector2(9624, 791)
 scale = Vector2(1.27621, 1.27621)
-
-[node name="Sprite2D" type="Sprite2D" parent="Platform Edificio11"]
-position = Vector2(-351.039, 223.318)
-scale = Vector2(0.0686516, 0.157971)
-texture = ExtResource("3_wjy1d")

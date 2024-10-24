@@ -12,29 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4kmy2")
 
-[node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(12, 0)
-layout_mode = 2
-offset_left = 697.0
-offset_top = 642.0
-offset_right = 1213.0
-offset_bottom = 706.0
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_8yubj")
-theme_override_font_sizes/font_size = 60
-text = "REINICIAR"
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 2
-offset_left = 697.0
-offset_top = 710.0
-offset_right = 1212.0
-offset_bottom = 774.0
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_8yubj")
-theme_override_font_sizes/font_size = 60
-text = "VOLVER AL MENU"
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -53,5 +30,20 @@ theme_override_fonts/font = ExtResource("1_8yubj")
 theme_override_font_sizes/font_size = 70
 text = "HAS PERDIDO"
 
-[connection signal="pressed" from="Button" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_8yubj")
+theme_override_font_sizes/font_size = 60
+text = "VOLVER AL MENU"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_8yubj")
+theme_override_font_sizes/font_size = 60
+text = "REINICIAR"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_reset_pressed"]

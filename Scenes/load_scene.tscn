@@ -1,50 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://buwrjqgj4ittu"]
+[gd_scene load_steps=4 format=3 uid="uid://buwrjqgj4ittu"]
 
-[ext_resource type="Texture2D" uid="uid://g2432sg8flst" path="res://img/back1.png" id="3_kme6n"]
+[ext_resource type="Texture2D" uid="uid://7p4om1sol0i7" path="res://img/part1-2.jpg" id="1_p5dy6"]
+
+[sub_resource type="Theme" id="Theme_km0kk"]
 
 [sub_resource type="GDScript" id="GDScript_r723d"]
 script/source = "extends Control
 
+@onready var timer = Global.timer_progress_bar
+@onready var Progress_bar = $ProgressBar
+
 func _ready() -> void:
-	#get_tree().change_scene_to_packed(preload(\"res://Scenes/world.tscn\"))
-	#get_tree().change_scene_to_file(\"res://scenes/main_game.tscn\")
-	get_tree().change_scene_to_packed(preload(\"res://Scenes/world.tscn\"))
+	pass
+	
+func _process(delta: float) -> void:
+	if Progress_bar.value < 100:
+		timer+=0.1
+		Progress_bar.value = timer
 		
-	$Timer.start()
-	
-	
+	if Progress_bar.value == 100:
+		get_tree().change_scene_to_file(\"res://Scenes/world.tscn\")	
 
-
-
-
-
-#method 1
-#@export var load_bar: ProgressBar
-#@export var percentage : Label
-#var scene_path : String
-#var progress : Array
-
-#func _ready() -> void:
-#	scene_path = \"res://Scenes/world.tscn\"
-#	ResourceLoader.load_threaded_request(scene_path)
-
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	ResourceLoader.load_threaded_get_status(scene_path, progress)
-	
-#	load_bar.value = progress[0]
-#	percentage.text = str(progress[0]*100.0)
-	
-#	if load_bar.value >= 1.0:
-#		get_tree().change_scene_to_file(\"res://Scenes/world.tscn\")
-#		ResourceLoader.load_threaded_get(scene_path)
 	
 "
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ugvob"]
-
-[sub_resource type="Theme" id="Theme_g06s8"]
 
 [node name="LoadScene" type="Control"]
 layout_mode = 3
@@ -54,44 +32,22 @@ offset_top = 143.0
 offset_right = 291.0
 offset_bottom = 143.0
 scale = Vector2(1.47914, 1.5015)
+theme = SubResource("Theme_km0kk")
 script = SubResource("GDScript_r723d")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-motion_scale = Vector2(0.2, 0.2)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-256, -416)
-scale = Vector2(1.60761, 1.58907)
-texture = ExtResource("3_kme6n")
-centered = false
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(19.0899, 14.3425)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="ImagenDeWhatsApp2024-08-22ALas16_53_00Dd941e80" type="Sprite2D" parent="."]
-position = Vector2(475.952, 128.538)
-scale = Vector2(0.235758, 0.253722)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(945.828, 535.75)
+scale = Vector2(1.30021, 1.31617)
+texture = ExtResource("1_p5dy6")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-texture_filter = 2
-texture_repeat = 3
-material = SubResource("CanvasItemMaterial_ugvob")
-use_parent_material = true
 layout_mode = 0
-offset_left = 301.527
-offset_top = 251.082
-offset_right = 661.527
-offset_bottom = 329.082
-theme = SubResource("Theme_g06s8")
+offset_left = 588.856
+offset_top = 568.099
+offset_right = 1064.86
+offset_bottom = 598.099
+rounded = true

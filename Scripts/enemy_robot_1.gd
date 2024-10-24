@@ -1,10 +1,8 @@
 extends CharacterBody2D
 
-class_name enemy_lvl1
-
 @onready var progress_bar = $"../Player/Camera2D/ProgressBarLife"
 
-@onready var resetLost = $"../Player/CanvasLayer/RESET_AGAIN_LOST"
+@onready var resetLost = $"../CanvasLayer/RESET_AGAIN_LOST"
 
 @onready var enemy_pb = $hitbox/enemy_pb
 
@@ -20,6 +18,8 @@ class_name enemy_lvl1
 
 @onready var area_respanw = $"../AREA_RESPAWN"
 
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
 
 
 var points: int = 0
@@ -47,20 +47,10 @@ var is_roaming: bool = true
 var player: CharacterBody2D
 var player_in_area = false
 
-#Movement for a enemy
-func _process(delta: float) -> void:
-	
-	var life_enemy_bar = enemy_pb
-	
-	if !is_on_floor():
-		velocity.y += gravity * delta
-		velocity.x = 0
-		
-	player = Global.playerBody
-	
-	move(delta)
-	handle_animation()
-	move_and_slide()
+
+
+func _physics_process(delta: float) -> void:
+	pass
 	
 func move(delta):
 	if !dead:
@@ -110,11 +100,10 @@ func _on_timer_timeout() -> void:
 	
 func choose(array):
 	array.shuffle()
-	return array.front()
-	
+	return array.front()	
 
-#funcion para bajar vida personaje
-func _on_hitbox_body_entered(body: Node2D) -> void:
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	var life_bar: ProgressBar = progress_bar
 	var max_value = life_bar.value
 	var min_value = life_bar.min_value
@@ -124,8 +113,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	var min_ene_valu = life_enemy_bar.min_value
 		
 	if body == jugador_p:
-		life_bar.value = max_value / 1.7
-		
+		life_bar.value = max_value / 2
 		
 	if body.is_in_group("bullet"):
 		body.queue_free()
@@ -133,13 +121,3 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			
 	if life_enemy_bar.value < 1:
 		self.queue_free()
-
-
-#func _on_area_damage_enemy_body_entered(body: Node2D) -> void:	
-	#var life_enemy_bar = enemy_pb	
-	#var max_ene_value = life_enemy_bar.value
-	#var min_ene_valu = life_enemy_bar.min_value
-	#
-	#if body == player:
-		#life_enemy_bar.value = max_ene_value / 25
-		#pass

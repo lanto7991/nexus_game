@@ -25,8 +25,17 @@ size = Vector2(6339, 87)
 script = ExtResource("1_c4kuc")
 
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
-position = Vector2(224, 749)
+position = Vector2(224, 794)
 scale = Vector2(1.00673, 1.05935)
+shootSpeed = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="Control" parent="Player/CanvasLayer" instance=ExtResource("6_sf2hh")]
+visible = false
+
+[node name="RESET_AGAIN_LOST" parent="Player/CanvasLayer" instance=ExtResource("14_8uhkm")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.2, 1.2)
@@ -45,7 +54,6 @@ offset_right = -432.0
 offset_bottom = -312.0
 step = 0.0
 value = 100.0
-rounded = true
 script = ExtResource("6_irg20")
 
 [node name="cara" type="Sprite2D" parent="Player"]
@@ -58,12 +66,12 @@ position = Vector2(-703.267, -233.162)
 scale = Vector2(0.161949, 0.161949)
 texture = ExtResource("7_5wbhe")
 
-[node name="Label" type="Label" parent="Player"]
+[node name="coins_label" type="Label" parent="Player"]
 offset_left = -631.748
 offset_top = -256.761
 offset_right = -591.748
 offset_bottom = -233.761
-scale = Vector2(2.26962, 1.95641)
+scale = Vector2(2.23114, 2.03929)
 text = "0"
 
 [node name="AREA_RESPAWN" type="Area2D" parent="."]
@@ -75,11 +83,19 @@ position = Vector2(-61.4973, 0)
 shape = SubResource("RectangleShape2D_dt05x")
 
 [node name="enemy_level1" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(1554, 705)
+position = Vector2(1265, 739)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="enemy_level16" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(2034, 677)
+scale = Vector2(2.57867, 2.67317)
+
+[node name="enemy_level15" parent="." instance=ExtResource("11_yjkrd")]
+position = Vector2(667, 723)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level2" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(1683, 669)
+position = Vector2(1622, 688)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level3" parent="." instance=ExtResource("11_yjkrd")]
@@ -119,7 +135,7 @@ position = Vector2(6866, 665)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level12" parent="." instance=ExtResource("11_yjkrd")]
-position = Vector2(6466, 727)
+position = Vector2(6220, 652)
 scale = Vector2(2.57867, 2.67317)
 
 [node name="enemy_level13" parent="." instance=ExtResource("11_yjkrd")]
@@ -137,14 +153,6 @@ mix_target = 1
 bus = &"Banda Sonora"
 playback_type = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource("6_sf2hh")]
-visible = false
-
-[node name="RESET_AGAIN_LOST" parent="CanvasLayer" instance=ExtResource("14_8uhkm")]
-visible = false
-
 [node name="ParallaxBackground" parent="." instance=ExtResource("15_xwxor")]
 
 [node name="Platforms" parent="." instance=ExtResource("14_f7gh1")]
@@ -156,7 +164,7 @@ visible = false
 [node name="Score" parent="." instance=ExtResource("17_5f7pk")]
 
 [node name="Mate_heal4" parent="." instance=ExtResource("18_ej6hd")]
-position = Vector2(1895, 700)
+position = Vector2(1745, 509)
 scale = Vector2(1.44969, 1.44549)
 
 [node name="Mate_heal5" parent="." instance=ExtResource("18_ej6hd")]
@@ -173,6 +181,7 @@ scale = Vector2(1.44969, 1.44549)
 
 [node name="portal" parent="." instance=ExtResource("15_umspx")]
 position = Vector2(10448, 215)
+scale = Vector2(0.542343, 0.542343)
 
 [node name="coins" parent="." instance=ExtResource("18_kuelm")]
 position = Vector2(396, 733)
@@ -190,13 +199,13 @@ position = Vector2(1009, 722)
 position = Vector2(1324, 362)
 
 [node name="coins6" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(1583, 357)
+position = Vector2(1625, 365)
 
 [node name="coins7" parent="." instance=ExtResource("18_kuelm")]
 position = Vector2(2175, 607)
 
 [node name="coins8" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(2257, 602)
+position = Vector2(2338, 603)
 
 [node name="coins9" parent="." instance=ExtResource("18_kuelm")]
 position = Vector2(2667, 555)
@@ -226,13 +235,16 @@ position = Vector2(5365, 762)
 position = Vector2(5571, 381)
 
 [node name="coins18" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5997, 690)
+position = Vector2(5891, 665)
 
 [node name="coins19" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6100, 682)
+position = Vector2(6100, 665)
 
 [node name="coins20" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(7163, 555)
+position = Vector2(6607, 659)
+
+[node name="coins27" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(6766, 654)
 
 [node name="coins21" parent="." instance=ExtResource("18_kuelm")]
 position = Vector2(7355, 552)
@@ -241,10 +253,10 @@ position = Vector2(7355, 552)
 position = Vector2(7824, 647)
 
 [node name="coins23" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(9445, 712)
+position = Vector2(9249, 668)
 
 [node name="coins24" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(9548, 709)
+position = Vector2(9548, 668)
 
 [node name="coins25" parent="." instance=ExtResource("18_kuelm")]
 position = Vector2(9826, 564)

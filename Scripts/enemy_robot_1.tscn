@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyv6okx2qvtnq"]
+
+[ext_resource type="Texture2D" uid="uid://caobsk24wcog7" path="res://Sprites/Mesa de trabajo 1@3x.png" id="1_dumpy"]
+[ext_resource type="Script" path="res://Scripts/enemy_robot_1.gd" id="1_rymtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c17dj"]
+size = Vector2(92, 177)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tviae"]
+atlas = ExtResource("1_dumpy")
+region = Rect2(723, 2782, 723, 1391)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63xgy"]
+atlas = ExtResource("1_dumpy")
+region = Rect2(1446, 2782, 723, 1391)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd48h"]
+atlas = ExtResource("1_dumpy")
+region = Rect2(2169, 2782, 723, 1391)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liqwr"]
+atlas = ExtResource("1_dumpy")
+region = Rect2(2892, 2782, 723, 1391)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqxwy"]
+atlas = ExtResource("1_dumpy")
+region = Rect2(3615, 2782, 723, 1391)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6muc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tviae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63xgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd48h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liqwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqxwy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_rymtj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-9, -1.5)
+shape = SubResource("RectangleShape2D_c17dj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(66, -58.2277)
+scale = Vector2(0.292531, 0.28789)
+sprite_frames = SubResource("SpriteFrames_w6muc")
+animation = &"walk"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

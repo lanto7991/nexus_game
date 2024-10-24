@@ -4,9 +4,11 @@ extends Node2D
 
 @onready var win_menu = $CanvasLayer/Control
 
-@onready var reset_menu = $CanvasLayer/RESET_AGAIN_LOST
+@onready var reset_menu = $Player/CanvasLayer/RESET_AGAIN_LOST
 
 @onready var player = $Player
+
+@onready var vidas = $Player/vidas
 
 @onready var text_points = $Player/Camera2D/text_points
 
@@ -20,7 +22,7 @@ extends Node2D
 
 @onready var coin = $coin
 
-@onready var label_coins = $Player/Label
+@onready var label_coins = $Player/coins_label
 
 var pause = false
 
@@ -34,15 +36,19 @@ func _ready() -> void:
 	Engine.time_scale = 1
 	reset_menu.visible = false
 	Global.contador = 0
+	Global.vidas_count = 3
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):			
 	_resetlevel()
-	label_coins.text = str(Global.contador)
+	label_coins.text = str(Global.contador)	
 	
 	if Input.is_action_just_pressed("pausa") and winMenuVar==false:	
 		pauseMenu()	
+		
+	if Global.vidas_count == 0:
+		_resetlevel()	
 
 
 func pauseMenu():
@@ -73,11 +79,8 @@ func _resetlevel():
 
 
 func _on_area_respawn_body_entered(body: Node2D) -> void:
-	if body == player:
+	if body == player:		
 		get_tree().reload_current_scene()
-		progress_bar.value = progress_bar.value / 1.5
-		
-
 
 func _on_needle_damage_body_entered(body: Node2D) -> void:
 	var life_bar: ProgressBar = progress_bar

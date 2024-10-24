@@ -13,3 +13,9 @@ var enemyDamageZone: Area2D
 var enemyDamageAmount: int
 
 var contador = 0
+
+var contador_doblesalto = 0
+
+var timer_progress_bar = 0
+
+var vidas_count = 3

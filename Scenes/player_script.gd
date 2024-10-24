@@ -12,6 +12,9 @@ const bulletLoad = preload("res://Scripts/bullet.tscn")
 @onready var timer = $shootSpeedTimer
 @onready var life_bar = $Camera2D/ProgressBarLife
 
+var double_jump = false
+
+
 var canShoot = true
 
 var bulletDirection = Vector2(1,0)
@@ -41,6 +44,8 @@ func _on_enemyDetector_body_entered(body: Node) -> void:
 
 # Función para manejar la física del personaje
 func _physics_process(delta: float) -> void:
+	shoot()
+		
 	move_and_slide()
 	# Aplicar gravedad si no está en el suelo
 	if not is_on_floor():
@@ -77,37 +82,28 @@ func _physics_process(delta: float) -> void:
 		
 	
 	#instancia el doble salto 
-	if not is_on_floor() and Input.is_action_just_pressed("jump"):
-		velocity.y = jump_force
-		if velocity.y > 0:
-			velocity.y == 0
-		#creando la constante o varia
-	
-	#animated shoot
-
-	if Input.is_action_just_pressed("shoot"):
-		$AnimatedSprite2D.play("shoot_guns")
-		sfx_des_arma.play()
-		shoot()
-	
-func shoot():	
-	if canShoot:
-		canShoot = false
-		timer.start()
-		var bulletNode = bulletLoad.instantiate()	
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = jump_force
+			double_jump = true
+		else:
+			if double_jump:
+				velocity.y = jump_force
+				double_jump = false
 		
-		bulletNode.position = $position/Marker2D.global_position
-		
-		get_tree().root.add_child(bulletNode)
-		
-		bulletNode.global_position = marker.global_position			
+func shoot():			
+		if Input.is_action_just_pressed("shoot"):
 			
-func _on_shoot_speed_timer_timeout() -> void:
-	canShoot = true
+			$AnimatedSprite2D.play("shoot_guns")
+			sfx_des_arma.play()
+			var bulletNode = bulletLoad.instantiate()		
+			bulletNode.global_position = $position/Marker2D.global_position			
+			get_tree().root.add_child(bulletNode)		
+			
+
 	
 func setup_direction(direction):
-	bulletDirection = direction
-	
+	bulletDirection = direction	
 	if direction.x > 0:
 		scale.x = 1
 		rotation_degrees = 0
