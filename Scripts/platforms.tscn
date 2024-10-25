@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxr2v3vxh32br"]
+[gd_scene load_steps=15 format=3 uid="uid://bxr2v3vxh32br"]
 
 [ext_resource type="Script" path="res://Scripts/platforms.gd" id="1_sxwbm"]
 [ext_resource type="Texture2D" uid="uid://cbae8mb8y5qk5" path="res://Sprites/plataforma1.png" id="2_iacvu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cbdxho7komqwv" path="res://Sprites/plataforma_2seg.png" id="4_lyv1r"]
 [ext_resource type="Texture2D" uid="uid://ct5deu14b1yum" path="res://Sprites/plataforma3.png" id="6_om53b"]
 [ext_resource type="Texture2D" uid="uid://bbs6rpf7fming" path="res://Sprites/plataforma5.png" id="7_8wrnt"]
+[ext_resource type="Texture2D" uid="uid://br1g62qylu3t0" path="res://Sprites/escalera.png" id="8_4lyf8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl1iu"]
 size = Vector2(592, 569)
@@ -19,6 +20,12 @@ size = Vector2(62.25, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d22ri"]
 size = Vector2(730, 510)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2pru"]
+size = Vector2(788, 587)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2207c"]
+size = Vector2(280.986, 494.404)
 
 [node name="Platforms" type="Node2D"]
 script = ExtResource("1_sxwbm")
@@ -526,9 +533,58 @@ texture = ExtResource("4_lyv1r")
 position = Vector2(1014, 735)
 shape = SubResource("RectangleShape2D_f771n")
 
+[node name="platform_medium_elevate15" type="StaticBody2D" parent="."]
+position = Vector2(2736, 932)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_medium_elevate15"]
+position = Vector2(2571, 1112)
+scale = Vector2(0.139977, 0.125443)
+texture = ExtResource("3_wjy1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_medium_elevate15"]
+position = Vector2(2569, 1111.5)
+shape = SubResource("RectangleShape2D_d2pru")
+
+[node name="platform_medium_elevate16" type="StaticBody2D" parent="."]
+position = Vector2(3531, 1000)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_medium_elevate16"]
+position = Vector2(2571, 1112)
+scale = Vector2(0.139977, 0.125443)
+texture = ExtResource("3_wjy1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_medium_elevate16"]
+position = Vector2(2569, 1111.5)
+shape = SubResource("RectangleShape2D_d2pru")
+
+[node name="platform_medium_elevate17" type="StaticBody2D" parent="."]
+position = Vector2(4076, 1000)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_medium_elevate17"]
+position = Vector2(2571, 1112)
+scale = Vector2(0.139977, 0.125443)
+texture = ExtResource("3_wjy1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_medium_elevate17"]
+position = Vector2(2569, 1111.5)
+shape = SubResource("RectangleShape2D_d2pru")
+
 [node name="platform_medium_elevate14" type="StaticBody2D" parent="."]
 position = Vector2(8947, -247)
 
 [node name="Platform Edificio11" type="StaticBody2D" parent="."]
 position = Vector2(9624, 791)
 scale = Vector2(1.27621, 1.27621)
+
+[node name="escalera" type="Area2D" parent="."]
+position = Vector2(6907.25, 1278.51)
+scale = Vector2(0.957338, 2.22692)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="escalera"]
+position = Vector2(-1.82568, -4.04565)
+shape = SubResource("RectangleShape2D_2207c")
+
+[node name="Escalera" type="Sprite2D" parent="escalera"]
+texture = ExtResource("8_4lyf8")
+
+[connection signal="body_entered" from="escalera" to="." method="_on_escalera_body_entered"]

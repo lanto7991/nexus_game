@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var pause_menu = $Player/Camera2D/pause_menu
 
-@onready var win_menu = $CanvasLayer/Control
+@onready var win_menu = $Player/CanvasLayer/Control
 
 @onready var reset_menu = $Player/CanvasLayer/RESET_AGAIN_LOST
 
@@ -23,6 +23,8 @@ extends Node2D
 @onready var coin = $coin
 
 @onready var label_coins = $Player/coins_label
+
+@onready var marker_position = $Marker2D
 
 var pause = false
 
@@ -94,6 +96,6 @@ func _on_needle_damage_body_entered(body: Node2D) -> void:
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body == player:
 		winMenuVar = true
-		win_menu.visible = true
+		win_menu.visible = true     
 		Engine.time_scale = 0
 		

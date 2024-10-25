@@ -1,5 +1,7 @@
 extends Node
 
+var marker_position = Vector2(7000, 660)
+
 var gameStarted: bool
 
 var playerBody: CharacterBody2D
