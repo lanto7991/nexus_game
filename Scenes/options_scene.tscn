@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://htrgi3fyixkq"]
+[gd_scene load_steps=5 format=3 uid="uid://htrgi3fyixkq"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_jp7o0"]
-[ext_resource type="Texture2D" uid="uid://g2432sg8flst" path="res://img/back1.png" id="4_bjpnm"]
+[ext_resource type="Texture2D" uid="uid://bfu0c6f0k12ct" path="res://img/Nexus-logo.png" id="2_cq5ci"]
+[ext_resource type="Texture2D" uid="uid://boky0ud8003tm" path="res://img/Fondo.jpg" id="3_wm04c"]
 
 [sub_resource type="GDScript" id="GDScript_a0j6f"]
 script/source = "extends Button
@@ -16,6 +17,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -35,10 +40,10 @@ anchor_left = -37.4
 anchor_top = 11.837
 anchor_right = -37.4
 anchor_bottom = 11.837
-offset_left = -550.0
-offset_top = -285.48
-offset_right = 612.0
-offset_bottom = 609.52
+offset_left = -553.0
+offset_top = -237.48
+offset_right = 609.0
+offset_bottom = 657.52
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
 layout_mode = 2
@@ -51,7 +56,8 @@ text = "Volver al menu"
 script = SubResource("GDScript_a0j6f")
 
 [node name="ImagenDeWhatsApp2024-08-22ALas16_53_00Dd941e80" type="Sprite2D" parent="."]
-position = Vector2(1038, 332)
+position = Vector2(922, 383)
+texture = ExtResource("2_cq5ci")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -61,7 +67,7 @@ motion_scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 scale = Vector2(1.25787, 1.58907)
-texture = ExtResource("4_bjpnm")
+texture = ExtResource("3_wm04c")
 centered = false
 
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Options" to="Menu" method="_on_options_pressed"]

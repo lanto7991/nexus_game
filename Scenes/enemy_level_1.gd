@@ -20,6 +20,8 @@ class_name enemy_lvl1
 
 @onready var area_respanw = $"../AREA_RESPAWN"
 
+@onready var carpincho_points = $"../Player/Camera2D/carpincho"
+
 
 
 var points: int = 0
@@ -47,10 +49,17 @@ var is_roaming: bool = true
 var player: CharacterBody2D
 var player_in_area = false
 
+
+func _ready() -> void:
+	Global.capibara_kill = 0
+
 #Movement for a enemy
 func _process(delta: float) -> void:
 	
 	var life_enemy_bar = enemy_pb
+	life_enemy_bar.visible = false
+	
+	carpincho_points.text = str(Global.capibara_kill)
 	
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -127,19 +136,12 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		life_bar.value = max_value / 1.7
 		
 		
-	if body.is_in_group("bullet"):
+	if body.is_in_group("bullet"):		
+		Global.capibara_kill += 100			
 		body.queue_free()
 		self.queue_free()
+		
+		#print(str(Global.capibara_kill))
 			
 	if life_enemy_bar.value < 1:
 		self.queue_free()
-
-
-#func _on_area_damage_enemy_body_entered(body: Node2D) -> void:	
-	#var life_enemy_bar = enemy_pb	
-	#var max_ene_value = life_enemy_bar.value
-	#var min_ene_valu = life_enemy_bar.min_value
-	#
-	#if body == player:
-		#life_enemy_bar.value = max_ene_value / 25
-		#pass

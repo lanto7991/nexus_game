@@ -26,6 +26,8 @@ extends Node2D
 
 @onready var marker_position = $Marker2D
 
+@onready var coins_sounds = $Coins
+
 var pause = false
 
 var win_bar = false
@@ -34,11 +36,12 @@ var winMenuVar = false
 
 var resetMenuVar = false
 
+
+
 func _ready() -> void:
 	Engine.time_scale = 1
 	reset_menu.visible = false
 	Global.contador = 0
-	Global.vidas_count = 3
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,9 +51,6 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("pausa") and winMenuVar==false:	
 		pauseMenu()	
-		
-	if Global.vidas_count == 0:
-		_resetlevel()	
 
 
 func pauseMenu():

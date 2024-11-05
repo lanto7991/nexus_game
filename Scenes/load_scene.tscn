@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://buwrjqgj4ittu"]
+[gd_scene load_steps=6 format=3 uid="uid://buwrjqgj4ittu"]
 
-[ext_resource type="Texture2D" uid="uid://7p4om1sol0i7" path="res://img/part1-2.jpg" id="1_p5dy6"]
+[ext_resource type="Texture2D" uid="uid://ctpdm1087fcyt" path="res://img/menu-20241105T032158Z-001/menu/Mesa de trabajo 36@3x.png" id="1_fmlcm"]
+[ext_resource type="Texture2D" uid="uid://c8v2ht7ma64w2" path="res://img/btn_play.png" id="2_yuiir"]
+[ext_resource type="AudioStream" uid="uid://drsfaaiuqmlfj" path="res://Sounds/music_lvl2.mp3" id="3_jyy5x"]
 
 [sub_resource type="Theme" id="Theme_km0kk"]
 
@@ -9,8 +11,12 @@ script/source = "extends Control
 
 @onready var timer = Global.timer_progress_bar
 @onready var Progress_bar = $ProgressBar
+@onready var btn_play = $btn_play
+@onready var music_back = $music_back
 
 func _ready() -> void:
+	btn_play.visible = false
+	music_back.play()
 	pass
 	
 func _process(delta: float) -> void:
@@ -19,9 +25,14 @@ func _process(delta: float) -> void:
 		Progress_bar.value = timer
 		
 	if Progress_bar.value == 100:
-		get_tree().change_scene_to_file(\"res://Scenes/world.tscn\")	
+		Progress_bar.visible = false
+		btn_play.visible = true
 
 	
+
+
+func _on_btn_play_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/world.tscn\")
 "
 
 [node name="LoadScene" type="Control"]
@@ -40,14 +51,28 @@ script = SubResource("GDScript_r723d")
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(945.828, 535.75)
-scale = Vector2(1.30021, 1.31617)
-texture = ExtResource("1_p5dy6")
+position = Vector2(959.063, 541.889)
+scale = Vector2(0.333659, 0.334019)
+texture = ExtResource("1_fmlcm")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 588.856
-offset_top = 568.099
-offset_right = 1064.86
-offset_bottom = 598.099
+offset_left = 554.376
+offset_top = 482.85
+offset_right = 1030.38
+offset_bottom = 512.85
 rounded = true
+
+[node name="btn_play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 656.463
+offset_top = 475.524
+offset_right = 1253.47
+offset_bottom = 592.524
+scale = Vector2(0.470708, 0.470708)
+icon = ExtResource("2_yuiir")
+
+[node name="music_back" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jyy5x")
+
+[connection signal="pressed" from="btn_play" to="." method="_on_btn_play_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="2_vp0o4"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_8361h"]
-file = "res://img/nexus_480x480.ogg"
+file = "res://img/nexus.ogg"
 
 [node name="character_explication" type="Control"]
 layout_mode = 3
@@ -16,12 +16,18 @@ grow_vertical = 2
 script = ExtResource("1_cklwy")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 0
-offset_right = 1919.0
-offset_bottom = 1077.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.999
+anchor_bottom = 0.997
+offset_right = 0.919922
+offset_bottom = 0.23999
+audio_track = 1
 stream = SubResource("VideoStreamTheora_8361h")
 autoplay = true
+expand = true
 loop = true
+buffering_msec = 100
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 texture_filter = 2

@@ -1,6 +1,6 @@
 extends Node
 
-var marker_position = Vector2(7000, 660)
+var marker_position = Vector2(6700, 660)
 
 var gameStarted: bool
 
@@ -20,4 +20,4 @@ var contador_doblesalto = 0
 
 var timer_progress_bar = 0
 
-var vidas_count = 3
+var capibara_kill = 0

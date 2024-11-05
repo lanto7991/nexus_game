@@ -12,50 +12,51 @@ transform = Transform2D(0.2, 0, 0, 0.155, 0, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 texture_filter = 1
-motion_mirroring = Vector2(1920, 0)
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(36000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(-81, -820)
-scale = Vector2(4.27677, 8.79291)
+[node name="Sky" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-81, 0)
+scale = Vector2(3.62139, 9.2951)
 texture = ExtResource("1_vw5vp")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 texture_filter = 1
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(36000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
-position = Vector2(-81, -820)
-scale = Vector2(4.45157, 8.79906)
+[node name="Luces" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(-81, 0)
+scale = Vector2(3.62139, 9.2951)
 texture = ExtResource("2_wypcj")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 texture_filter = 1
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(36000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(-81, -820)
-scale = Vector2(6.80344, 8.55757)
+[node name="Near_buldings" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(-81, -6.10352e-05)
+scale = Vector2(3.62139, 9.2951)
 texture = ExtResource("3_jk05a")
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 texture_filter = 1
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(36000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
-position = Vector2(-81, -820)
-scale = Vector2(6.53698, 8.79291)
+[node name="Bulding_lights" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(-81, 0)
+scale = Vector2(3.62139, 9.2951)
 texture = ExtResource("3_8cyjs")
 centered = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 texture_filter = 1
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(36000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
-position = Vector2(-81, -820)
-scale = Vector2(6.53698, 9.05097)
+[node name="Buldings" type="Sprite2D" parent="ParallaxLayer5"]
+position = Vector2(-81, 0)
+scale = Vector2(3.62139, 9.2951)
 texture = ExtResource("5_37lcq")
 centered = false
