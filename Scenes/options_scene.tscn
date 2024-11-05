@@ -1,74 +1,84 @@
-[gd_scene load_steps=5 format=3 uid="uid://htrgi3fyixkq"]
+[gd_scene load_steps=5 format=3 uid="uid://b1cc0aqwxpdew"]
 
-[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_jp7o0"]
-[ext_resource type="Texture2D" uid="uid://bfu0c6f0k12ct" path="res://img/Nexus-logo.png" id="2_cq5ci"]
-[ext_resource type="Texture2D" uid="uid://boky0ud8003tm" path="res://img/Fondo.jpg" id="3_wm04c"]
+[ext_resource type="Texture2D" uid="uid://evpw2sy3krqd" path="res://img/status.png" id="1_i7kve"]
+[ext_resource type="Script" path="res://Scenes/options_scene.gd" id="1_lg7gu"]
+[ext_resource type="Texture2D" uid="uid://d2u1g548hgkjb" path="res://img/background_lvl1/sky.png" id="1_rpr43"]
+[ext_resource type="AudioStream" uid="uid://fpn71r1pi1ni" path="res://Sounds/Banda Sonora_intro CM.wav" id="4_4uy0g"]
 
-[sub_resource type="GDScript" id="GDScript_a0j6f"]
-script/source = "extends Button
-
-
-func options_on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Scenes/main_menu.tscn\")
-"
-
-[node name="OptionsScene" type="Control"]
+[node name="Options_scene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = 2.0
-offset_right = -1.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lg7gu")
 
-[node name="Menu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 2500.0
-offset_top = 525.0
-offset_right = 2540.0
-offset_bottom = 565.0
-script = ExtResource("1_jp7o0")
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(1275, 552)
+texture = ExtResource("1_rpr43")
+
+[node name="fondo1" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(986, 549)
+scale = Vector2(4.00695, 4.00694)
+texture = ExtResource("1_i7kve")
+
+[node name="backmenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1135.0
+offset_top = 653.0
+offset_right = 1389.0
+offset_bottom = 676.0
+text = "Volver al menu"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 384.0
+offset_right = 858.0
+offset_bottom = 407.0
+text = "Volumen Total"
+
+[node name="total" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 751.0
+offset_top = 417.0
+offset_right = 1276.0
+offset_bottom = 433.0
+value = 50.0
+
+[node name="Resolution" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 505.0
+offset_right = 1276.0
+offset_bottom = 539.0
+item_count = 3
+popup/item_0/text = "1920 x 1080"
+popup/item_1/text = "1600 x 900"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 720"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -37.4
-anchor_top = 11.837
-anchor_right = -37.4
-anchor_bottom = 11.837
-offset_left = -553.0
-offset_top = -237.48
-offset_right = 609.0
-offset_bottom = 657.52
+anchor_right = 0.021
+anchor_bottom = 0.021
+offset_left = 756.0
+offset_top = 474.0
+offset_right = 988.68
+offset_bottom = 474.32
+text = "Resolucion de pantalla"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
-layout_mode = 2
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4uy0g")
 
-[node name="Options" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(20, 94.945)
-layout_mode = 2
-text = "Volver al menu"
-script = SubResource("GDScript_a0j6f")
-
-[node name="ImagenDeWhatsApp2024-08-22ALas16_53_00Dd941e80" type="Sprite2D" parent="."]
-position = Vector2(922, 383)
-texture = ExtResource("2_cq5ci")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-motion_scale = Vector2(0.2, 0.2)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(1.25787, 1.58907)
-texture = ExtResource("3_wm04c")
-centered = false
-
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Options" to="Menu" method="_on_options_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Options" to="Menu/MarginContainer/VBoxContainer/Options" method="options_on_pressed"]
+[connection signal="pressed" from="backmenu" to="." method="_on_backmenu_pressed"]
+[connection signal="value_changed" from="total" to="." method="_on_total_value_changed"]
+[connection signal="item_selected" from="Resolution" to="." method="_on_resolution_item_selected"]

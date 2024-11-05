@@ -1,25 +1,23 @@
 extends Control
 
-@onready var main = $"../../../"
+@onready var sfx_sound_back = $AudioStreamPlayer2D
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Engine.time_scale = 0
+	sfx_sound_back.play()
 
 
-func _on_volver_al_menu_pressed():	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_backmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
-
-func _on_quit_pressed():
-	get_tree().quit()
-
-
-func _on_renaudar_pressed() -> void:
-	main.pauseMenu()
-	
-
 
 func _on_total_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, value/5)
+
 
 func _on_resolution_item_selected(index: int) -> void:
 	match index:

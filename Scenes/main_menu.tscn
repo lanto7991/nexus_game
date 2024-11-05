@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8woacb8mt2bp"]
+[gd_scene load_steps=9 format=3 uid="uid://b8woacb8mt2bp"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_36v3g"]
 [ext_resource type="AudioStream" uid="uid://drsfaaiuqmlfj" path="res://Sounds/music_lvl2.mp3" id="1_ie5tb"]
 [ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="2_kkaxw"]
 [ext_resource type="Texture2D" uid="uid://fmblcosdxmmt" path="res://img/Botones/Play.png" id="3_6v5j5"]
 [ext_resource type="Texture2D" uid="uid://d4klo2rlvqvq8" path="res://img/Botones/Exit.png" id="4_2u1lc"]
+[ext_resource type="Texture2D" uid="uid://b8pq87sndswc3" path="res://img/Botones/Opciones.png" id="4_reohf"]
 [ext_resource type="Texture2D" uid="uid://dda5v7t6attp8" path="res://img/menu-20241105T032158Z-001/menu/Mesa de trabajo 31@3x.png" id="5_pnfkx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0nx1t"]
+load_path = "res://.godot/imported/jostick.png-2fc3e245f9fd7a2b05a26f142e27ba77.ctex"
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -60,6 +64,11 @@ text_overrun_behavior = 2
 autowrap_mode = 2
 icon_alignment = 1
 
+[node name="Options" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_reohf")
+flat = true
+
 [node name="Exit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
@@ -87,5 +96,19 @@ scale = Vector2(0.349982, 0.350926)
 texture = ExtResource("5_pnfkx")
 centered = false
 
+[node name="howtoplay" type="Button" parent="."]
+layout_mode = 0
+offset_left = 665.0
+offset_top = -16.0
+offset_right = 793.0
+offset_bottom = 46.0
+icon = SubResource("CompressedTexture2D_0nx1t")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Options" to="Menu" method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]
+[connection signal="pressed" from="howtoplay" to="Menu" method="_on_howtoplay_pressed"]
