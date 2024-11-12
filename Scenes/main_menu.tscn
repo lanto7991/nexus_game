@@ -1,15 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8woacb8mt2bp"]
+[gd_scene load_steps=11 format=3 uid="uid://b8woacb8mt2bp"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_36v3g"]
-[ext_resource type="AudioStream" uid="uid://drsfaaiuqmlfj" path="res://Sounds/music_lvl2.mp3" id="1_ie5tb"]
 [ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="2_kkaxw"]
 [ext_resource type="Texture2D" uid="uid://fmblcosdxmmt" path="res://img/Botones/Play.png" id="3_6v5j5"]
 [ext_resource type="Texture2D" uid="uid://d4klo2rlvqvq8" path="res://img/Botones/Exit.png" id="4_2u1lc"]
 [ext_resource type="Texture2D" uid="uid://b8pq87sndswc3" path="res://img/Botones/Opciones.png" id="4_reohf"]
 [ext_resource type="Texture2D" uid="uid://dda5v7t6attp8" path="res://img/menu-20241105T032158Z-001/menu/Mesa de trabajo 31@3x.png" id="5_pnfkx"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0nx1t"]
-load_path = "res://.godot/imported/jostick.png-2fc3e245f9fd7a2b05a26f142e27ba77.ctex"
+[ext_resource type="Texture2D" uid="uid://ca5km821624fy" path="res://Sprites/Botones/BOTONES/HOWTOPLAY.png" id="7_d7lk6"]
+[ext_resource type="Texture2D" uid="uid://bsin4wnctisai" path="res://img/logros.png" id="8_ckua6"]
+[ext_resource type="AudioStream" uid="uid://fpn71r1pi1ni" path="res://Sounds/Banda Sonora_intro CM.wav" id="9_0jtt0"]
+[ext_resource type="Texture2D" uid="uid://dug4w5retw3of" path="res://img/logo_grupo_png.jpg" id="9_78rba"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,6 +21,19 @@ offset_right = 24.0
 offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 146.0
+offset_top = 535.0
+offset_right = 743.0
+offset_bottom = 652.0
+action_mode = 0
+icon = ExtResource("4_2u1lc")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
@@ -35,14 +48,14 @@ script = ExtResource("1_36v3g")
 texture_filter = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -37.4
+anchor_left = 1.0
 anchor_top = 11.837
-anchor_right = -37.4
+anchor_right = 1.0
 anchor_bottom = 11.837
-offset_left = 1958.4
-offset_top = -90.502
-offset_right = 2569.4
-offset_bottom = 286.498
+offset_left = 206.0
+offset_top = -90.0
+offset_right = 671.0
+offset_bottom = -224.0
 scale = Vector2(0.996239, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
@@ -68,21 +81,10 @@ icon_alignment = 1
 layout_mode = 2
 icon = ExtResource("4_reohf")
 flat = true
-
-[node name="Exit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-action_mode = 0
-icon = ExtResource("4_2u1lc")
-flat = true
-icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Camera2D" type="Camera2D" parent="Menu"]
 anchor_mode = 0
-
-[node name="audio_main_menu" type="AudioStreamPlayer2D" parent="Menu"]
-position = Vector2(384, 319)
-stream = ExtResource("1_ie5tb")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -98,17 +100,44 @@ centered = false
 
 [node name="howtoplay" type="Button" parent="."]
 layout_mode = 0
-offset_left = 665.0
-offset_top = -16.0
-offset_right = 793.0
-offset_bottom = 46.0
-icon = SubResource("CompressedTexture2D_0nx1t")
+offset_left = 193.0
+offset_top = 642.0
+offset_right = 570.0
+offset_bottom = 714.0
+icon = ExtResource("7_d7lk6")
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="wins" type="Button" parent="."]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 657.0
+offset_right = 645.0
+offset_bottom = 710.0
+icon = ExtResource("8_ckua6")
+flat = true
+expand_icon = true
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1705.0
+offset_top = 879.0
+offset_right = 1826.0
+offset_bottom = 910.0
+text = "Version  2.0"
+
+[node name="LogoGrupoPng" type="Sprite2D" parent="."]
+position = Vector2(1745, 841)
+scale = Vector2(0.0722222, 0.0722222)
+texture = ExtResource("9_78rba")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_0jtt0")
+
+[connection signal="pressed" from="Exit" to="Menu" method="_on_exit_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Options" to="Menu" method="_on_options_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]
 [connection signal="pressed" from="howtoplay" to="Menu" method="_on_howtoplay_pressed"]
+[connection signal="pressed" from="wins" to="Menu" method="_on_wins_pressed"]

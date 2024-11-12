@@ -1,10 +1,10 @@
 extends Control
 
-@onready var audio_main_menu = $audio_main_menu
+@onready var audio_main_menu = $"../AudioStreamPlayer2D"
 
 func _ready() -> void:
 	pass
-	#audio_main_menu.play()
+	audio_main_menu.play()
 	
 
 func _on_play_pressed() -> void:
@@ -21,3 +21,7 @@ func _on_howtoplay_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/options_scene.tscn")
+
+
+func _on_wins_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/winers_table.tscn")

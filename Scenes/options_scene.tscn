@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1cc0aqwxpdew"]
+[gd_scene load_steps=6 format=3 uid="uid://b1cc0aqwxpdew"]
 
 [ext_resource type="Texture2D" uid="uid://evpw2sy3krqd" path="res://img/status.png" id="1_i7kve"]
 [ext_resource type="Script" path="res://Scenes/options_scene.gd" id="1_lg7gu"]
 [ext_resource type="Texture2D" uid="uid://d2u1g548hgkjb" path="res://img/background_lvl1/sky.png" id="1_rpr43"]
 [ext_resource type="AudioStream" uid="uid://fpn71r1pi1ni" path="res://Sounds/Banda Sonora_intro CM.wav" id="4_4uy0g"]
+[ext_resource type="Texture2D" uid="uid://dl51monjycl0q" path="res://Sprites/Botones/BOTONES/menu.png" id="4_gyjmm"]
 
 [node name="Options_scene" type="Control"]
 layout_mode = 3
@@ -20,7 +21,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(1275, 552)
+position = Vector2(1275, 543)
+scale = Vector2(1, 1.03519)
 texture = ExtResource("1_rpr43")
 
 [node name="fondo1" type="Sprite2D" parent="MarginContainer"]
@@ -30,11 +32,13 @@ texture = ExtResource("1_i7kve")
 
 [node name="backmenu" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1135.0
-offset_top = 653.0
-offset_right = 1389.0
-offset_bottom = 676.0
-text = "Volver al menu"
+offset_left = 739.0
+offset_top = 595.0
+offset_right = 1313.0
+offset_bottom = 704.0
+icon = ExtResource("4_gyjmm")
+flat = true
+expand_icon = true
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
@@ -79,6 +83,29 @@ text = "Resolucion de pantalla"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_4uy0g")
 
+[node name="Fullscreen" type="CheckBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.669
+anchor_top = 0.5
+anchor_right = 0.669
+anchor_bottom = 0.5
+offset_left = -527.48
+offset_top = 17.0
+offset_right = -353.48
+offset_bottom = 60.0
+text = "Pantalla Completa"
+
+[node name="Mute" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 1119.0
+offset_top = 563.0
+offset_right = 1269.0
+offset_bottom = 594.0
+text = "Mutear Sonidos"
+
 [connection signal="pressed" from="backmenu" to="." method="_on_backmenu_pressed"]
 [connection signal="value_changed" from="total" to="." method="_on_total_value_changed"]
 [connection signal="item_selected" from="Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="toggled" from="Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Mute" to="." method="_on_mute_toggled"]

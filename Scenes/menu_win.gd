@@ -10,4 +10,4 @@ func _on_salir_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://Scenes/world_2.tscn")

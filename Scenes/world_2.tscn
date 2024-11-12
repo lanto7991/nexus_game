@@ -1,0 +1,135 @@
+[gd_scene load_steps=17 format=3 uid="uid://dxsgy8xfp0c1f"]
+
+[ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_1841u"]
+[ext_resource type="Script" path="res://Scenes/world_2.gd" id="1_txgux"]
+[ext_resource type="PackedScene" uid="uid://bffjq4r1cya83" path="res://Scenes/menu_win.tscn" id="2_bi3sy"]
+[ext_resource type="PackedScene" uid="uid://t8a1xnd2a6dh" path="res://Scenes/reset_again_lost.tscn" id="3_x4sjs"]
+[ext_resource type="PackedScene" uid="uid://baq8t17uwobey" path="res://Scenes/pause_menu.tscn" id="4_2tttt"]
+[ext_resource type="Script" path="res://Scripts/healtBar.gd" id="5_2u5ur"]
+[ext_resource type="Texture2D" uid="uid://djkyt4dc7x5bd" path="res://Sprites/Botones/BOTONES/cabeza de max.png" id="7_rdal4"]
+[ext_resource type="Texture2D" uid="uid://da6lbgosh4vis" path="res://img/Lvl2/NIVEL 2/Fondo por capas/cables_00000.png" id="9_0rhxv"]
+[ext_resource type="Texture2D" uid="uid://dsjgrev1jhymn" path="res://img/Lvl2/NIVEL 2/Fondo por capas/Cielo_00000 (1)-01.png" id="10_0851u"]
+[ext_resource type="Texture2D" uid="uid://d32rm8vgodwsh" path="res://img/Lvl2/NIVEL 2/Fondo por capas/Estrellas_00000.png" id="11_q2qyo"]
+[ext_resource type="PackedScene" uid="uid://umk05q1w3mry" path="res://Scenes/platforms_2.tscn" id="13_1kv5y"]
+[ext_resource type="Texture2D" uid="uid://mpbtymk0tvyo" path="res://img/Lvl2/NIVEL 2/MONEDAS NIVEL 2-02.png" id="14_ah5y7"]
+[ext_resource type="PackedScene" uid="uid://waohoh80sw5f" path="res://Scripts/portal.tscn" id="14_nqyim"]
+[ext_resource type="AudioStream" uid="uid://bf55hidjqqcwd" path="res://Sounds/Sounds FX/FX intro whoss impacto .mp3" id="14_refj6"]
+[ext_resource type="Texture2D" uid="uid://kro1isfuek0u" path="res://Sprites/saltodefe.png" id="15_kpiky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnac"]
+size = Vector2(3526.3, 132.149)
+
+[node name="world 2" type="Node2D"]
+script = ExtResource("1_txgux")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+position = Vector2(963.556, 271)
+scale = Vector2(0.498148, 0.498148)
+texture = ExtResource("9_0rhxv")
+
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D2"]
+position = Vector2(1991, 564.829)
+scale = Vector2(0.498148, 0.504497)
+texture = ExtResource("10_0851u")
+
+[node name="Parallax2D4" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D4"]
+position = Vector2(954, 277)
+scale = Vector2(0.498148, 0.498148)
+texture = ExtResource("11_q2qyo")
+
+[node name="AREA_RESPAWN" type="Area2D" parent="."]
+position = Vector2(2393, 1099)
+scale = Vector2(4.74818, 2.30122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_RESPAWN"]
+position = Vector2(-65.92, 321.134)
+shape = SubResource("RectangleShape2D_fcnac")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AREA_RESPAWN"]
+position = Vector2(1962.91, 756.555)
+shape = SubResource("RectangleShape2D_fcnac")
+
+[node name="Platforms 2" parent="." instance=ExtResource("13_1kv5y")]
+
+[node name="portal" parent="." instance=ExtResource("14_nqyim")]
+position = Vector2(15895, 353)
+
+[node name="Player" parent="." instance=ExtResource("1_1841u")]
+position = Vector2(111, 523)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="Control" parent="Player/CanvasLayer" instance=ExtResource("2_bi3sy")]
+visible = false
+
+[node name="RESET_AGAIN_LOST" parent="Player/CanvasLayer" instance=ExtResource("3_x4sjs")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(157.72, -76.8209)
+scale = Vector2(0.887049, 0.847711)
+zoom = Vector2(1.2, 1.2)
+
+[node name="pause_menu" parent="Player/Camera2D" instance=ExtResource("4_2tttt")]
+offset_left = -1087.43
+offset_top = -586.148
+offset_right = 2412.57
+offset_bottom = 567.852
+scale = Vector2(0.421239, 0.64367)
+
+[node name="ProgressBarLife" type="ProgressBar" parent="Player/Camera2D"]
+offset_left = -771.806
+offset_top = -320.952
+offset_right = -563.806
+offset_bottom = -293.952
+step = 0.0
+value = 100.0
+script = ExtResource("5_2u5ur")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D"]
+position = Vector2(-720.273, -153.868)
+scale = Vector2(0.220942, 0.220942)
+
+[node name="carpincho" type="Label" parent="Player/Camera2D"]
+offset_left = -660.922
+offset_top = -174.473
+offset_right = -650.922
+offset_bottom = -148.473
+scale = Vector2(2.21492, 2.11918)
+text = "0"
+
+[node name="cara" type="Sprite2D" parent="Player"]
+position = Vector2(-433.815, -397.808)
+scale = Vector2(0.192719, 0.184173)
+texture = ExtResource("7_rdal4")
+
+[node name="monedas" type="Sprite2D" parent="Player"]
+position = Vector2(-486.462, -268.712)
+scale = Vector2(0.406945, 0.388898)
+texture = ExtResource("14_ah5y7")
+
+[node name="coins_label" type="Label" parent="Player"]
+offset_left = -433.511
+offset_top = -299.281
+offset_right = -393.511
+offset_bottom = -276.281
+scale = Vector2(2.23114, 2.03929)
+text = "0"
+
+[node name="Sound_reset" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_refj6")
+
+[node name="saltodefe" type="Sprite2D" parent="."]
+position = Vector2(2882, 206)
+scale = Vector2(0.159459, 0.159459)
+texture = ExtResource("15_kpiky")
+
+[connection signal="body_entered" from="AREA_RESPAWN" to="." method="_on_area_respawn_body_entered"]

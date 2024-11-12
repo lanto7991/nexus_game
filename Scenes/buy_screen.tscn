@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://bce42hp70mr6e"]
+
+[ext_resource type="Script" path="res://Scenes/buy_screen.gd" id="1_1ud28"]
+[ext_resource type="Texture2D" uid="uid://culwxjhomb3p7" path="res://Sprites/compradearmas/Captura de pantalla 2024-11-08 a la(s) 8.03.12 p. m..png" id="1_htoer"]
+[ext_resource type="Texture2D" uid="uid://cpgxrjj35deka" path="res://Sprites/compradearmas/taca-02.png" id="2_cfqgw"]
+[ext_resource type="Texture2D" uid="uid://cb2o780ektng5" path="res://Sprites/compradearmas/taca-07.png" id="3_yfg70"]
+[ext_resource type="Texture2D" uid="uid://dl51monjycl0q" path="res://Sprites/Botones/BOTONES/menu.png" id="5_3le4l"]
+
+[node name="buy_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ud28")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(47.9249, 26.9703)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Backgroun" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(20.1044, 20.0917)
+scale = Vector2(0.0230241, 0.0410218)
+texture = ExtResource("1_htoer")
+
+[node name="Continuar" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1513.0
+offset_top = 22.0
+offset_right = 1929.0
+offset_bottom = 134.0
+icon = ExtResource("2_cfqgw")
+flat = true
+expand_icon = true
+
+[node name="btn_buy 1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 816.0
+offset_right = 923.0
+offset_bottom = 911.0
+icon = ExtResource("3_yfg70")
+flat = true
+expand_icon = true
+
+[node name="btn_buy 2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 816.0
+offset_right = 1574.0
+offset_bottom = 911.0
+icon = ExtResource("3_yfg70")
+flat = true
+expand_icon = true
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1522.0
+offset_top = 106.0
+offset_right = 1951.0
+offset_bottom = 187.0
+icon = ExtResource("5_3le4l")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

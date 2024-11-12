@@ -16,8 +16,12 @@ var enemyDamageAmount: int
 
 var contador = 0
 
+var bullet_count = 0
+
 var contador_doblesalto = 0
 
 var timer_progress_bar = 0
 
 var capibara_kill = 0
+
+var contador_bullet = 0

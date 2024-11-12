@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxsgy8xfp0c1f"]
+
+[ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_1841u"]
+[ext_resource type="Script" path="res://Scenes/world_2.gd" id="1_txgux"]
+[ext_resource type="Texture2D" uid="uid://da6lbgosh4vis" path="res://img/Lvl2/NIVEL 2/Fondo por capas/cables_00000.png" id="9_0rhxv"]
+[ext_resource type="Texture2D" uid="uid://dsjgrev1jhymn" path="res://img/Lvl2/NIVEL 2/Fondo por capas/Cielo_00000 (1)-01.png" id="10_0851u"]
+[ext_resource type="Texture2D" uid="uid://dn3y56uih2dht" path="res://img/Lvl2/NIVEL 2/Fondo por capas/Cielo_00000 (1)-02.png" id="11_etwuw"]
+[ext_resource type="Texture2D" uid="uid://d32rm8vgodwsh" path="res://img/Lvl2/NIVEL 2/Fondo por capas/Estrellas_00000.png" id="11_q2qyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0ca0"]
+size = Vector2(723, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnac"]
+size = Vector2(1234.79, 132.149)
+
+[node name="world 2" type="Node2D" groups=["player"]]
+script = ExtResource("1_txgux")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+position = Vector2(963.556, 271)
+scale = Vector2(0.498148, 0.498148)
+texture = ExtResource("9_0rhxv")
+
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D2"]
+position = Vector2(1991, 564.829)
+scale = Vector2(0.498148, 0.504497)
+texture = ExtResource("10_0851u")
+
+[node name="Parallax2D4" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D4"]
+position = Vector2(954, 277)
+scale = Vector2(0.498148, 0.498148)
+texture = ExtResource("11_q2qyo")
+
+[node name="Parallax2D3" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D3"]
+position = Vector2(965, 808)
+scale = Vector2(0.265181, 0.265181)
+texture = ExtResource("11_etwuw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/Parallax2D3/Sprite2D"]
+position = Vector2(-88.6189, 131.985)
+scale = Vector2(3.77101, 3.77101)
+shape = SubResource("RectangleShape2D_a0ca0")
+
+[node name="AREA_RESPAWN" type="Area2D" parent="."]
+position = Vector2(2393, 1099)
+scale = Vector2(4.74818, 2.30122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA_RESPAWN"]
+position = Vector2(-11.8993, 22.5743)
+shape = SubResource("RectangleShape2D_fcnac")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AREA_RESPAWN"]
+position = Vector2(1642.73, 250.302)
+shape = SubResource("RectangleShape2D_fcnac")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AREA_RESPAWN"]
+position = Vector2(707.429, 1147.22)
+shape = SubResource("RectangleShape2D_fcnac")
+
+[node name="Player" parent="." instance=ExtResource("1_1841u")]
+position = Vector2(604, 529)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkwpgcye2u7v2"]
+
+[ext_resource type="Texture2D" uid="uid://mpbtymk0tvyo" path="res://img/Lvl2/NIVEL 2/MONEDAS NIVEL 2-02.png" id="1_ft3lc"]
+[ext_resource type="Script" path="res://Scenes/coins_world_2.gd" id="1_v5me3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y7kox"]
+radius = 30.1496
+
+[node name="Coins_world2" type="Node2D"]
+script = ExtResource("1_v5me3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y7kox")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(1.00001, 1.99999)
+scale = Vector2(0.491111, 0.491111)
+texture = ExtResource("1_ft3lc")
+
+[node name="sound_take" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

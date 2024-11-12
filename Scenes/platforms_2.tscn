@@ -1,0 +1,660 @@
+[gd_scene load_steps=11 format=3 uid="uid://umk05q1w3mry"]
+
+[ext_resource type="Texture2D" uid="uid://dn3y56uih2dht" path="res://img/Lvl2/NIVEL 2/Fondo por capas/Cielo_00000 (1)-02.png" id="1_ea3n7"]
+[ext_resource type="Texture2D" uid="uid://bdwhq4jaqouxx" path="res://img/Lvl2/NIVEL 2/Fondo por capas/Cielo_00000 (1)-03.png" id="2_d7x72"]
+[ext_resource type="Texture2D" uid="uid://s3i2fkyamws" path="res://img/Lvl2/NIVEL 2/plataformas-03.png" id="3_siihc"]
+[ext_resource type="Texture2D" uid="uid://kygwqmcee2py" path="res://img/Lvl2/NIVEL 2/plataformas-04.png" id="4_5jvnx"]
+[ext_resource type="Texture2D" uid="uid://dd65fb2pip1xw" path="res://img/Lvl2/NIVEL 2/plataformas-05.png" id="5_bavvo"]
+[ext_resource type="Texture2D" uid="uid://bymglxy1a1r6h" path="res://img/Lvl2/NIVEL 2/plataformas-06.png" id="6_figuo"]
+[ext_resource type="Texture2D" uid="uid://cns8enj65jc3c" path="res://img/Lvl2/NIVEL 2/plataformas-07.png" id="7_iu15t"]
+[ext_resource type="PackedScene" uid="uid://dkwpgcye2u7v2" path="res://Scenes/coins_world_2.tscn" id="8_ysbmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo4jc"]
+size = Vector2(571, 489.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhmkm"]
+size = Vector2(182, 48)
+
+[node name="Platforms 2" type="Node2D"]
+
+[node name="Platform 1" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 1"]
+position = Vector2(319, 751)
+scale = Vector2(0.197395, 0.197395)
+texture = ExtResource("1_ea3n7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 1"]
+position = Vector2(306, 779.25)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 3" type="StaticBody2D" parent="."]
+position = Vector2(570, -130)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 3"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 3"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 4" type="StaticBody2D" parent="."]
+position = Vector2(1423, -132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 4"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 4"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 6" type="StaticBody2D" parent="."]
+position = Vector2(2654, 615)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 6"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 6"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 7" type="StaticBody2D" parent="."]
+position = Vector2(3784, 605)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 7"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 7"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 8" type="StaticBody2D" parent="."]
+position = Vector2(5163, 43)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 8"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 8"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 9" type="StaticBody2D" parent="."]
+position = Vector2(5839, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 9"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 9"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 10" type="StaticBody2D" parent="."]
+position = Vector2(6481, -183)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 10"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 10"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 11" type="StaticBody2D" parent="."]
+position = Vector2(7930, 342)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 11"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 11"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 12" type="StaticBody2D" parent="."]
+position = Vector2(8591, 342)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 12"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 12"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 13" type="StaticBody2D" parent="."]
+position = Vector2(10693, -48)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 13"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platform 13"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 13"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 14" type="StaticBody2D" parent="."]
+position = Vector2(11392, -43)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 14"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platform 14"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 14"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Platform 15" type="StaticBody2D" parent="."]
+position = Vector2(13828, -530)
+scale = Vector2(2.32067, 2.32067)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform 15"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platform 15"]
+position = Vector2(891, 746)
+scale = Vector2(0.374484, 0.374484)
+texture = ExtResource("2_d7x72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform 15"]
+position = Vector2(894, 779)
+shape = SubResource("RectangleShape2D_xo4jc")
+
+[node name="Plaftorm tiny" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny"]
+position = Vector2(749, 575)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("3_siihc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny"]
+position = Vector2(746.5, 563)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny8" type="StaticBody2D" parent="."]
+position = Vector2(-286, -206)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny8"]
+position = Vector2(749, 575)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("3_siihc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny8"]
+position = Vector2(746.5, 563)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny2" type="StaticBody2D" parent="."]
+position = Vector2(282, -80)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny2"]
+position = Vector2(750, 577)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("4_5jvnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny2"]
+position = Vector2(750, 563)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny3" type="StaticBody2D" parent="."]
+position = Vector2(1140, -137)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny3"]
+position = Vector2(750, 577)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("5_bavvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny3"]
+position = Vector2(748.5, 563)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny4" type="StaticBody2D" parent="."]
+position = Vector2(2172, 514)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny4"]
+position = Vector2(716, 573)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny4"]
+position = Vector2(722, 563)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny5" type="StaticBody2D" parent="."]
+position = Vector2(3360, 634)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny5"]
+position = Vector2(750, 577)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("7_iu15t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny5"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny6" type="StaticBody2D" parent="."]
+position = Vector2(4450, 486)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny6"]
+position = Vector2(753, 550)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("4_5jvnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny6"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny9" type="StaticBody2D" parent="."]
+position = Vector2(3791, 350)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny9"]
+position = Vector2(753, 550)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("4_5jvnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny9"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny10" type="StaticBody2D" parent="."]
+position = Vector2(4051, 350)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny10"]
+position = Vector2(753, 550)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("4_5jvnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny10"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny7" type="StaticBody2D" parent="."]
+position = Vector2(4770, 271)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny7"]
+position = Vector2(748, 549)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("3_siihc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny7"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny11" type="StaticBody2D" parent="."]
+position = Vector2(7132, -247)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny11"]
+position = Vector2(748, 549)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("3_siihc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny11"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny15" type="StaticBody2D" parent="."]
+position = Vector2(7450, -247)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny15"]
+position = Vector2(748, 543)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny15"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny16" type="StaticBody2D" parent="."]
+position = Vector2(9285, 308)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny16"]
+position = Vector2(748, 543)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny16"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny17" type="StaticBody2D" parent="."]
+position = Vector2(9661, 163)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny17"]
+position = Vector2(748, 543)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny17"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny18" type="StaticBody2D" parent="."]
+position = Vector2(10011, 77)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny18"]
+position = Vector2(748, 543)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny18"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny19" type="StaticBody2D" parent="."]
+position = Vector2(10330, -18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny19"]
+position = Vector2(748, 543)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny19"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny21" type="StaticBody2D" parent="."]
+position = Vector2(12884, 310)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny21"]
+position = Vector2(748, 543)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny21"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny22" type="StaticBody2D" parent="."]
+position = Vector2(13502, 248)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny22"]
+position = Vector2(748, 543)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny22"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny23" type="StaticBody2D" parent="."]
+position = Vector2(14078, 215)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny23"]
+position = Vector2(748, 543)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("6_figuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny23"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny12" type="StaticBody2D" parent="."]
+position = Vector2(7920, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny12"]
+position = Vector2(748, 549)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("3_siihc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny12"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny13" type="StaticBody2D" parent="."]
+position = Vector2(8251, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny13"]
+position = Vector2(748, 549)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("3_siihc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny13"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny14" type="StaticBody2D" parent="."]
+position = Vector2(8771, 26)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny14"]
+position = Vector2(748, 549)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("3_siihc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny14"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Plaftorm tiny20" type="StaticBody2D" parent="."]
+position = Vector2(12401, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plaftorm tiny20"]
+position = Vector2(748, 549)
+scale = Vector2(0.416968, 0.416968)
+texture = ExtResource("3_siihc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plaftorm tiny20"]
+position = Vector2(749, 534)
+shape = SubResource("RectangleShape2D_uhmkm")
+
+[node name="Coins_world2" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(219, 486)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world3" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(294, 486)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world4" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(373, 486)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world5" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(459, 486)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world6" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(386, 301)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world7" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(525, 301)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world8" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(747, 498)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world9" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(1033, 426)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world10" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(1256, 366)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world11" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(1392, 366)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world12" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(1577, 366)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world13" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(1823, 360)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world14" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(1961, 357)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world15" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(2124, 357)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world16" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(2276, 357)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world17" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(2462, 354)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world18" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(3285, 1094)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world19" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(3447, 1094)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world20" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(3606, 1094)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world21" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(3746, 1094)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world22" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(4035, 1088)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world23" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(4167, 1088)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world24" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(4452, 833)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world25" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(4624, 833)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world26" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(4800, 833)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world27" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(5221, 938)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world28" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(5519, 736)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world29" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(5927, 531)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world30" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(6565, 301)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world31" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(6907, 301)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world32" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(7249, 301)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world33" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(7543, 301)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world34" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(8710, 830)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world36" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(8916, 830)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world37" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(9054, 830)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world38" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(9285, 830)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world39" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(9551, 833)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world42" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(10029, 788)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world43" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(10419, 635)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world44" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(10727, 569)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world45" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(10779, 569)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world46" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(11429, 439)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world47" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(11623, 439)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world48" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(12150, 409)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world49" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(12450, 426)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world50" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(14227, 705)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world41" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(9649, 833)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world40" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(9442, 833)
+scale = Vector2(0.569247, 0.569247)
+
+[node name="Coins_world35" parent="." instance=ExtResource("8_ysbmt")]
+position = Vector2(8613, 833)
+scale = Vector2(0.569247, 0.569247)

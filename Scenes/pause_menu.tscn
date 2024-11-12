@@ -1,17 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://baq8t17uwobey"]
+[gd_scene load_steps=10 format=3 uid="uid://baq8t17uwobey"]
 
 [ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_xh4a7"]
 [ext_resource type="FontFile" uid="uid://bne0sj7mkbf5r" path="res://Fonts/BEATTECH-Line.otf" id="2_j5p62"]
 [ext_resource type="FontFile" uid="uid://cte2prvherq13" path="res://Fonts/Byciclette/fonts/fonnts.com-Bicyclette_Black.otf" id="3_btctt"]
-[ext_resource type="Texture2D" uid="uid://bfu0c6f0k12ct" path="res://img/Nexus-logo.png" id="4_iil3u"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sgg0v"]
-blend_mode = 1
-light_mode = 2
-particles_animation = true
-particles_anim_h_frames = 2
-particles_anim_v_frames = 1
-particles_anim_loop = false
+[ext_resource type="Texture2D" uid="uid://2s5jegjn6a5" path="res://Sprites/Botones/BOTONES/RENAUDAR.png" id="3_buvla"]
+[ext_resource type="Texture2D" uid="uid://dl51monjycl0q" path="res://Sprites/Botones/BOTONES/menu.png" id="5_c641b"]
+[ext_resource type="Texture2D" uid="uid://gpe75oy10oub" path="res://Sprites/Botones/BOTONES/SALIR.png" id="6_4j8wf"]
 
 [sub_resource type="Theme" id="Theme_53qyc"]
 default_font = ExtResource("2_j5p62")
@@ -29,42 +23,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.0
 offset_top = 16.0
-offset_right = 3503.0
-offset_bottom = 1170.0
+offset_right = 3537.0
+offset_bottom = 1151.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.35205, 0.478118)
 script = ExtResource("1_xh4a7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-light_mask = 7
-texture_filter = 2
-texture_repeat = 2
-material = SubResource("CanvasItemMaterial_sgg0v")
-use_parent_material = true
-custom_minimum_size = Vector2(1.96, 0.52)
+layout_direction = 1
 layout_mode = 0
-offset_left = 1264.02
-offset_top = 1008.12
-offset_right = 2057.02
-offset_bottom = 1243.12
-scale = Vector2(3.57013, 2.87422)
+offset_left = 1596.36
+offset_top = 98.3021
+offset_right = 2764.36
+offset_bottom = 788.302
+scale = Vector2(1.72845, 1.72845)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Renaudar" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_btctt")
 theme_override_font_sizes/font_size = 19
-text = "Reanudar"
+icon = ExtResource("3_buvla")
+flat = true
 
 [node name="Volver al menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_53qyc")
 theme_override_fonts/font = ExtResource("3_btctt")
 theme_override_font_sizes/font_size = 20
-text = "Volver al menu"
+icon = ExtResource("5_c641b")
+flat = true
 text_overrun_behavior = 2
 
 [node name="QUIT" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -74,59 +66,31 @@ theme = SubResource("Theme_vosiq")
 theme_override_fonts/font = ExtResource("3_btctt")
 theme_override_font_sizes/font_size = 20
 button_group = SubResource("ButtonGroup_xncv2")
-text = "Salir"
+icon = ExtResource("6_4j8wf")
+flat = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2729.73, 1093.87)
 
-[node name="SinTítulo-1MesaDeTrabajo1" type="Sprite2D" parent="."]
-position = Vector2(2692.8, 522.883)
-scale = Vector2(1.08786, 0.754906)
-texture = ExtResource("4_iil3u")
-
 [node name="Label2" type="Label" parent="."]
-offset_left = 1579.32
-offset_top = 809.424
-offset_right = 1997.32
-offset_bottom = 865.424
+layout_mode = 0
+offset_left = 2354.78
+offset_top = 1271.65
+offset_right = 2974.78
+offset_bottom = 1363.65
 theme_override_fonts/font = ExtResource("3_btctt")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 100
 text = "Volumen Total"
 
 [node name="total" type="HSlider" parent="."]
-offset_left = 1412.0
-offset_top = 849.0
-offset_right = 2131.0
-offset_bottom = 935.0
+layout_mode = 0
+offset_left = 2019.6
+offset_top = 1395.05
+offset_right = 3243.6
+offset_bottom = 1541.05
 value = 50.0
-
-[node name="Resolution" type="OptionButton" parent="."]
-offset_left = 2923.0
-offset_top = 883.0
-offset_right = 3673.0
-offset_bottom = 923.0
-item_count = 3
-popup/item_0/text = "1920 x 1080"
-popup/item_1/text = "1600 x 900"
-popup/item_1/id = 1
-popup/item_2/text = "1280 x 720"
-popup/item_2/id = 2
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.021
-anchor_bottom = 0.021
-offset_left = 2985.37
-offset_top = 805.241
-offset_right = 3487.55
-offset_bottom = 821.327
-theme_override_fonts/font = ExtResource("3_btctt")
-theme_override_font_sizes/font_size = 60
-text = "Resolucion de pantalla"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Renaudar" to="." method="_on_renaudar_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Volver al menu" to="." method="_on_volver_al_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QUIT" to="." method="_on_quit_pressed"]
 [connection signal="value_changed" from="total" to="." method="_on_total_value_changed"]
-[connection signal="item_selected" from="Resolution" to="." method="_on_resolution_item_selected"]

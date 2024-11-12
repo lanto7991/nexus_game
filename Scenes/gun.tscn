@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh5nw1sexuvmo"]
+
+[ext_resource type="Texture2D" uid="uid://brces8oedu3tl" path="res://Sprites/weapon1.png" id="1_nenqm"]
+[ext_resource type="Script" path="res://Scenes/gun.gd" id="1_pjhi6"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_pjhi6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(65, 3.8147e-06)
+scale = Vector2(0.134549, 0.134549)
+texture = ExtResource("1_nenqm")
+region_enabled = true
+region_rect = Rect2(12.4667, 75.8427, 822.217, 425.374)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(140, 0)
+
+[node name="shootSpeedTime" type="Timer" parent="."]
+
+[connection signal="timeout" from="shootSpeedTime" to="." method="_on_shoot_speed_time_timeout"]

@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 		if loop:
 			v_score += 100
 			restTime = seconds
-			print ("Your score is: " + str(v_score))
 		elif restTime == 20:
 			seconds = 0
 			restTime = seconds

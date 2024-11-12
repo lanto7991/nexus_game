@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bf55hidjqqcwd"
+path="res://.godot/imported/FX intro whoss impacto .mp3-5b507ebb82d670201025b5f773dbd943.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sounds FX/FX intro whoss impacto .mp3"
+dest_files=["res://.godot/imported/FX intro whoss impacto .mp3-5b507ebb82d670201025b5f773dbd943.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

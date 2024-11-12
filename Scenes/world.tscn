@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dakofa5c343bg"]
+[gd_scene load_steps=22 format=3 uid="uid://dakofa5c343bg"]
 
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_c4kuc"]
 [ext_resource type="PackedScene" uid="uid://bvlqaupuqs2g" path="res://Scenes/character_body_2d.tscn" id="1_hs001"]
 [ext_resource type="PackedScene" uid="uid://baq8t17uwobey" path="res://Scenes/pause_menu.tscn" id="4_imipb"]
 [ext_resource type="Script" path="res://Scripts/healtBar.gd" id="6_irg20"]
-[ext_resource type="Texture2D" uid="uid://yjlof6xlg5my" path="res://Sprites/icon_1.png" id="6_r1t6x"]
 [ext_resource type="PackedScene" uid="uid://bffjq4r1cya83" path="res://Scenes/menu_win.tscn" id="6_sf2hh"]
 [ext_resource type="Texture2D" uid="uid://dc77bb72qdvar" path="res://Sprites/coin_base.png" id="7_5wbhe"]
 [ext_resource type="Texture2D" uid="uid://cmuadreiey0m" path="res://Sprites/ICON_P2_ENEMY.png" id="7_7foj4"]
@@ -16,9 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://b7thcqoc2jqaq" path="res://Scripts/parallax_background.tscn" id="15_xwxor"]
 [ext_resource type="PackedScene" uid="uid://cdgyvwd0gs28p" path="res://Scripts/timer.tscn" id="16_v15fs"]
 [ext_resource type="PackedScene" uid="uid://ckjpjjtojced6" path="res://Scripts/cont.tscn" id="17_5f7pk"]
+[ext_resource type="Texture2D" uid="uid://djkyt4dc7x5bd" path="res://Sprites/Botones/BOTONES/cabeza de max.png" id="17_ur673"]
 [ext_resource type="PackedScene" uid="uid://dcjo8vbgsx2i1" path="res://Sprites/mate_heal.tscn" id="18_ej6hd"]
 [ext_resource type="PackedScene" uid="uid://dgphyuqi3b0ah" path="res://Scenes/coins.tscn" id="18_kuelm"]
 [ext_resource type="AudioStream" uid="uid://cuxj2hyqmbv4u" path="res://Sounds/coins_sound.wav" id="19_tnsug"]
+[ext_resource type="AudioStream" uid="uid://bf55hidjqqcwd" path="res://Sounds/Sounds FX/FX intro whoss impacto .mp3" id="20_v08be"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt05x"]
 size = Vector2(1234.79, 132.149)
@@ -115,8 +116,6 @@ playback_type = 1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("15_xwxor")]
 
-[node name="Platforms" parent="." instance=ExtResource("14_f7gh1")]
-
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Timer" parent="." instance=ExtResource("16_v15fs")]
@@ -156,175 +155,87 @@ position = Vector2(1581, 448)
 position = Vector2(1656, 448)
 
 [node name="coins7" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(2204, 606)
+position = Vector2(2156, 603)
 
 [node name="coins8" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(2351, 603)
+position = Vector2(2263, 603)
 
 [node name="coins9" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(2659, 555)
+position = Vector2(2427, 601)
 
 [node name="coins10" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(3010, 659)
+position = Vector2(2659, 549)
 
 [node name="coins11" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(3322, 448)
+position = Vector2(3024, 649)
 
 [node name="coins12" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(3992, 864)
+position = Vector2(3474, 821)
 
 [node name="coins13" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(3992, 518)
+position = Vector2(3724, 814)
 
 [node name="coins14" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(4434, 597)
+position = Vector2(3317, 455)
 
 [node name="coins15" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(4210, 520)
+position = Vector2(3415, 459)
 
 [node name="coins16" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5326, 458)
-
-[node name="coins30" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5188, 1714)
-
-[node name="coins31" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5242, 1714)
-
-[node name="coins36" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5291, 1714)
-
-[node name="coins37" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5345, 1714)
-
-[node name="coins42" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5399, 1714)
-
-[node name="coins43" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5455, 1714)
-
-[node name="coins48" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5188, 1714)
-
-[node name="coins49" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5242, 1714)
-
-[node name="coins54" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5291, 1714)
-
-[node name="coins55" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5345, 1714)
-
-[node name="coins60" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5399, 1714)
-
-[node name="coins61" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5455, 1714)
-
-[node name="coins102" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5769, 1779)
-
-[node name="coins103" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5823, 1779)
-
-[node name="coins108" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5872, 1779)
-
-[node name="coins109" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5926, 1779)
-
-[node name="coins114" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5980, 1779)
-
-[node name="coins115" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6036, 1779)
-
-[node name="coins120" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5769, 1779)
-
-[node name="coins121" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5823, 1779)
-
-[node name="coins126" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5872, 1779)
-
-[node name="coins127" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5926, 1779)
-
-[node name="coins132" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5980, 1779)
-
-[node name="coins133" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6036, 1779)
-
-[node name="coins138" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6387, 1779)
-
-[node name="coins139" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6441, 1779)
-
-[node name="coins144" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6490, 1779)
-
-[node name="coins145" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6544, 1779)
-
-[node name="coins150" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6598, 1779)
-
-[node name="coins151" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6654, 1779)
-
-[node name="coins156" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6387, 1779)
-
-[node name="coins157" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6441, 1779)
-
-[node name="coins162" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6490, 1779)
-
-[node name="coins163" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6544, 1779)
-
-[node name="coins168" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6598, 1779)
-
-[node name="coins169" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6654, 1779)
+position = Vector2(4403, 592)
 
 [node name="coins17" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5571, 381)
+position = Vector2(4783, 527)
 
 [node name="coins18" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(5980, 664)
+position = Vector2(5305, 754)
 
 [node name="coins19" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6100, 665)
+position = Vector2(5426, 749)
 
 [node name="coins20" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6607, 659)
-
-[node name="coins27" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(6766, 654)
+position = Vector2(4993, 1680)
 
 [node name="coins21" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(7127, 551)
+position = Vector2(5145, 1680)
 
 [node name="coins22" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(7993, 555)
+position = Vector2(5326, 1680)
 
 [node name="coins23" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(9275, 659)
+position = Vector2(5519, 1680)
 
 [node name="coins24" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(9489, 659)
+position = Vector2(5824, 1742)
 
 [node name="coins25" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(9638, 659)
+position = Vector2(5965, 1742)
 
 [node name="coins26" parent="." instance=ExtResource("18_kuelm")]
-position = Vector2(378, 760)
+position = Vector2(6108, 1742)
+
+[node name="coins27" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(7127, 553)
+
+[node name="coins28" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(7207, 549)
+
+[node name="coins29" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(7993, 543)
+
+[node name="coins30" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(8465, 606)
+
+[node name="coins31" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(9232, 633)
+
+[node name="coins32" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(9371, 633)
+
+[node name="coins33" parent="." instance=ExtResource("18_kuelm")]
+position = Vector2(9527, 636)
+
+[node name="Platforms" parent="." instance=ExtResource("14_f7gh1")]
 
 [node name="Player" parent="." instance=ExtResource("1_hs001")]
 position = Vector2(253, 817)
@@ -372,9 +283,9 @@ scale = Vector2(2.21492, 2.11918)
 text = "0"
 
 [node name="cara" type="Sprite2D" parent="Player"]
-position = Vector2(-433.511, -382.504)
+position = Vector2(-433.815, -397.808)
 scale = Vector2(0.192719, 0.184173)
-texture = ExtResource("6_r1t6x")
+texture = ExtResource("17_ur673")
 
 [node name="monedas" type="Sprite2D" parent="Player"]
 position = Vector2(-484.616, -272.874)
@@ -391,6 +302,9 @@ text = "0"
 
 [node name="Coins" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_tnsug")
+
+[node name="BeingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_v08be")
 
 [connection signal="body_entered" from="AREA_RESPAWN" to="." method="_on_area_respawn_body_entered"]
 [connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]

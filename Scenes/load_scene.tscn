@@ -51,8 +51,8 @@ script = SubResource("GDScript_r723d")
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(959.063, 541.889)
-scale = Vector2(0.333659, 0.334019)
+position = Vector2(961.5, 542)
+scale = Vector2(0.341493, 0.345062)
 texture = ExtResource("1_fmlcm")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

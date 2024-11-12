@@ -10,7 +10,7 @@ class_name enemy_lvl1
 
 @onready var text_points = $"../Player/Camera2D/Status/Label"
 
-@onready var bullet = $"../Player/Bullet"
+@onready var bullet = $"Bullet"
 
 @onready var timer = $"../Timer"
 
@@ -137,11 +137,9 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		
 		
 	if body.is_in_group("bullet"):		
-		Global.capibara_kill += 100			
+		Global.capibara_kill += 100	
 		body.queue_free()
 		self.queue_free()
-		
-		#print(str(Global.capibara_kill))
 			
 	if life_enemy_bar.value < 1:
 		self.queue_free()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://desie657e6ic5"
+path="res://.godot/imported/ruido de mate.wav-102a35206294ba10cdec680e4c9fbbc6.sample"
+
+[deps]
+
+source_file="res://Sounds/Sounds FX/ruido de mate.wav"
+dest_files=["res://.godot/imported/ruido de mate.wav-102a35206294ba10cdec680e4c9fbbc6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

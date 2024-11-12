@@ -1,9 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://dnndsrv6gwg17"]
+[gd_scene load_steps=43 format=3 uid="uid://dnndsrv6gwg17"]
 
 [ext_resource type="Script" path="res://Scenes/enemy_level_1.gd" id="1_d7cwe"]
 [ext_resource type="Texture2D" uid="uid://bblongx7c2q1e" path="res://Sprites/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Sheet.png" id="1_p0tq1"]
 [ext_resource type="Texture2D" uid="uid://cvxifk5dhbkic" path="res://Sprites/sprite_movements.png" id="3_3eabk"]
 [ext_resource type="PackedScene" uid="uid://ckjpjjtojced6" path="res://Scripts/cont.tscn" id="4_vyoei"]
+[ext_resource type="PackedScene" uid="uid://2hmuo3mel0ge" path="res://Scripts/bullet.tscn" id="5_l6oud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arbgx"]
 atlas = ExtResource("1_p0tq1")
@@ -315,6 +316,9 @@ position = Vector2(1, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Damage_Enemy"]
 position = Vector2(0, -13.5)
 shape = SubResource("RectangleShape2D_f17ou")
+
+[node name="Bullet" parent="." instance=ExtResource("5_l6oud")]
+position = Vector2(-15.9409, 523.181)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

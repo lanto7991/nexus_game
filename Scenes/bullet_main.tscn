@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgt8ulh6ckfbb"]
+
+[ext_resource type="Script" path="res://Scenes/bullet_main.gd" id="1_7pi61"]
+[ext_resource type="Texture2D" uid="uid://h5j0kfftpp77" path="res://Sprites/bullet_circle.png" id="1_j0i4y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkf23"]
+atlas = ExtResource("1_j0i4y")
+region = Rect2(0, 0, 879, 595)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qemuy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkf23")
+}],
+"loop": true,
+"name": &"Displaced",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvv57"]
+radius = 23.0868
+
+[node name="bullet_main" type="StaticBody2D"]
+script = ExtResource("1_7pi61")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.05176e-05, -2)
+scale = Vector2(0.168908, 0.168908)
+sprite_frames = SubResource("SpriteFrames_qemuy")
+animation = &"Displaced"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rvv57")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

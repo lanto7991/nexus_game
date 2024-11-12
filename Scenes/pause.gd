@@ -28,6 +28,7 @@ extends Node2D
 
 @onready var coins_sounds = $Coins
 
+@onready var begin_sound = $BeingSound
 var pause = false
 
 var win_bar = false
@@ -42,6 +43,7 @@ func _ready() -> void:
 	Engine.time_scale = 1
 	reset_menu.visible = false
 	Global.contador = 0
+	begin_sound.play()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

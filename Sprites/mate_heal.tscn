@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcjo8vbgsx2i1"]
+[gd_scene load_steps=5 format=3 uid="uid://dcjo8vbgsx2i1"]
 
 [ext_resource type="Texture2D" uid="uid://dxwla1vuxouxg" path="res://Sprites/mate_sprite.png" id="1_ajuq2"]
 [ext_resource type="Script" path="res://Sprites/mate_heal.gd" id="1_bc8rf"]
+[ext_resource type="AudioStream" uid="uid://desie657e6ic5" path="res://Sounds/Sounds FX/ruido de mate.wav" id="3_y7sv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5hvl"]
 size = Vector2(82, 69)
@@ -18,5 +19,8 @@ texture = ExtResource("1_ajuq2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(31, -24.5)
 shape = SubResource("RectangleShape2D_y5hvl")
+
+[node name="sound_mate" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y7sv5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
